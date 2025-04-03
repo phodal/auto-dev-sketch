@@ -1,8 +1,8 @@
 package cc.unitmesh.go.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.goide.psi.GoFile
 import com.goide.sdk.GoSdkService
 import com.goide.util.GoUtil

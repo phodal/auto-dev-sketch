@@ -1,14 +1,14 @@
 package cc.unitmesh.git.actions.vcs
 
-import cc.unitmesh.devti.gui.AutoDevToolWindowFactory
-import cc.unitmesh.devti.gui.AutoDevToolWindowFactory.AutoDevToolUtil
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.gui.chat.ChatCodingService
-import cc.unitmesh.devti.provider.ContextPrompter
-import cc.unitmesh.devti.settings.locale.LanguageChangedCallback.presentationText
-import cc.unitmesh.devti.template.GENIUS_PRACTISES
-import cc.unitmesh.devti.template.TemplateRender
-import cc.unitmesh.devti.template.context.TemplateContext
+import cc.unitmesh.sketch.gui.AutoDevToolWindowFactory
+import cc.unitmesh.sketch.gui.AutoDevToolWindowFactory.AutoDevToolUtil
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.gui.chat.ChatCodingService
+import cc.unitmesh.sketch.provider.ContextPrompter
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.presentationText
+import cc.unitmesh.sketch.template.GENIUS_PRACTISES
+import cc.unitmesh.sketch.template.TemplateRender
+import cc.unitmesh.sketch.template.context.TemplateContext
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.diagnostic.logger

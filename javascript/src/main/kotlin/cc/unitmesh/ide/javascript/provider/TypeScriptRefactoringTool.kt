@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.provider
 
-import cc.unitmesh.devti.provider.RefactorInstElement
-import cc.unitmesh.devti.provider.RefactoringTool
+import cc.unitmesh.sketch.provider.RefactorInstElement
+import cc.unitmesh.sketch.provider.RefactoringTool
 import com.intellij.codeInsight.daemon.impl.quickfix.RenameElementFix
 import com.intellij.lang.javascript.JavaScriptFileType
 import com.intellij.lang.javascript.psi.JSFile

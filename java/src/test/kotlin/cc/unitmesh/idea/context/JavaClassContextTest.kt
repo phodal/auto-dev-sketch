@@ -1,8 +1,7 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.ClassContextProvider
-import cc.unitmesh.devti.context.MethodContextProvider
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.ClassContextProvider
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.psi.PsiFileFactory
 import com.intellij.psi.PsiJavaFile

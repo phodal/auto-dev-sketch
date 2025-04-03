@@ -1,10 +1,10 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.custom.test.TestTemplateFinder
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.custom.test.TestTemplateFinder
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import cc.unitmesh.idea.MvcUtil
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.application.runReadAction

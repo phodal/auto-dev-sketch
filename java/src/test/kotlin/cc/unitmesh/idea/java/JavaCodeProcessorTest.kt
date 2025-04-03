@@ -50,10 +50,10 @@ public class BlogController {
 
     fun testShould_filter_called_service_line_inside_controller() {
         val code = """
-            package cc.unitmesh.devti.controller;
+            package cc.unitmesh.sketch.controller;
             
-            import cc.unitmesh.devti.service.UserService;
-            import cc.unitmesh.devti.service.UserServiceImpl;
+            import cc.unitmesh.sketch.service.UserService;
+            import cc.unitmesh.sketch.service.UserServiceImpl;
             
             public class UserController {
                 private UserService userService = new UserServiceImpl();
@@ -72,10 +72,10 @@ public class BlogController {
 
     fun testShould_filter_called_service_line_with_parameters_inside_controller() {
         val code = """
-            package cc.unitmesh.devti.controller;
+            package cc.unitmesh.sketch.controller;
             
-            import cc.unitmesh.devti.service.UserService;
-            import cc.unitmesh.devti.service.UserServiceImpl;
+            import cc.unitmesh.sketch.service.UserService;
+            import cc.unitmesh.sketch.service.UserServiceImpl;
             
             public class UserController {
                 private UserService userService = new UserServiceImpl();

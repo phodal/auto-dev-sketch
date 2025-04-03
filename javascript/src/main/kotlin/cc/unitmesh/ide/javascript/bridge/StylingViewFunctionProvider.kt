@@ -1,8 +1,8 @@
 package cc.unitmesh.ide.javascript.bridge
 
-import cc.unitmesh.devti.bridge.ArchViewCommand
-import cc.unitmesh.devti.bridge.utils.StructureCommandUtil
-import cc.unitmesh.devti.provider.toolchain.ToolchainFunctionProvider
+import cc.unitmesh.sketch.bridge.ArchViewCommand
+import cc.unitmesh.sketch.bridge.utils.StructureCommandUtil
+import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.fileTypes.ex.FileTypeManagerEx
 import com.intellij.openapi.project.Project

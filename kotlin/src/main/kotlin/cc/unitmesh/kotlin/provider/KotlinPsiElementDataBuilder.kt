@@ -1,6 +1,6 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.provider.PsiElementDataBuilder
+import cc.unitmesh.sketch.provider.PsiElementDataBuilder
 import cc.unitmesh.idea.service.isProjectContent
 import cc.unitmesh.kotlin.context.KotlinClassContextBuilder
 import com.intellij.psi.PsiElement

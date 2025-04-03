@@ -1,9 +1,9 @@
 package cc.unitmesh.python.provider
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.provider.AutoTestService
-import cc.unitmesh.devti.provider.context.TestFileContext
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.provider.AutoTestService
+import cc.unitmesh.sketch.provider.context.TestFileContext
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.execution.RunManager
 import com.intellij.execution.actions.ConfigurationContext
 import com.intellij.execution.actions.RunConfigurationProducer

@@ -1,6 +1,6 @@
 package cc.unitmesh.httpclient
 
-import cc.unitmesh.devti.provider.http.HttpClientProvider
+import cc.unitmesh.sketch.provider.http.HttpClientProvider
 import com.intellij.execution.Executor
 import com.intellij.execution.RunManager
 import com.intellij.execution.RunnerAndConfigurationSettings

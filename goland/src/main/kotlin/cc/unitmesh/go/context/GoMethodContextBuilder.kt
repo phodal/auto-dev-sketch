@@ -1,7 +1,7 @@
 package cc.unitmesh.go.context
 
-import cc.unitmesh.devti.context.MethodContext
-import cc.unitmesh.devti.context.builder.MethodContextBuilder
+import cc.unitmesh.sketch.context.MethodContext
+import cc.unitmesh.sketch.context.builder.MethodContextBuilder
 import com.goide.psi.GoFunctionDeclaration
 import com.goide.psi.GoFunctionOrMethodDeclaration
 import com.goide.psi.GoMethodDeclaration

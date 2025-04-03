@@ -29,13 +29,13 @@ language in guiding the AI Agent's actions.
 Return Code:
 
 ```devin
-/symbol:cc.unitmesh.devti.language.lexer.DevInsLexer.parse
+/symbol:cc.unitmesh.sketch.language.lexer.DevInsLexer.parse
 ```
 
 Hyperlink to the IDE:
 
 ```devin
-/link:cc.unitmesh.devti.language.lexer.DevInsLexer.parse
+/link:cc.unitmesh.sketch.language.lexer.DevInsLexer.parse
 ```
 
 L1C2 = Line 1 Column 2

@@ -1,7 +1,7 @@
 package cc.unitmesh.database.flow
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.util.parser.MarkdownCodeHelper
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.util.parser.MarkdownCodeHelper
 import com.intellij.lang.Language
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction

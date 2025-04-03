@@ -1,6 +1,5 @@
 package cc.unitmesh.plantuml
 
-import com.intellij.lang.Language
 import com.intellij.openapi.fileEditor.TextEditor
 import com.intellij.openapi.fileEditor.impl.text.TextEditorProvider
 import com.intellij.openapi.project.Project
@@ -8,8 +7,8 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.testFramework.LightVirtualFile
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.util.ui.JBUI
-import cc.unitmesh.devti.sketch.ui.ExtensionLangSketch
-import cc.unitmesh.devti.sketch.ui.LanguageSketchProvider
+import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
+import cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider
 import org.plantuml.idea.preview.PlantUmlPreviewPanel
 import org.plantuml.idea.preview.editor.PlantUmlPreviewEditor
 import org.plantuml.idea.preview.editor.PlantUmlSplitEditor

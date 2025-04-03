@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.git
+package cc.unitmesh.sketch.language.git
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vcs.changes.CommitContext

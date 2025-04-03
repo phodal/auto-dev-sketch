@@ -1,9 +1,9 @@
 package cc.unitmesh.database.provider
 
 import cc.unitmesh.database.util.DatabaseSchemaAssistant
-import cc.unitmesh.devti.mcp.host.AbstractMcpTool
-import cc.unitmesh.devti.mcp.host.NoArgs
-import cc.unitmesh.devti.mcp.host.Response
+import cc.unitmesh.sketch.mcp.host.AbstractMcpTool
+import cc.unitmesh.sketch.mcp.host.NoArgs
+import cc.unitmesh.sketch.mcp.host.Response
 import com.intellij.openapi.project.Project
 
 class DatabaseMcpToolProvider : AbstractMcpTool<NoArgs>() {

@@ -1,8 +1,8 @@
 package cc.unitmesh.ide.javascript.provider
 
-import cc.unitmesh.devti.provider.BuildSystemProvider
-import cc.unitmesh.devti.provider.DevPackage
-import cc.unitmesh.devti.template.context.DockerfileContext
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.provider.DevPackage
+import cc.unitmesh.sketch.template.context.DockerfileContext
 import cc.unitmesh.ide.javascript.JsDependenciesSnapshot
 import com.intellij.javascript.nodejs.PackageJsonData
 import com.intellij.json.psi.JsonFile

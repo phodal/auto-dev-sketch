@@ -1,7 +1,7 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
 import com.intellij.openapi.application.runReadAction
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement

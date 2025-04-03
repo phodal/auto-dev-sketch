@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.util
 
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.intellij.lang.Language
 import com.intellij.lang.html.HTMLLanguage
 import com.intellij.lang.javascript.DialectDetector

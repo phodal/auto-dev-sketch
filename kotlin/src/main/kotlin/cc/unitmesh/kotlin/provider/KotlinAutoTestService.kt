@@ -1,10 +1,10 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.ClassContextProvider
-import cc.unitmesh.devti.context.FileContextProvider
-import cc.unitmesh.devti.provider.context.TestFileContext
-import cc.unitmesh.devti.provider.AutoTestService
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.ClassContextProvider
+import cc.unitmesh.sketch.context.FileContextProvider
+import cc.unitmesh.sketch.provider.context.TestFileContext
+import cc.unitmesh.sketch.provider.AutoTestService
 import cc.unitmesh.idea.service.createConfigForJava
 import cc.unitmesh.kotlin.util.KotlinPsiUtil
 import cc.unitmesh.kotlin.util.KotlinTypeResolver
@@ -33,9 +33,7 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.messages.MessageBusConnection
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.codeInsight.KotlinReferenceImporter
-import org.jetbrains.kotlin.idea.references.mainReference
 import org.jetbrains.kotlin.psi.*
-import org.jetbrains.kotlin.psi.psiUtil.getValueParameters
 import org.jetbrains.plugins.gradle.service.execution.GradleRunConfiguration
 import java.io.File
 

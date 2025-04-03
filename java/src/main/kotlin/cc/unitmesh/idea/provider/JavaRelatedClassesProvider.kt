@@ -1,6 +1,6 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import cc.unitmesh.idea.context.JavaContextCollection
 import cc.unitmesh.idea.service.JavaTypeUtil.resolveByType
 import cc.unitmesh.idea.util.JavaCallHelper

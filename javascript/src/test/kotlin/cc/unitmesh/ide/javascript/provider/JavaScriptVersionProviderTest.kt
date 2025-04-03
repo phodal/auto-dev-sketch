@@ -1,8 +1,8 @@
 package cc.unitmesh.ide.javascript.provider;
 
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.provider.context.ChatCreationContext
-import cc.unitmesh.devti.provider.context.ChatOrigin
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatOrigin
 import com.intellij.lang.javascript.JavascriptLanguage
 import com.intellij.lang.javascript.psi.ecmal4.JSClass
 import com.intellij.psi.PsiFile

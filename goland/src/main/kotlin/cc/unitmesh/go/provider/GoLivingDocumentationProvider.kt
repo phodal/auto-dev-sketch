@@ -1,7 +1,7 @@
 package cc.unitmesh.go.provider
 
-import cc.unitmesh.devti.custom.document.LivingDocumentationType
-import cc.unitmesh.devti.provider.LivingDocumentation
+import cc.unitmesh.sketch.custom.document.LivingDocumentationType
+import cc.unitmesh.sketch.provider.LivingDocumentation
 import com.goide.psi.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.SelectionModel

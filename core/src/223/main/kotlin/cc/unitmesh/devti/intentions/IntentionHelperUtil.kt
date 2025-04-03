@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.intentions
+package cc.unitmesh.sketch.intentions
 
-import cc.unitmesh.devti.custom.CustomActionBaseIntention
-import cc.unitmesh.devti.custom.CustomDocumentationBaseIntention
-import cc.unitmesh.devti.custom.TeamPromptBaseIntention
-import cc.unitmesh.devti.custom.action.CustomPromptConfig
-import cc.unitmesh.devti.custom.team.TeamPromptsBuilder
-import cc.unitmesh.devti.intentions.action.base.ChatBaseIntention
+import cc.unitmesh.sketch.custom.CustomActionBaseIntention
+import cc.unitmesh.sketch.custom.CustomDocumentationBaseIntention
+import cc.unitmesh.sketch.custom.TeamPromptBaseIntention
+import cc.unitmesh.sketch.custom.action.CustomPromptConfig
+import cc.unitmesh.sketch.custom.team.TeamPromptsBuilder
+import cc.unitmesh.sketch.intentions.action.base.ChatBaseIntention
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInsight.intention.IntentionActionBean
 import com.intellij.openapi.components.service

@@ -1,9 +1,9 @@
 package cc.unitmesh.dependencies
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.provider.BuildSystemProvider
-import cc.unitmesh.devti.sketch.lint.SketchCodeInspection
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.sketch.lint.SketchCodeInspection
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction

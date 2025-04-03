@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.bridge
 
-import cc.unitmesh.devti.bridge.provider.ComponentViewProvider
+import cc.unitmesh.sketch.bridge.provider.ComponentViewProvider
 import cc.unitmesh.ide.javascript.JsDependenciesSnapshot
 import com.intellij.javascript.nodejs.PackageJsonData
 import com.intellij.javascript.nodejs.packageJson.PackageJsonFileManager

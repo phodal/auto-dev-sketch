@@ -1,9 +1,9 @@
 package cc.unitmesh.vue.provider.bridge
 
-import cc.unitmesh.devti.bridge.provider.ComponentViewProvider
-import cc.unitmesh.devti.bridge.archview.model.UiComponent
-import cc.unitmesh.devti.bridge.provider.ComponentViewMode
-import cc.unitmesh.devti.util.relativePath
+import cc.unitmesh.sketch.bridge.provider.ComponentViewProvider
+import cc.unitmesh.sketch.bridge.archview.model.UiComponent
+import cc.unitmesh.sketch.bridge.provider.ComponentViewMode
+import cc.unitmesh.sketch.util.relativePath
 import com.intellij.javascript.nodejs.PackageJsonData
 import com.intellij.javascript.nodejs.packageJson.PackageJsonFileManager
 import com.intellij.javascript.web.html.WebFrameworkHtmlFileType

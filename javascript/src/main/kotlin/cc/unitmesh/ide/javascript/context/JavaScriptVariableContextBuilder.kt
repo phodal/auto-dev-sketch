@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.context
 
-import cc.unitmesh.devti.context.VariableContext
-import cc.unitmesh.devti.context.builder.VariableContextBuilder
+import cc.unitmesh.sketch.context.VariableContext
+import cc.unitmesh.sketch.context.builder.VariableContextBuilder
 import com.intellij.lang.javascript.psi.JSFieldVariable
 import com.intellij.lang.javascript.psi.JSFunction
 import com.intellij.lang.javascript.psi.util.JSUtils

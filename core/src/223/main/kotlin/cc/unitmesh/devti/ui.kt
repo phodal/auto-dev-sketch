@@ -1,4 +1,4 @@
-package cc.unitmesh.devti
+package cc.unitmesh.sketch
 
 import com.intellij.ui.dsl.builder.Cell
 import com.intellij.ui.dsl.builder.Row

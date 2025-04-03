@@ -1,7 +1,7 @@
 package cc.unitmesh.rust.context
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.rust.lang.core.psi.RsEnumItem
@@ -12,8 +12,6 @@ import org.rust.lang.core.psi.RsStructItem
 import org.rust.lang.core.psi.ext.RsStructOrEnumItemElement
 import org.rust.lang.core.psi.ext.expandedFields
 import org.rust.lang.core.psi.ext.implementingType
-import org.rust.lang.core.types.asTy
-import org.rust.lang.core.types.implLookup
 
 class RustClassContextBuilder : ClassContextBuilder {
     override fun getClassContext(psiElement: PsiElement, gatherUsages: Boolean): ClassContext? {

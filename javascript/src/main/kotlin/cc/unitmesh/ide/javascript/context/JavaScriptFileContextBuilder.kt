@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.context
 
-import cc.unitmesh.devti.context.FileContext
-import cc.unitmesh.devti.context.builder.FileContextBuilder
+import cc.unitmesh.sketch.context.FileContext
+import cc.unitmesh.sketch.context.builder.FileContextBuilder
 import com.intellij.lang.ecmascript6.psi.impl.ES6ImportPsiUtil
 import com.intellij.lang.javascript.psi.JSFile
 import com.intellij.lang.javascript.psi.JSFunction

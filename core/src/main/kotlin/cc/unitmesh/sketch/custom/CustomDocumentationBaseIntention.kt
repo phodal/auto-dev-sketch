@@ -1,0 +1,29 @@
+package cc.unitmesh.sketch.custom
+
+import cc.unitmesh.sketch.custom.document.CustomDocumentationConfig
+import cc.unitmesh.sketch.custom.document.CustomLivingDocTask
+import cc.unitmesh.sketch.intentions.action.base.BasedDocumentationBaseIntention
+import cc.unitmesh.sketch.provider.LivingDocumentation
+import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.progress.ProgressManager
+import com.intellij.openapi.progress.Task
+import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
+import com.intellij.psi.PsiElement
+
+class CustomDocumentationBaseIntention(override val config: CustomDocumentationConfig) : BasedDocumentationBaseIntention() {
+
+    override fun getText(): String = config.title
+
+    override fun getFamilyName(): String = "AutoDev: Custom Documentation Intention"
+    override fun priority(): Int = 99
+
+    override fun writingDocument(editor: Editor, element: PsiElement, documentation: LivingDocumentation) {
+        val task: Task.Backgroundable = CustomLivingDocTask(editor, element, config)
+        ProgressManager.getInstance()
+            .runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
+    }
+
+    companion object {
+        fun create(config: CustomDocumentationConfig) = CustomDocumentationBaseIntention(config)
+    }
+}

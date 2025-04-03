@@ -1,6 +1,6 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import cc.unitmesh.kotlin.util.KotlinTypeResolver
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement

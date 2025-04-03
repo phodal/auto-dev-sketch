@@ -1,13 +1,13 @@
 // Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package cc.unitmesh.terminal
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.statusbar.AutoDevStatus
-import cc.unitmesh.devti.statusbar.AutoDevStatusService
-import cc.unitmesh.devti.template.GENIUS_PRACTISES
-import cc.unitmesh.devti.template.TemplateRender
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.statusbar.AutoDevStatus
+import cc.unitmesh.sketch.statusbar.AutoDevStatusService
+import cc.unitmesh.sketch.template.GENIUS_PRACTISES
+import cc.unitmesh.sketch.template.TemplateRender
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.AnActionHolder
 import com.intellij.openapi.actionSystem.PlatformCoreDataKeys

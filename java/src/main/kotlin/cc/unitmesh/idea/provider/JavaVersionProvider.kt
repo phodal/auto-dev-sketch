@@ -1,8 +1,8 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import cc.unitmesh.idea.detectLanguageLevel
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.module.Module

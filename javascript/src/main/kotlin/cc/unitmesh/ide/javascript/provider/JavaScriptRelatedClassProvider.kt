@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.provider
 
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import cc.unitmesh.ide.javascript.util.JSTypeResolver
 import com.intellij.lang.javascript.psi.JSCallExpression
 import com.intellij.lang.javascript.psi.JSFunction

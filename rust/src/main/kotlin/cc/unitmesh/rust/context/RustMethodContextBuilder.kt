@@ -1,8 +1,7 @@
 package cc.unitmesh.rust.context
 
-import cc.unitmesh.devti.context.MethodContext
-import cc.unitmesh.devti.context.builder.MethodContextBuilder
-import com.intellij.openapi.application.runReadAction
+import cc.unitmesh.sketch.context.MethodContext
+import cc.unitmesh.sketch.context.builder.MethodContextBuilder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.rust.ide.presentation.presentationInfo

@@ -1,12 +1,11 @@
 package cc.unitmesh.rust.context
 
-import cc.unitmesh.devti.context.VariableContext
-import cc.unitmesh.devti.context.builder.VariableContextBuilder
+import cc.unitmesh.sketch.context.VariableContext
+import cc.unitmesh.sketch.context.builder.VariableContextBuilder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.rust.lang.core.psi.RsFunction
 import org.rust.lang.core.psi.RsImplItem
-import org.rust.lang.core.psi.RsLetDecl
 import org.rust.lang.core.psi.RsNamedFieldDecl
 
 class RustVariableContextBuilder : VariableContextBuilder {

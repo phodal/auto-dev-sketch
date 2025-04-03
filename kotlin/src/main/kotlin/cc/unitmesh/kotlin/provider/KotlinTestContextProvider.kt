@@ -1,9 +1,9 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.custom.test.TestTemplateFinder
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.custom.test.TestTemplateFinder
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import cc.unitmesh.idea.provider.JavaTestContextProvider
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project

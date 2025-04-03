@@ -1,6 +1,6 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.context.builder.CodeModifier
+import cc.unitmesh.sketch.context.builder.CodeModifier
 import com.intellij.lang.Language
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.runReadAction

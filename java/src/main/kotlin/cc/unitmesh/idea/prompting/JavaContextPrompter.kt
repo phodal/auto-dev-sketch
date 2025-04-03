@@ -1,14 +1,14 @@
 package cc.unitmesh.idea.prompting
 
-import cc.unitmesh.devti.settings.customize.customizeSetting
-import cc.unitmesh.devti.custom.action.CustomPromptConfig
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.gui.chat.message.GenApiTestContext
-import cc.unitmesh.devti.prompting.TextTemplatePrompt
-import cc.unitmesh.devti.provider.ContextPrompter
-import cc.unitmesh.devti.provider.PsiElementDataBuilder
-import cc.unitmesh.devti.provider.context.ChatCreationContext
-import cc.unitmesh.devti.provider.context.ChatOrigin
+import cc.unitmesh.sketch.settings.customize.customizeSetting
+import cc.unitmesh.sketch.custom.action.CustomPromptConfig
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.gui.chat.message.GenApiTestContext
+import cc.unitmesh.sketch.prompting.TextTemplatePrompt
+import cc.unitmesh.sketch.provider.ContextPrompter
+import cc.unitmesh.sketch.provider.PsiElementDataBuilder
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatOrigin
 import cc.unitmesh.idea.MvcUtil
 import cc.unitmesh.idea.flow.MvcContextService
 import cc.unitmesh.idea.provider.JavaPsiElementDataBuilder
@@ -20,7 +20,7 @@ import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
-import cc.unitmesh.devti.inlay.chunks.SimilarChunksWithPaths
+import cc.unitmesh.sketch.inlay.chunks.SimilarChunksWithPaths
 import kotlinx.coroutines.runBlocking
 
 open class JavaContextPrompter : ContextPrompter() {

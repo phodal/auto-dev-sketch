@@ -1,8 +1,8 @@
 package cc.unitmesh.container.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.intellij.docker.DockerFileSearch
 import com.intellij.docker.dockerFile.parser.psi.DockerFileFromCommand
 import com.intellij.openapi.application.runReadAction

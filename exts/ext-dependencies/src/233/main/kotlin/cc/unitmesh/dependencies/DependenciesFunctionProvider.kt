@@ -1,7 +1,7 @@
 package cc.unitmesh.dependencies
 
-import cc.unitmesh.devti.bridge.Assessment
-import cc.unitmesh.devti.provider.toolchain.ToolchainFunctionProvider
+import cc.unitmesh.sketch.bridge.Assessment
+import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project

@@ -1,7 +1,7 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.FileContext
-import cc.unitmesh.devti.context.builder.FileContextBuilder
+import cc.unitmesh.sketch.context.FileContext
+import cc.unitmesh.sketch.context.builder.FileContextBuilder
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.getChildrenOfTypeAsList
 

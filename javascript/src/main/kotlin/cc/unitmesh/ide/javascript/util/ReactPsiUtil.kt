@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.util
 
-import cc.unitmesh.devti.bridge.archview.model.UiComponent
+import cc.unitmesh.sketch.bridge.archview.model.UiComponent
 import com.intellij.lang.ecmascript6.psi.ES6ExportDeclaration
 import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.lang.javascript.presentable.JSFormatUtil

@@ -197,7 +197,8 @@ feat: add delete blog functionality
 
 接下来，我将 `time` 函数重命名为 `currentTime`，这样其他开发人员在阅读代码时就能更快地理解其作用。
 <devin>
-/refactor:rename cc.unitmesh.devti.language.run.DevInsProgramRunner to cc.unitmesh.devti.language.run.DevInsProgramRunnerImpl
+    /refactor:rename cc.unitmesh.sketch.language.run.DevInsProgramRunner to
+    cc.unitmesh.sketch.language.run.DevInsProgramRunnerImpl
 </devin>
 // 其它代码修改
 <devin>

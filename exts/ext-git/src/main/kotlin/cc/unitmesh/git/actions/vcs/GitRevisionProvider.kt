@@ -1,7 +1,7 @@
 package cc.unitmesh.git.actions.vcs
 
-import cc.unitmesh.devti.provider.RevisionProvider
-import cc.unitmesh.devti.vcs.VcsPrompting
+import cc.unitmesh.sketch.provider.RevisionProvider
+import cc.unitmesh.sketch.vcs.VcsPrompting
 import com.intellij.codeInsight.completion.CompletionResultSet
 import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.icons.AllIcons

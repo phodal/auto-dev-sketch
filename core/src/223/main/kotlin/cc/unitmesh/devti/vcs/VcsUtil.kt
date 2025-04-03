@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.vcs
+package cc.unitmesh.sketch.vcs
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.vcs.VcsDataKeys

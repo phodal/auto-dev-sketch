@@ -1,11 +1,11 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.prompting.code.TechStack
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
-import cc.unitmesh.devti.util.relativePath
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.prompting.code.TechStack
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.util.relativePath
 import cc.unitmesh.idea.context.library.LibraryDescriptor
 import cc.unitmesh.idea.context.library.SpringLibrary
 import com.intellij.openapi.externalSystem.model.project.LibraryData

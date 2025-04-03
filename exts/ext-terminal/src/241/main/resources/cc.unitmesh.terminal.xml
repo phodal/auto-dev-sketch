@@ -9,15 +9,15 @@
                 class="cc.unitmesh.terminal.ShellCommandSuggestAction"
                 description="Suggestions for shell commands"
                 text="Shell Command Suggestions"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
 
             <add-to-group group-id="TerminalToolwindowActionGroup" anchor="last"/>
         </action>
 
         <action id="terminal.FixAction"
-                class="cc.unitmesh.devti.actions.console.FixThisAction"
+                class="cc.unitmesh.sketch.actions.console.FixThisAction"
                 description="Ask AI fix this code"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
 
             <add-to-group group-id="Terminal.PromptContextMenu" anchor="first"/>
             <add-to-group group-id="Terminal.OutputContextMenu" anchor="before" relative-to-action="Terminal.CopyBlock"/>

@@ -1,8 +1,8 @@
 package cc.unitmesh.kotlin.context
 
-import cc.unitmesh.devti.context.MethodContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
-import cc.unitmesh.devti.context.builder.MethodContextBuilder
+import cc.unitmesh.sketch.context.MethodContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.builder.MethodContextBuilder
 import cc.unitmesh.kotlin.util.KotlinPsiUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner

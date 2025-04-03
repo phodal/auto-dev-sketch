@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.flow.model
 
-import cc.unitmesh.devti.template.context.TemplateContext
+import cc.unitmesh.sketch.template.context.TemplateContext
 import cc.unitmesh.ide.javascript.flow.ReactAutoPage
 
 data class AutoPageContext(

@@ -1,6 +1,6 @@
 package cc.unitmesh.idea.observer
 
-import cc.unitmesh.devti.provider.observer.AgentObserver
+import cc.unitmesh.sketch.provider.observer.AgentObserver
 import com.intellij.openapi.project.Project
 
 

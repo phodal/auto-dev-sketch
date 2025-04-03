@@ -1,15 +1,15 @@
 package cc.unitmesh.terminal.sketch
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.settings.coder.coderSetting
-import cc.unitmesh.devti.sketch.SketchToolWindow
-import cc.unitmesh.devti.sketch.run.ShellSafetyCheck
-import cc.unitmesh.devti.sketch.ui.ExtensionLangSketch
-import cc.unitmesh.devti.sketch.ui.LanguageSketchProvider
-import cc.unitmesh.devti.sketch.ui.code.CodeHighlightSketch
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.settings.coder.coderSetting
+import cc.unitmesh.sketch.sketch.SketchToolWindow
+import cc.unitmesh.sketch.sketch.run.ShellSafetyCheck
+import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
+import cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider
+import cc.unitmesh.sketch.sketch.ui.code.CodeHighlightSketch
+import cc.unitmesh.sketch.util.parser.CodeFence
 import cc.unitmesh.terminal.service.TerminalRunnerService
 import com.intellij.icons.AllIcons
 import com.intellij.lang.Language
@@ -41,7 +41,9 @@ import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
 import javax.swing.border.LineBorder
-import cc.unitmesh.devti.AutoDevColors
+import cc.unitmesh.sketch.AutoDevColors
+import com.intellij.openapi.actionSystem.ex.ActionUtil
+import com.intellij.openapi.actionSystem.impl.SimpleDataContext
 import kotlinx.coroutines.Job
 
 class TerminalSketchProvider : LanguageSketchProvider {
@@ -320,10 +322,11 @@ class TerminalLangSketch(val project: Project, var content: String) : ExtensionL
             if (!enableAutoRunTerminal || !::executeAction.isInitialized) {
                 return@invokeLater
             }
-
-            val action =
-                AnActionEvent.createFromAnAction(executeAction, null, "AutoExecuteTerminal", DataContext.EMPTY_CONTEXT)
-            executeAction.actionPerformed(action)
+//
+//            val action =
+//                AnActionEvent.createFromAnAction(executeAction, null, "AutoExecuteTerminal", DataContext.EMPTY_CONTEXT)
+            ActionUtil.invokeAction(executeAction, SimpleDataContext.getProjectContext(project), "AutoExecuteTerminal", null , null)
+//            executeAction.actionPerformed(action)
         }
     }
 

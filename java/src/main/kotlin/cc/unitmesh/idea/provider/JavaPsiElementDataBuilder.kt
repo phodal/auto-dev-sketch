@@ -1,7 +1,7 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.provider.PsiElementDataBuilder
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.provider.PsiElementDataBuilder
 import cc.unitmesh.idea.context.JavaClassContextBuilder
 import cc.unitmesh.idea.context.JavaContextCollection
 import com.intellij.openapi.project.Project

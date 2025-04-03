@@ -1,6 +1,6 @@
 package cc.unitmesh.terminal.sketch
 
-import cc.unitmesh.devti.sketch.ui.WebViewWindow
+import cc.unitmesh.sketch.sketch.ui.WebViewWindow
 import com.intellij.execution.filters.Filter
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project

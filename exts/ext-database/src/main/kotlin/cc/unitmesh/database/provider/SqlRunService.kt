@@ -1,7 +1,7 @@
 package cc.unitmesh.database.provider
 
 import cc.unitmesh.database.util.DatabaseSchemaAssistant
-import cc.unitmesh.devti.provider.RunService
+import cc.unitmesh.sketch.provider.RunService
 import com.intellij.database.console.runConfiguration.DatabaseScriptRunConfiguration
 import com.intellij.database.console.runConfiguration.DatabaseScriptRunConfigurationOptions
 import com.intellij.execution.RunnerAndConfigurationSettings

@@ -1,8 +1,8 @@
 package cc.unitmesh.ide.javascript.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import cc.unitmesh.ide.javascript.util.LanguageApplicableUtil
 import com.intellij.openapi.project.Project
 

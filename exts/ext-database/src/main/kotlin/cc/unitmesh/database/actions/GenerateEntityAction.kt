@@ -1,12 +1,12 @@
 package cc.unitmesh.database.actions
 
 import cc.unitmesh.database.actions.base.SqlMigrationContext
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.gui.sendToChatWindow
-import cc.unitmesh.devti.intentions.action.base.ChatBaseIntention
-import cc.unitmesh.devti.provider.TextContextPrompter
-import cc.unitmesh.devti.template.GENIUS_MIGRATION
-import cc.unitmesh.devti.template.TemplateRender
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.gui.sendToChatWindow
+import cc.unitmesh.sketch.intentions.action.base.ChatBaseIntention
+import cc.unitmesh.sketch.provider.TextContextPrompter
+import cc.unitmesh.sketch.template.GENIUS_MIGRATION
+import cc.unitmesh.sketch.template.TemplateRender
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project

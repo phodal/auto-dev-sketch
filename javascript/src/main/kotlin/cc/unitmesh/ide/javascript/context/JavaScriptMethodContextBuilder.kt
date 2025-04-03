@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.context
 
-import cc.unitmesh.devti.context.MethodContext
-import cc.unitmesh.devti.context.builder.MethodContextBuilder
+import cc.unitmesh.sketch.context.MethodContext
+import cc.unitmesh.sketch.context.builder.MethodContextBuilder
 import com.intellij.lang.javascript.presentable.JSFormatUtil
 import com.intellij.lang.javascript.psi.JSFunction
 import com.intellij.lang.javascript.psi.JSType

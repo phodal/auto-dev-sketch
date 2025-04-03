@@ -1,7 +1,7 @@
 package cc.unitmesh.endpoints.bridge
 
-import cc.unitmesh.devti.bridge.ArchViewCommand
-import cc.unitmesh.devti.provider.toolchain.ToolchainFunctionProvider
+import cc.unitmesh.sketch.bridge.ArchViewCommand
+import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import com.intellij.facet.FacetManager
 import com.intellij.microservices.endpoints.EndpointsProvider
 import com.intellij.openapi.application.runReadAction

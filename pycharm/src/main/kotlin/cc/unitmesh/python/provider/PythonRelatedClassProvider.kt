@@ -1,6 +1,6 @@
 package cc.unitmesh.python.provider
 
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile

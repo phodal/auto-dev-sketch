@@ -2,10 +2,10 @@ package cc.unitmesh.database.provider
 
 import cc.unitmesh.database.util.DatabaseSchemaAssistant
 import cc.unitmesh.database.util.DatabaseSchemaAssistant.getTableColumn
-import cc.unitmesh.devti.agent.tool.AgentTool
-import cc.unitmesh.devti.bridge.provider.DatabaseFunction
-import cc.unitmesh.devti.command.dataprovider.BuiltinCommand
-import cc.unitmesh.devti.provider.toolchain.ToolchainFunctionProvider
+import cc.unitmesh.sketch.agent.tool.AgentTool
+import cc.unitmesh.sketch.bridge.provider.DatabaseFunction
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import com.intellij.database.model.DasTable
 import com.intellij.database.model.RawDataSource
 import com.intellij.openapi.diagnostic.logger

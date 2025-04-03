@@ -1,0 +1,36 @@
+package cc.unitmesh.sketch.bridge
+
+import cc.unitmesh.sketch.agent.tool.AgentTool
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand.*
+import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
+import com.intellij.openapi.project.Project
+
+object BridgeToolProvider {
+    val Tools = setOf(STRUCTURE, RIPGREP_SEARCH, DATABASE, DIR, WRITE, PATCH, FILE)
+
+    suspend fun collect(project: Project): List<AgentTool> {
+        val commonTools = Tools
+            .map {
+                val example = BuiltinCommand.example(it)
+                AgentTool(it.commandName, it.description, example)
+            }.toMutableList()
+
+        val functions = ToolchainFunctionProvider.all()
+
+        commonTools += functions.flatMap {
+            val toolInfos = it.toolInfos(project)
+            if (toolInfos.isNotEmpty()) {
+                return@flatMap toolInfos
+            }
+
+            val funcNames = it.funcNames()
+            funcNames.map { name ->
+                val example = BuiltinCommand.example(name)
+                AgentTool(name, "", example)
+            }
+        }
+
+        return commonTools
+    }
+}

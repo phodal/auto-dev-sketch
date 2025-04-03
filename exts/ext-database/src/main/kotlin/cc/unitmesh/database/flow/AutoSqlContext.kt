@@ -1,6 +1,6 @@
 package cc.unitmesh.database.flow
 
-import cc.unitmesh.devti.template.context.TemplateContext
+import cc.unitmesh.sketch.template.context.TemplateContext
 
 data class AutoSqlContext(
     val requirement: String,

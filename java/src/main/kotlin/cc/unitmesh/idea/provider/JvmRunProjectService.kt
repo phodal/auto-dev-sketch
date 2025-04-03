@@ -1,7 +1,7 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.ProjectRunService
-import cc.unitmesh.devti.provider.runner.ConfigurationRunner
+import cc.unitmesh.sketch.provider.ProjectRunService
+import cc.unitmesh.sketch.provider.runner.ConfigurationRunner
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionResultSet
 import com.intellij.codeInsight.completion.PrioritizedLookupElement

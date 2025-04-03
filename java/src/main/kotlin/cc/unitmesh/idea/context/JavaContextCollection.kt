@@ -1,6 +1,6 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.SimpleClassStructure
+import cc.unitmesh.sketch.context.SimpleClassStructure
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiClassReferenceType

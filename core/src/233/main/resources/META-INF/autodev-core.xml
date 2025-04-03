@@ -11,76 +11,76 @@
         <notificationGroup id="AutoDev.notification.group" displayType="STICKY_BALLOON" bundle="messages.AutoDevBundle"
                            key="name"/>
 
-        <applicationConfigurable parentId="tools" instance="cc.unitmesh.devti.settings.AutoDevSettingsConfigurable"
-                                 id="cc.unitmesh.devti.settings.AutoDevSettingsConfigurable"
+        <applicationConfigurable parentId="tools" instance="cc.unitmesh.sketch.settings.AutoDevSettingsConfigurable"
+                                 id="cc.unitmesh.sketch.settings.AutoDevSettingsConfigurable"
                                  displayName="AutoDev"/>
 
-        <projectConfigurable provider="cc.unitmesh.devti.settings.coder.AutoDevCoderConfigurableProvider"
-                             parentId="cc.unitmesh.devti.settings.AutoDevSettingsConfigurable"
+        <projectConfigurable provider="cc.unitmesh.sketch.settings.coder.AutoDevCoderConfigurableProvider"
+                             parentId="cc.unitmesh.sketch.settings.AutoDevSettingsConfigurable"
                              id="cc.unitmesh.autodevCoder"
                              bundle="messages.AutoDevBundle" key="settings.autodev.coder"/>
 
-        <projectConfigurable provider="cc.unitmesh.devti.settings.customize.CustomizeConfigurableProvider"
-                             parentId="cc.unitmesh.devti.settings.AutoDevSettingsConfigurable"
+        <projectConfigurable provider="cc.unitmesh.sketch.settings.customize.CustomizeConfigurableProvider"
+                             parentId="cc.unitmesh.sketch.settings.AutoDevSettingsConfigurable"
                              id="cc.unitmesh.counit"
                              bundle="messages.AutoDevBundle" key="settings.customize.title"/>
 
-        <projectConfigurable provider="cc.unitmesh.devti.settings.devops.AutoDevDevOpsConfigurableProvider"
-                             parentId="cc.unitmesh.devti.settings.AutoDevSettingsConfigurable"
+        <projectConfigurable provider="cc.unitmesh.sketch.settings.devops.AutoDevDevOpsConfigurableProvider"
+                             parentId="cc.unitmesh.sketch.settings.AutoDevSettingsConfigurable"
                              id="cc.unitmesh.autodevDevOps"
                              bundle="messages.AutoDevBundle" key="settings.autodev.devops"/>
 
-        <applicationService serviceImplementation="cc.unitmesh.devti.settings.AutoDevSettingsState"/>
+        <applicationService serviceImplementation="cc.unitmesh.sketch.settings.AutoDevSettingsState"/>
 
         <applicationService
-                serviceInterface="cc.unitmesh.devti.inlay.codecomplete.LLMInlayManager"
-                serviceImplementation="cc.unitmesh.devti.inlay.codecomplete.LLMInlayManagerImpl"/>
+                serviceInterface="cc.unitmesh.sketch.inlay.codecomplete.LLMInlayManager"
+                serviceImplementation="cc.unitmesh.sketch.inlay.codecomplete.LLMInlayManagerImpl"/>
 
         <typedHandler order="first, before completionAutoPopup"
-                      implementation="cc.unitmesh.devti.inlay.TypeOverHandler"/>
+                      implementation="cc.unitmesh.sketch.inlay.TypeOverHandler"/>
 
 
         <statusBarWidgetFactory id="AutoDevAIAssistant"
-                                implementation="cc.unitmesh.devti.statusbar.AutoDevStatusBarWidgetFactory"/>
+                                implementation="cc.unitmesh.sketch.statusbar.AutoDevStatusBarWidgetFactory"/>
 
         <toolWindow id="AutoDev"
                     doNotActivateOnStart="true"
                     anchor="right"
                     secondary="false"
                     canCloseContents="true"
-                    icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
-                    factoryClass="cc.unitmesh.devti.gui.AutoDevToolWindowFactory"/>
+                    icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
+                    factoryClass="cc.unitmesh.sketch.gui.AutoDevToolWindowFactory"/>
 
         <toolWindow id="AutoDevPlanner"
                     anchor="left"
                     order="after Structure"
-                    icon="cc.unitmesh.devti.AutoDevIcons.PLANNER"
+                    icon="cc.unitmesh.sketch.AutoDevIcons.PLANNER"
                     secondary="true"
-                    factoryClass="cc.unitmesh.devti.gui.AutoDevPlannerToolWindowFactory"/>
+                    factoryClass="cc.unitmesh.sketch.gui.AutoDevPlannerToolWindowFactory"/>
 
         <notificationGroup id="AutoDev.notify" displayType="STICKY_BALLOON" bundle="messages.AutoDevBundle"
                            key="name"/>
 
         <intentionAction>
-            <className>cc.unitmesh.devti.intentions.AutoDevIntentionHelper</className>
+            <className>cc.unitmesh.sketch.intentions.AutoDevIntentionHelper</className>
             <categoryKey>intention.category.llm</categoryKey>
         </intentionAction>
 
-        <highlightErrorFilter implementation="cc.unitmesh.devti.gui.snippet.error.CodeBlockHighlightErrorFilter"/>
-        <daemon.highlightInfoFilter implementation="cc.unitmesh.devti.gui.snippet.error.CodeBlockHighlightingFilter"/>
+        <highlightErrorFilter implementation="cc.unitmesh.sketch.gui.snippet.error.CodeBlockHighlightErrorFilter"/>
+        <daemon.highlightInfoFilter implementation="cc.unitmesh.sketch.gui.snippet.error.CodeBlockHighlightingFilter"/>
         <defaultHighlightingSettingProvider
-                implementation="cc.unitmesh.devti.gui.snippet.error.CodeBlockHighlightingSettingsProvider"/>
+                implementation="cc.unitmesh.sketch.gui.snippet.error.CodeBlockHighlightingSettingsProvider"/>
         <daemon.intentionActionFilter
-                implementation="cc.unitmesh.devti.gui.snippet.error.CodeBlockIntentionActionFilter"/>
+                implementation="cc.unitmesh.sketch.gui.snippet.error.CodeBlockIntentionActionFilter"/>
 
-        <httpRequestHandler implementation="cc.unitmesh.devti.mcp.host.MCPService"/>
-        <postStartupActivity implementation="cc.unitmesh.devti.update.AutoDevUpdateStartupActivity"/>
-        <postStartupActivity implementation="cc.unitmesh.devti.mcp.MCPServerStartupValidator"/>
+        <httpRequestHandler implementation="cc.unitmesh.sketch.mcp.host.MCPService"/>
+        <postStartupActivity implementation="cc.unitmesh.sketch.update.AutoDevUpdateStartupActivity"/>
+        <postStartupActivity implementation="cc.unitmesh.sketch.mcp.MCPServerStartupValidator"/>
         <notificationGroup id="UnitMesh.MCPServer" displayType="BALLOON"/>
     </extensions>
 
     <extensions defaultExtensionNs="JavaScript.JsonSchema">
-        <ProviderFactory implementation="cc.unitmesh.devti.custom.schema.AutoDevJsonSchemaProviderFactory"/>
+        <ProviderFactory implementation="cc.unitmesh.sketch.custom.schema.AutoDevJsonSchemaProviderFactory"/>
     </extensions>
 
     <extensionPoints>
@@ -93,207 +93,207 @@
         <extensionPoint qualifiedName="cc.unitmesh.fileContextBuilder"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass"
-                  implements="cc.unitmesh.devti.context.builder.FileContextBuilder"/>
+                  implements="cc.unitmesh.sketch.context.builder.FileContextBuilder"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.classContextBuilder"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass"
-                  implements="cc.unitmesh.devti.context.builder.ClassContextBuilder"/>
+                  implements="cc.unitmesh.sketch.context.builder.ClassContextBuilder"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.methodContextBuilder"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass"
-                  implements="cc.unitmesh.devti.context.builder.MethodContextBuilder"/>
+                  implements="cc.unitmesh.sketch.context.builder.MethodContextBuilder"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.codeModifier"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass"
-                  implements="cc.unitmesh.devti.context.builder.CodeModifier"/>
+                  implements="cc.unitmesh.sketch.context.builder.CodeModifier"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.variableContextBuilder"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass"
-                  implements="cc.unitmesh.devti.context.builder.VariableContextBuilder"/>
+                  implements="cc.unitmesh.sketch.context.builder.VariableContextBuilder"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.livingDocumentation"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.provider.LivingDocumentation"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.LivingDocumentation"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.testDataBuilder"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.provider.PsiElementDataBuilder"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.PsiElementDataBuilder"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.refactoringTool"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.provider.RefactoringTool"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.RefactoringTool"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.buildSystemProvider"
-                        interface="cc.unitmesh.devti.provider.BuildSystemProvider"
+                        interface="cc.unitmesh.sketch.provider.BuildSystemProvider"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.customPromptProvider"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.provider.CustomPromptProvider"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.CustomPromptProvider"/>
         </extensionPoint>
 
         <!-- TODO: find better way to share context -->
         <extensionPoint qualifiedName="cc.unitmesh.contextPrompter"
-                        interface="cc.unitmesh.devti.provider.ContextPrompter"
+                        interface="cc.unitmesh.sketch.provider.ContextPrompter"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.testContextProvider"
-                        interface="cc.unitmesh.devti.provider.AutoTestService"
+                        interface="cc.unitmesh.sketch.provider.AutoTestService"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.runProjectService"
-                        interface="cc.unitmesh.devti.provider.ProjectRunService"
+                        interface="cc.unitmesh.sketch.provider.ProjectRunService"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.chatContextProvider"
-                        interface="cc.unitmesh.devti.provider.context.ChatContextProvider"
+                        interface="cc.unitmesh.sketch.provider.context.ChatContextProvider"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.languageProcessor"
-                        interface="cc.unitmesh.devti.provider.devins.LanguageProcessor"
+                        interface="cc.unitmesh.sketch.provider.devins.LanguageProcessor"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.customDevInsCompletionProvider"
-                        interface="cc.unitmesh.devti.provider.devins.DevInsSymbolProvider"
+                        interface="cc.unitmesh.sketch.provider.devins.DevInsSymbolProvider"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.jsonTextProvider"
-                        interface="cc.unitmesh.devti.provider.local.JsonTextProvider"
+                        interface="cc.unitmesh.sketch.provider.local.JsonTextProvider"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.httpClientExecutor"
-                        interface="cc.unitmesh.devti.provider.http.HttpClientProvider"
+                        interface="cc.unitmesh.sketch.provider.http.HttpClientProvider"
                         dynamic="true"/>
 
         <!-- Lang Sketch Provider -->
         <extensionPoint qualifiedName="cc.unitmesh.langSketchProvider"
-                        interface="cc.unitmesh.devti.sketch.ui.LanguageSketchProvider"
+                        interface="cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider"
                         dynamic="true"/>
         <extensionPoint qualifiedName="cc.unitmesh.sketchToolchainProvider"
-                        interface="cc.unitmesh.devti.sketch.SketchToolchainProvider"
+                        interface="cc.unitmesh.sketch.sketch.SketchToolchainProvider"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.relatedClassProvider"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.provider.RelatedClassesProvider"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.RelatedClassesProvider"/>
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.runService"
-                        interface="cc.unitmesh.devti.provider.RunService"
+                        interface="cc.unitmesh.sketch.provider.RunService"
                         dynamic="true"/>
 
         <!-- Toolchain Function Provider -->
         <extensionPoint qualifiedName="cc.unitmesh.toolchainFunctionProvider"
-                        interface="cc.unitmesh.devti.provider.toolchain.ToolchainFunctionProvider"
+                        interface="cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider"
                         dynamic="true">
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.revisionProvider"
-                        interface="cc.unitmesh.devti.provider.RevisionProvider"
+                        interface="cc.unitmesh.sketch.provider.RevisionProvider"
                         dynamic="true">
         </extensionPoint>
 
         <extensionPoint qualifiedName="cc.unitmesh.frameworkConfigProvider"
-                        interface="cc.unitmesh.devti.provider.FrameworkConfigProvider"
+                        interface="cc.unitmesh.sketch.provider.FrameworkConfigProvider"
                         dynamic="true">
         </extensionPoint>
 
         <!--  Bridge -->
         <extensionPoint qualifiedName="cc.unitmesh.componentProvider"
-                        interface="cc.unitmesh.devti.bridge.provider.ComponentViewProvider"
+                        interface="cc.unitmesh.sketch.bridge.provider.ComponentViewProvider"
                         dynamic="true"/>
         <extensionPoint qualifiedName="cc.unitmesh.knowledgeWebApiProvide"
-                        interface="cc.unitmesh.devti.bridge.provider.KnowledgeWebApiProvider"
+                        interface="cc.unitmesh.sketch.bridge.provider.KnowledgeWebApiProvider"
                         dynamic="true"/>
 
         <!-- mcp -->
         <extensionPoint qualifiedName="cc.unitmesh.mcpTool"
-                        interface="cc.unitmesh.devti.mcp.host.McpTool"
+                        interface="cc.unitmesh.sketch.mcp.host.McpTool"
                         dynamic="true"/>
 
         <extensionPoint qualifiedName="cc.unitmesh.agentObserver"
-                        interface="cc.unitmesh.devti.provider.observer.AgentObserver"
+                        interface="cc.unitmesh.sketch.provider.observer.AgentObserver"
                         dynamic="true"/>
     </extensionPoints>
 
     <projectListeners>
-        <listener class="cc.unitmesh.devti.actions.rename.RenameLookupManagerListener"
+        <listener class="cc.unitmesh.sketch.actions.rename.RenameLookupManagerListener"
                   topic="com.intellij.codeInsight.lookup.LookupManagerListener"/>
     </projectListeners>
 
     <extensions defaultExtensionNs="cc.unitmesh">
         <autoDevIntention>
-            <className>cc.unitmesh.devti.intentions.action.NewChatWithCodeBaseIntention</className>
+            <className>cc.unitmesh.sketch.intentions.action.NewChatWithCodeBaseIntention</className>
             <bundleName>messages.AutoDevBundle</bundleName>
             <categoryKey>intention.category.llm</categoryKey>
         </autoDevIntention>
         <autoDevIntention>
-            <className>cc.unitmesh.devti.intentions.action.AutoTestThisIntention</className>
+            <className>cc.unitmesh.sketch.intentions.action.AutoTestThisIntention</className>
             <bundleName>messages.AutoDevBundle</bundleName>
             <categoryKey>intention.category.llm</categoryKey>
         </autoDevIntention>
         <autoDevIntention>
-            <className>cc.unitmesh.devti.intentions.action.DefaultDocumentationBaseIntention</className>
+            <className>cc.unitmesh.sketch.intentions.action.DefaultDocumentationBaseIntention</className>
             <bundleName>messages.AutoDevBundle</bundleName>
             <categoryKey>intention.category.llm</categoryKey>
         </autoDevIntention>
         
-        <chatContextProvider implementation="cc.unitmesh.devti.provider.context.IdeVersionChatContextProvider"/>
+        <chatContextProvider implementation="cc.unitmesh.sketch.provider.context.IdeVersionChatContextProvider"/>
 
-        <langSketchProvider implementation="cc.unitmesh.devti.sketch.ui.patch.DiffLangSketchProvider"/>
-        <langSketchProvider implementation="cc.unitmesh.devti.sketch.ui.webview.WebpageSketchProvider"/>
-        <langSketchProvider implementation="cc.unitmesh.devti.sketch.ui.openapi.OpenAPISketchProvider"/>
-        <langSketchProvider implementation="cc.unitmesh.devti.sketch.ui.MarkdownPreviewSketchProvider"/>
-        <langSketchProvider implementation="cc.unitmesh.devti.sketch.ui.PlanSketchProvider"/>
+        <langSketchProvider implementation="cc.unitmesh.sketch.sketch.ui.patch.DiffLangSketchProvider"/>
+        <langSketchProvider implementation="cc.unitmesh.sketch.sketch.ui.webview.WebpageSketchProvider"/>
+        <langSketchProvider implementation="cc.unitmesh.sketch.sketch.ui.openapi.OpenAPISketchProvider"/>
+        <langSketchProvider implementation="cc.unitmesh.sketch.sketch.ui.MarkdownPreviewSketchProvider"/>
+        <langSketchProvider implementation="cc.unitmesh.sketch.sketch.ui.PlanSketchProvider"/>
 
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.bridge.archview.ComponentViewFunctionProvider"/>
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.bridge.archview.ContainerViewFunctionProvider"/>
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.bridge.assessment.SccFunctionProvider"/>
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.bridge.knowledge.HistoryFunctionProvider"/>
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.bridge.knowledge.KnowledgeFunctionProvider"/>
-        <toolchainFunctionProvider implementation="cc.unitmesh.devti.mcp.client.McpFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.bridge.archview.ComponentViewFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.bridge.archview.ContainerViewFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.bridge.assessment.SccFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.bridge.knowledge.HistoryFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.bridge.knowledge.KnowledgeFunctionProvider"/>
+        <toolchainFunctionProvider implementation="cc.unitmesh.sketch.mcp.client.McpFunctionProvider"/>
 
-        <agentObserver implementation="cc.unitmesh.devti.observer.TestAgentObserver" />
-        <agentObserver implementation="cc.unitmesh.devti.observer.BuiltTaskAgentObserver" />
-        <agentObserver implementation="cc.unitmesh.devti.observer.AddDependencyAgentObserver" />
+        <agentObserver implementation="cc.unitmesh.sketch.observer.TestAgentObserver" />
+        <agentObserver implementation="cc.unitmesh.sketch.observer.BuiltTaskAgentObserver" />
+        <agentObserver implementation="cc.unitmesh.sketch.observer.AddDependencyAgentObserver" />
     </extensions>
 
     <actions>
         <action id="llm.applyInlays"
-                class="cc.unitmesh.devti.actions.completion.LLMApplyInlaysAction">
+                class="cc.unitmesh.sketch.actions.completion.LLMApplyInlaysAction">
             <keyboard-shortcut first-keystroke="TAB" keymap="$default"/>
             <override-text place="MainMenu" text="Apply Completions to Editor"/>
             <override-text place="EditorPopup" text="Accept"/>
         </action>
 
-        <action id="cc.unitmesh.devti.inlayCompleteCode"
-                class="cc.unitmesh.devti.actions.completion.InlayCompleteCodeAction"
+        <action id="cc.unitmesh.sketch.inlayCompleteCode"
+                class="cc.unitmesh.sketch.actions.completion.InlayCompleteCodeAction"
                 text="Inlay Complete Code (AutoDev)"
                 description="Inlay complete code!">
             <keyboard-shortcut keymap="$default" first-keystroke="alt PERIOD"/>
             <add-to-group group-id="ShowIntentionsGroup" relative-to-action="ShowIntentionActions" anchor="after"/>
         </action>
-        <action id="cc.unitmesh.devti.disposeInlayCompleteCode"
-                class="cc.unitmesh.devti.actions.completion.InlayCompleteCodeDisposedAction"
+        <action id="cc.unitmesh.sketch.disposeInlayCompleteCode"
+                class="cc.unitmesh.sketch.actions.completion.InlayCompleteCodeDisposedAction"
                 text="Disposed Inlay Complete Code"
                 description="Disposed Inlay complete code!">
             <keyboard-shortcut keymap="$default" first-keystroke="ESCAPE"/>
         </action>
 
-        <group id="AutoDevIntentionsActionGroup" class="cc.unitmesh.devti.intentions.IntentionsActionGroup"
-               icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT" searchable="false">
+        <group id="AutoDevIntentionsActionGroup" class="cc.unitmesh.sketch.intentions.IntentionsActionGroup"
+               icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT" searchable="false">
 
             <add-to-group group-id="ShowIntentionsGroup" relative-to-action="ShowIntentionActions" anchor="after"/>
             <add-to-group group-id="Floating.CodeToolbar" anchor="first"/>
@@ -301,29 +301,29 @@
 
         <!-- For right click -->
         <group id="autodev.groups.AutoChatDynamicActionGroup" popup="true" description="AutoDev chat"
-               class="cc.unitmesh.devti.actions.groups.AutoChatDynamicActionGroup">
-            <action id="cc.unitmesh.devti.actions.chat.ExplainThisAction"
-                    class="cc.unitmesh.devti.actions.chat.ExplainThisAction"
+               class="cc.unitmesh.sketch.actions.groups.AutoChatDynamicActionGroup">
+            <action id="cc.unitmesh.sketch.actions.chat.ExplainThisAction"
+                    class="cc.unitmesh.sketch.actions.chat.ExplainThisAction"
                     description="Ask AI about this code">
             </action>
 
-            <action id="cc.unitmesh.devti.actions.chat.RefactorThisAction"
-                    class="cc.unitmesh.devti.actions.chat.RefactorThisAction"
+            <action id="cc.unitmesh.sketch.actions.chat.RefactorThisAction"
+                    class="cc.unitmesh.sketch.actions.chat.RefactorThisAction"
                     description="Ask AI refactor this code">
             </action>
 
-            <action id="cc.unitmesh.devti.actions.chat.FixThisAction"
-                    class="cc.unitmesh.devti.actions.chat.FixThisAction"
+            <action id="cc.unitmesh.sketch.actions.chat.FixThisAction"
+                    class="cc.unitmesh.sketch.actions.chat.FixThisAction"
                     description="Ask AI refactor this code">
             </action>
 
-            <action id="cc.unitmesh.devti.actions.chat.ChatWithThisAction"
-                    class="cc.unitmesh.devti.actions.chat.ChatWithThisAction"
+            <action id="cc.unitmesh.sketch.actions.chat.ChatWithThisAction"
+                    class="cc.unitmesh.sketch.actions.chat.ChatWithThisAction"
                     description="Ask AI chat with this code">
             </action>
 
-            <action id="cc.unitmesh.devti.actions.chat.GenerateApiTestAction"
-                    class="cc.unitmesh.devti.actions.chat.GenerateApiTestAction"
+            <action id="cc.unitmesh.sketch.actions.chat.GenerateApiTestAction"
+                    class="cc.unitmesh.sketch.actions.chat.GenerateApiTestAction"
                     description="Ask AI generate test data">
 
                 <add-to-group group-id="GenerateGroup" anchor="last"/>
@@ -332,75 +332,75 @@
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </group>
 
-        <action id="cc.unitmesh.devti.QuickAssistant"
-                class="cc.unitmesh.devti.actions.quick.QuickAssistantAction"
+        <action id="cc.unitmesh.sketch.QuickAssistant"
+                class="cc.unitmesh.sketch.actions.quick.QuickAssistantAction"
                 description="You can custom any assistant as you want!"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
         >
             <keyboard-shortcut keymap="$default" first-keystroke="control BACK_SLASH"/>
 
             <add-to-group group-id="ShowIntentionsGroup" relative-to-action="ShowIntentionActions" anchor="after"/>
         </action>
 
-        <action id="cc.unitmesh.devti.actions.console.FixThisAction"
-                class="cc.unitmesh.devti.actions.console.FixThisAction"
+        <action id="cc.unitmesh.sketch.actions.console.FixThisAction"
+                class="cc.unitmesh.sketch.actions.console.FixThisAction"
                 description="Ask AI fix this code"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
             <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
         </action>
 
-        <action id="cc.unitmesh.devti.actions.chat.CodeCompleteChatAction"
-                class="cc.unitmesh.devti.actions.chat.CodeCompleteChatAction"
+        <action id="cc.unitmesh.sketch.actions.chat.CodeCompleteChatAction"
+                class="cc.unitmesh.sketch.actions.chat.CodeCompleteChatAction"
                 description="Ask AI about this code">
 
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
         <group id="AutoDev.ToolWindow.Snippet.DependenciesToolbar">
             <action id="AutoDev.ToolWindow.Snippet.DependenciesLabelAction"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevDependenciesLabelAction"/>
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevDependenciesLabelAction"/>
         </group>
 
         <group id="AutoDev.ToolWindow.Snippet.Toolbar">
             <action id="AutoDev.ToolWindow.Snippet.LanguageLabelAction"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevLanguageLabelAction"/>
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevLanguageLabelAction"/>
 
             <action id="AutoDev.ToolWindow.Snippet.CopyToClipboard"
-                    icon="cc.unitmesh.devti.AutoDevIcons.COPY"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevCopyToClipboardAction"/>
+                    icon="cc.unitmesh.sketch.AutoDevIcons.COPY"
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevCopyToClipboardAction"/>
             <action id="AutoDev.ToolWindow.Snippet.InsertCode"
-                    icon="cc.unitmesh.devti.AutoDevIcons.InsertCode"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevInsertCodeAction"/>
+                    icon="cc.unitmesh.sketch.AutoDevIcons.InsertCode"
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevInsertCodeAction"/>
             <action id="AutoDev.ToolWindow.Snippet.RunDevIns"
-                    icon="cc.unitmesh.devti.AutoDevIcons.RUN"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevRunAction"/>
+                    icon="cc.unitmesh.sketch.AutoDevIcons.RUN"
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevRunAction"/>
             <action id="AutoDev.ToolWindow.Snippet.SaveFile"
-                    icon="cc.unitmesh.devti.AutoDevIcons.SAVE_FILE"
-                    class="cc.unitmesh.devti.gui.snippet.AutoDevSaveFileAction"/>
+                    icon="cc.unitmesh.sketch.AutoDevIcons.SAVE_FILE"
+                    class="cc.unitmesh.sketch.gui.snippet.AutoDevSaveFileAction"/>
         </group>
 
         <group id="AutoDev.ToolWindow.Chat.TitleActions">
-            <action id="AutoDev.ToolWindow.NewChatAction" class="cc.unitmesh.devti.gui.toolbar.NewChatAction"/>
+            <action id="AutoDev.ToolWindow.NewChatAction" class="cc.unitmesh.sketch.gui.toolbar.NewChatAction"/>
         </group>
 
-        <action id="AutoDev.NewPromptTemplate" class="cc.unitmesh.devti.actions.template.NewPromptTemplateAction"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+        <action id="AutoDev.NewPromptTemplate" class="cc.unitmesh.sketch.actions.template.NewPromptTemplateAction"
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
         </action>
 
         <group id="AutoDev.NewActions"
                text="AutoDev CI/CD Actions"
-               popup="true" icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+               popup="true" icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
 
             <separator/>
-            <action id="GeniusDockerfile" class="cc.unitmesh.devti.actions.GenerateDockerfileAction"/>
-            <action id="GeniusGitHubActions" class="cc.unitmesh.devti.actions.GenerateGitHubActionsAction"/>
+            <action id="GeniusDockerfile" class="cc.unitmesh.sketch.actions.GenerateDockerfileAction"/>
+            <action id="GeniusGitHubActions" class="cc.unitmesh.sketch.actions.GenerateGitHubActionsAction"/>
 
             <add-to-group group-id="NewGroup" anchor="last"/>
         </group>
 
         <action id="AutoDev.BatchTest"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
-                class="cc.unitmesh.devti.actions.chat.AutoTestInMenuAction">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
+                class="cc.unitmesh.sketch.actions.chat.AutoTestInMenuAction">
 
             <add-to-group group-id="ProjectViewPopupMenu" anchor="after"
                           relative-to-action="ProjectViewPopupMenuRefactoringGroup"/>
@@ -408,24 +408,24 @@
             <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
         </action>
 
-        <action id="cc.unitmesh.devti.EditSettings"
-                class="cc.unitmesh.devti.actions.EditSettingsAction"
+        <action id="cc.unitmesh.sketch.EditSettings"
+                class="cc.unitmesh.sketch.actions.EditSettingsAction"
                 description="Edit autoDev settings"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
         </action>
 
         <group id="autodev.statusBarPopup">
-            <reference id="cc.unitmesh.devti.QuickAssistant"/>
-            <reference id="cc.unitmesh.devti.EditSettings"/>
+            <reference id="cc.unitmesh.sketch.QuickAssistant"/>
+            <reference id="cc.unitmesh.sketch.EditSettings"/>
         </group>
 
         <group id="AutoDevPlanner.ToolWindow.TitleActions">
-            <action id="ReviewPlan" icon="cc.unitmesh.devti.AutoDevIcons.REVIEWER"
-                    class="cc.unitmesh.devti.observer.plan.PlanReviewAction"/>
-            <action id="EditPlan" icon="cc.unitmesh.devti.AutoDevIcons.EDIT_TASK"
-                    class="cc.unitmesh.devti.observer.plan.EditPlanAction"/>
-            <action id="CreateIssue" icon="cc.unitmesh.devti.AutoDevIcons.INPUT"
-                    class="cc.unitmesh.devti.observer.plan.CreateIssueAction"/>
+            <action id="ReviewPlan" icon="cc.unitmesh.sketch.AutoDevIcons.REVIEWER"
+                    class="cc.unitmesh.sketch.observer.plan.PlanReviewAction"/>
+            <action id="EditPlan" icon="cc.unitmesh.sketch.AutoDevIcons.EDIT_TASK"
+                    class="cc.unitmesh.sketch.observer.plan.EditPlanAction"/>
+            <action id="CreateIssue" icon="cc.unitmesh.sketch.AutoDevIcons.INPUT"
+                    class="cc.unitmesh.sketch.observer.plan.CreateIssueAction"/>
             <separator/>
         </group>
     </actions>

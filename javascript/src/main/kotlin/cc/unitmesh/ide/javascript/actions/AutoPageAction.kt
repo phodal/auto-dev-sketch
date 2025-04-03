@@ -1,9 +1,9 @@
 package cc.unitmesh.ide.javascript.actions
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.gui.sendToChatPanel
-import cc.unitmesh.devti.intentions.action.base.ChatBaseIntention
-import cc.unitmesh.devti.llms.LlmFactory
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.gui.sendToChatPanel
+import cc.unitmesh.sketch.intentions.action.base.ChatBaseIntention
+import cc.unitmesh.sketch.llms.LlmFactory
 import cc.unitmesh.ide.javascript.JsDependenciesSnapshot
 import cc.unitmesh.ide.javascript.flow.model.AutoPageContext
 import cc.unitmesh.ide.javascript.flow.AutoPageFlow

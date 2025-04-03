@@ -1,10 +1,9 @@
 package cc.unitmesh.kotlin.context
 
-import cc.unitmesh.devti.context.FileContext
-import cc.unitmesh.devti.context.builder.FileContextBuilder
+import cc.unitmesh.sketch.context.FileContext
+import cc.unitmesh.sketch.context.builder.FileContextBuilder
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.annotations.NotNull
 import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtFile
 import org.jetbrains.kotlin.psi.KtImportList
