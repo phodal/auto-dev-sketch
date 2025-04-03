@@ -1,6 +1,7 @@
 package cc.unitmesh.terminal.sketch
 
 import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevColors
 import cc.unitmesh.sketch.AutoDevIcons
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.settings.coder.coderSetting
@@ -17,7 +18,8 @@ import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
-import com.intellij.openapi.actionSystem.DataContext
+import com.intellij.openapi.actionSystem.ex.ActionUtil
+import com.intellij.openapi.actionSystem.impl.SimpleDataContext
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.Project
@@ -31,6 +33,7 @@ import com.intellij.ui.components.panels.VerticalLayout
 import com.intellij.ui.components.panels.Wrapper
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
+import kotlinx.coroutines.Job
 import java.awt.BorderLayout
 import java.awt.Dimension
 import java.awt.Toolkit
@@ -41,10 +44,6 @@ import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
 import javax.swing.border.LineBorder
-import cc.unitmesh.sketch.AutoDevColors
-import com.intellij.openapi.actionSystem.ex.ActionUtil
-import com.intellij.openapi.actionSystem.impl.SimpleDataContext
-import kotlinx.coroutines.Job
 
 class TerminalSketchProvider : LanguageSketchProvider {
     override fun isSupported(lang: String): Boolean = lang == "bash" || lang == "shell"
@@ -322,11 +321,8 @@ class TerminalLangSketch(val project: Project, var content: String) : ExtensionL
             if (!enableAutoRunTerminal || !::executeAction.isInitialized) {
                 return@invokeLater
             }
-//
-//            val action =
-//                AnActionEvent.createFromAnAction(executeAction, null, "AutoExecuteTerminal", DataContext.EMPTY_CONTEXT)
+
             ActionUtil.invokeAction(executeAction, SimpleDataContext.getProjectContext(project), "AutoExecuteTerminal", null , null)
-//            executeAction.actionPerformed(action)
         }
     }
 

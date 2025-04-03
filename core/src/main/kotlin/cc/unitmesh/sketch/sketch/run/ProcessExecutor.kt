@@ -150,7 +150,14 @@ class ProcessExecutor(val project: Project) {
             commandLine.withWorkDirectory(basedir)
         }
 
-        return commandLine.startProcessWithPty(commands)
+        try {
+            val method = commandLine.javaClass.getDeclaredMethod("startProcessWithPty", List::class.java)
+            method.isAccessible = true
+            return method.invoke(commandLine, commands) as Process
+        } catch (e: Exception) {
+            AutoDevNotifications.notify(project, "Failed to start process with reflection: ${e.message}")
+            throw e
+        }
     }
 
     private fun formatCommand(command: String): String {
