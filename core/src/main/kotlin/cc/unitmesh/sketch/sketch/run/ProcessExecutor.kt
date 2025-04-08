@@ -109,21 +109,21 @@ class ProcessExecutor(val project: Project) {
         exitCode.await()
     }
 
-    /**
-     * for share process
-     */
-    fun createInteractiveProcess(): Process {
-        val commandLine = PtyCommandLine()
-        commandLine.withConsoleMode(false)
-        commandLine.withUnixOpenTtyToPreserveOutputAfterTermination(true)
-        commandLine.withInitialColumns(240)
-        commandLine.withInitialRows(80)
-        commandLine.withEnvironment("TERM", "dumb")
-        commandLine.withEnvironment("BASH_SILENCE_DEPRECATION_WARNING", "1")
-        commandLine.withEnvironment("GIT_PAGER", "cat")
-        val commands: List<String> = listOf("bash", "--noprofile", "--norc", "-i")
-        return commandLine.startProcessWithPty(commands)
-    }
+//    /**
+//     * for share process
+//     */
+//    fun createInteractiveProcess(): Process {
+//        val commandLine = PtyCommandLine()
+//        commandLine.withConsoleMode(false)
+//        commandLine.withUnixOpenTtyToPreserveOutputAfterTermination(true)
+//        commandLine.withInitialColumns(240)
+//        commandLine.withInitialRows(80)
+//        commandLine.withEnvironment("TERM", "dumb")
+//        commandLine.withEnvironment("BASH_SILENCE_DEPRECATION_WARNING", "1")
+//        commandLine.withEnvironment("GIT_PAGER", "cat")
+//        val commands: List<String> = listOf("bash", "--noprofile", "--norc", "-i")
+//        return commandLine.startProcessWithPty(commands)
+//    }
 
     private fun createProcess(shellScript: String): Process {
         val basedir = ProjectManager.getInstance().openProjects.firstOrNull()?.basePath
@@ -150,7 +150,14 @@ class ProcessExecutor(val project: Project) {
             commandLine.withWorkDirectory(basedir)
         }
 
-        return commandLine.startProcessWithPty(commands)
+        try {
+            val method = commandLine.javaClass.getDeclaredMethod("startProcessWithPty", List::class.java)
+            method.isAccessible = true
+            return method.invoke(commandLine, commands) as Process
+        } catch (e: Exception) {
+            AutoDevNotifications.notify(project, "Failed to start process with reflection: ${e.message}")
+            throw e
+        }
     }
 
     private fun formatCommand(command: String): String {

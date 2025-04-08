@@ -44,7 +44,7 @@ class TerminalExecuteAction(
                 sketch.resultSketch.updateViewText(sketch.lastExecutionResults + "\n\n[执行已手动停止]", true)
                 sketch.setResultStatus(TerminalExecutionState.TERMINATED)
 
-                sketch.toolbar.updateActionsImmediately()
+                sketch.toolbar.updateActionsAsync()
             }
             return
         }
@@ -52,7 +52,7 @@ class TerminalExecuteAction(
         sketch.isExecuting = true
         sketch.titleLabel.icon = AllIcons.RunConfigurations.TestState.Run
 
-        sketch.toolbar.updateActionsImmediately()
+        sketch.toolbar.updateActionsAsync()
 
         sketch.hasExecutionResults = false
         sketch.lastExecutionResults = ""
@@ -95,7 +95,7 @@ class TerminalExecuteAction(
                     sketch.titleLabel.icon = null
                     sketch.isExecuting = false
 
-                    sketch.toolbar.updateActionsImmediately()
+                    sketch.toolbar.updateActionsAsync()
 
                     val success = exitCode == 0
                     sketch.setResultStatus(
@@ -111,7 +111,7 @@ class TerminalExecuteAction(
                     sketch.titleLabel.icon = null
                     sketch.isExecuting = false
 
-                    sketch.toolbar.updateActionsImmediately()
+                    sketch.toolbar.updateActionsAsync()
 
                     sketch.resultSketch.updateViewText("${stdWriter.getContent()}\n错误: ${ex.message}", true)
                     sketch.setResultStatus(TerminalExecutionState.FAILED, ex.message)

@@ -3,7 +3,6 @@ package cc.unitmesh.sketch.observer.test
 import cc.unitmesh.sketch.sketch.ui.patch.readText
 import cc.unitmesh.sketch.util.isInProject
 import cc.unitmesh.sketch.util.relativePath
-import com.intellij.build.BuildView
 import com.intellij.execution.filters.FileHyperlinkInfo
 import com.intellij.execution.impl.ConsoleViewImpl
 import com.intellij.execution.impl.EditorHyperlinkSupport
@@ -12,11 +11,11 @@ import com.intellij.execution.testframework.sm.runner.ui.SMTRunnerConsoleView
 import com.intellij.execution.ui.ExecutionConsole
 import com.intellij.execution.ui.RunContentManager
 import com.intellij.openapi.application.runReadAction
+import com.intellij.openapi.editor.RangeMarker
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.GlobalSearchScope
-import com.intellij.refactoring.suggested.range
 import java.lang.reflect.Field
 
 object RunTestUtil {
@@ -114,13 +113,13 @@ object RunTestUtil {
                 return executionConsole
             }
 
-            is BuildView -> {
-                when (executionConsole.consoleView) {
-                    is SMTRunnerConsoleView -> {
-                        return getTestView(executionConsole.consoleView as SMTRunnerConsoleView)
-                    }
-                }
-            }
+//            is BuildView -> {
+//                when (executionConsole.consoleView) {
+//                    is SMTRunnerConsoleView -> {
+//                        return getTestView(executionConsole.consoleView as SMTRunnerConsoleView)
+//                    }
+//                }
+//            }
 
             is SMTRunnerConsoleView -> {
                 return getTestView(executionConsole)
@@ -142,3 +141,17 @@ object RunTestUtil {
         }
     }
 }
+
+val RangeMarker.range: TextRange?
+    get() {
+        if (!isValid) return null
+        val start = startOffset
+        val end = endOffset
+        return if (start in 0..end) {
+            TextRange(start, end)
+        }
+        else {
+            // Probably a race condition had happened and range marker is invalidated
+            null
+        }
+    }
