@@ -1,9 +1,9 @@
 <idea-plugin package="cc.unitmesh" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <id>cc.unitmesh.devti</id>
+    <id>cc.unitmesh.sketch</id>
     <xi:include href="/META-INF/autodev-core.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
     <!--suppress PluginXmlValidity -->
     <content>
-        <module name="cc.unitmesh.devti.language"/>
+        <module name="cc.unitmesh.sketch.language"/>
     </content>
 </idea-plugin>

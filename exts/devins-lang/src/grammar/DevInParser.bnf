@@ -1,18 +1,18 @@
 // should similar to markdown syntax
 // Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
 {
-  parserClass="cc.unitmesh.devti.language.parser.DevInParser"
+  parserClass="cc.unitmesh.sketch.language.parser.DevInParser"
 
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
   psiClassPrefix="DevIn"
   psiImplClassSuffix="Impl"
-  psiPackage="cc.unitmesh.devti.language.psi"
-  psiImplPackage="cc.unitmesh.devti.language.psi.impl"
+  psiPackage="cc.unitmesh.sketch.language.psi"
+  psiImplPackage="cc.unitmesh.sketch.language.psi.impl"
 
-  elementTypeHolderClass="cc.unitmesh.devti.language.psi.DevInTypes"
-  elementTypeClass="cc.unitmesh.devti.language.psi.DevInElementType"
-  tokenTypeClass="cc.unitmesh.devti.language.lexer.DevInTokenType"
+  elementTypeHolderClass="cc.unitmesh.sketch.language.psi.DevInTypes"
+  elementTypeClass="cc.unitmesh.sketch.language.psi.DevInElementType"
+  tokenTypeClass="cc.unitmesh.sketch.language.lexer.DevInTokenType"
 
   tokens=[
     AGENT_START        = "AGENT_START"

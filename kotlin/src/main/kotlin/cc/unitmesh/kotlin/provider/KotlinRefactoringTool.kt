@@ -1,10 +1,8 @@
 package cc.unitmesh.kotlin.provider
 
-import cc.unitmesh.devti.provider.RefactorInstElement
-import cc.unitmesh.devti.provider.RefactoringTool
+import cc.unitmesh.sketch.provider.RefactorInstElement
+import cc.unitmesh.sketch.provider.RefactoringTool
 import com.intellij.codeInsight.daemon.impl.quickfix.RenameElementFix
-import com.intellij.codeInsight.daemon.impl.quickfix.SafeDeleteFix
-import com.intellij.codeInspection.MoveToPackageFix
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.psi.*

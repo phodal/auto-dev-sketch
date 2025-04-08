@@ -1,7 +1,7 @@
 package cc.unitmesh.container
 
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.provider.RunService
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.provider.RunService
 import com.intellij.clouds.docker.gateway.DockerDevcontainerDeployContext
 import com.intellij.docker.DockerCloudConfiguration
 import com.intellij.docker.agent.devcontainers.DevcontainerPaths

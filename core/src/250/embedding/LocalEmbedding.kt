@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.embedding
+package cc.unitmesh.sketch.embedding
 
 import ai.djl.huggingface.tokenizers.HuggingFaceTokenizer
 import ai.onnxruntime.OnnxTensor

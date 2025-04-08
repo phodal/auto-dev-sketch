@@ -36,11 +36,11 @@ ScreenShot
 - `/browse`: browse web page, like `https://ide.unitmesh.cc`
 - `/refactor`: refactor code, like `rename`, `delete`, `move` etc. (since @1.8.6) (Java only)
 - `/file-func`: read the name of a file, support for: regex, example: `/file-func:regex(".*\.txt")`
-- `/structure`: get the structure of a file with AST/PSI, example: `/structure:cc.unitmesh.devti.language.psi`
+- `/structure`: get the structure of a file with AST/PSI, example: `/structure:cc.unitmesh.sketch.language.psi`
 - `/dir`: list files and directories in a tree-like structure, example: `/dir:src`
 - `/database`: read the content of a database, example: `/database:query\n```sql\nSELECT * FROM table\n````
 - `/localSearch`: search text in the scope (current only support project) will return 5 line before and after, example: `/localSearch:project\n```\nselect * from blog\n````
-- `/related`: get related code by AST (abstract syntax tree) for the current file, example: `/related:cc.unitmesh.devti.language.psi`
+- `/related`: get related code by AST (abstract syntax tree) for the current file, example: `/related:cc.unitmesh.sketch.language.psi`
 - `/open`: open a file in the editor, example: `/open:.github/dependabot.yml`
 - `/ripgrepSearch`: search text in the project with ripgrep, example: `/ripgrepSearch:.*AutoDev.*`
 

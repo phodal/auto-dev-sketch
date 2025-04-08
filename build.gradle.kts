@@ -190,8 +190,8 @@ project(":") {
     intellijPlatform {
         projectName = basePluginArchiveName
         pluginConfiguration {
-            id = "cc.unitmesh.devti"
-            name = "AutoDev"
+            id = "cc.unitmesh.sketch"
+            name = "AutoDev Sketch"
             version = prop("pluginVersion")
 
             ideaVersion {
@@ -786,15 +786,15 @@ project(":exts:devins-lang") {
     tasks {
         generateLexer {
             sourceFile.set(file("src/grammar/DevInLexer.flex"))
-            targetOutputDir.set(file("src/gen/cc/unitmesh/devti/language/lexer"))
+            targetOutputDir.set(file("src/gen/cc/unitmesh/sketch/language/lexer"))
             purgeOldFiles.set(true)
         }
 
         generateParser {
             sourceFile.set(file("src/grammar/DevInParser.bnf"))
             targetRootOutputDir.set(file("src/gen"))
-            pathToParser.set("cc/unitmesh/devti/language/parser/DevInParser.java")
-            pathToPsiRoot.set("cc/unitmesh/devti/language/psi")
+            pathToParser.set("cc/unitmesh/sketch/language/parser/DevInParser.java")
+            pathToPsiRoot.set("cc/unitmesh/sketch/language/psi")
             purgeOldFiles.set(true)
         }
 

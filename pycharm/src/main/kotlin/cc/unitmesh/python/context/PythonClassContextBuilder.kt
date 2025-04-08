@@ -1,7 +1,7 @@
 package cc.unitmesh.python.context
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.jetbrains.python.psi.PyClass

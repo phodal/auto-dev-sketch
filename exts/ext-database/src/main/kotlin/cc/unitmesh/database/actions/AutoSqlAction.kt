@@ -4,10 +4,10 @@ import cc.unitmesh.database.DbContextActionProvider
 import cc.unitmesh.database.flow.AutoSqlContext
 import cc.unitmesh.database.flow.AutoSqlFlow
 import cc.unitmesh.database.flow.AutoSqlBackgroundTask
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.gui.sendToChatPanel
-import cc.unitmesh.devti.intentions.action.base.ChatBaseIntention
-import cc.unitmesh.devti.llms.LlmFactory
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.gui.sendToChatPanel
+import cc.unitmesh.sketch.intentions.action.base.ChatBaseIntention
+import cc.unitmesh.sketch.llms.LlmFactory
 import com.intellij.database.model.DasTable
 import com.intellij.database.model.ObjectKind
 import com.intellij.database.model.RawDataSource

@@ -1,7 +1,7 @@
 package cc.unitmesh.rust.context
 
-import cc.unitmesh.devti.context.FileContext
-import cc.unitmesh.devti.context.builder.FileContextBuilder
+import cc.unitmesh.sketch.context.FileContext
+import cc.unitmesh.sketch.context.builder.FileContextBuilder
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
 import org.rust.lang.core.psi.RsFile

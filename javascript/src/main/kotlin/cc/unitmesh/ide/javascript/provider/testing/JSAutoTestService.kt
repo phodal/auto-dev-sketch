@@ -1,9 +1,9 @@
 package cc.unitmesh.ide.javascript.provider.testing
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.ClassContextProvider
-import cc.unitmesh.devti.provider.AutoTestService
-import cc.unitmesh.devti.provider.context.TestFileContext
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.ClassContextProvider
+import cc.unitmesh.sketch.provider.AutoTestService
+import cc.unitmesh.sketch.provider.context.TestFileContext
 import cc.unitmesh.ide.javascript.context.JavaScriptClassContextBuilder
 import cc.unitmesh.ide.javascript.context.JavaScriptMethodContextBuilder
 import cc.unitmesh.ide.javascript.util.JSPsiUtil

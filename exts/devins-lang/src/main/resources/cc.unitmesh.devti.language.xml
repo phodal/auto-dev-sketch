@@ -1,4 +1,4 @@
-<idea-plugin package="cc.unitmesh.devti.language">
+<idea-plugin package="cc.unitmesh.sketch.language">
     <dependencies>
         <plugin id="org.intellij.plugins.markdown"/>
         <plugin id="com.jetbrains.sh"/>
@@ -6,68 +6,68 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!--        refs: https://github.com/JetBrains/intellij-sdk-code-samples/blob/main/simple_language_plugin/src/main/resources/META-INF/plugin.xml-->
-        <fileType name="DevInFile" implementationClass="cc.unitmesh.devti.language.DevInFileType" fieldName="INSTANCE"
+        <fileType name="DevInFile" implementationClass="cc.unitmesh.sketch.language.DevInFileType" fieldName="INSTANCE"
                   language="DevIn" extensions="devin"/>
 
         <lang.parserDefinition language="DevIn"
-                               implementationClass="cc.unitmesh.devti.language.parser.DevInParserDefinition"/>
+                               implementationClass="cc.unitmesh.sketch.language.parser.DevInParserDefinition"/>
         <lang.syntaxHighlighterFactory language="DevIn"
-                                       implementationClass="cc.unitmesh.devti.language.highlight.DevInSyntaxHighlighterFactory"/>
+                                       implementationClass="cc.unitmesh.sketch.language.highlight.DevInSyntaxHighlighterFactory"/>
 
         <lang.ast.factory language="DevIn"
-                          implementationClass="cc.unitmesh.devti.language.DevInAstFactory"/>
+                          implementationClass="cc.unitmesh.sketch.language.DevInAstFactory"/>
 
-        <typedHandler implementation="cc.unitmesh.devti.language.DevInTypedHandler"/>
+        <typedHandler implementation="cc.unitmesh.sketch.language.DevInTypedHandler"/>
 
         <completion.contributor language="DevIn"
                                 id="devInCompletionContributor"
                                 order="last"
-                                implementationClass="cc.unitmesh.devti.language.completion.DevInCompletionContributor"/>
+                                implementationClass="cc.unitmesh.sketch.language.completion.DevInCompletionContributor"/>
         <completion.contributor language="DevIn"
                                 order="last"
-                                implementationClass="cc.unitmesh.devti.language.completion.UserCustomCompletionContributor"/>
+                                implementationClass="cc.unitmesh.sketch.language.completion.UserCustomCompletionContributor"/>
 
         <lang.foldingBuilder language="DevIn"
-                             implementationClass="cc.unitmesh.devti.language.folding.DevInCustomVariableFoldingBuilder"/>
+                             implementationClass="cc.unitmesh.sketch.language.folding.DevInCustomVariableFoldingBuilder"/>
         <lang.foldingBuilder language="DevIn"
-                             implementationClass="cc.unitmesh.devti.language.folding.DevInFileReferenceFoldingBuilder"/>
+                             implementationClass="cc.unitmesh.sketch.language.folding.DevInFileReferenceFoldingBuilder"/>
 
-        <languageInjector implementation="cc.unitmesh.devti.language.DevInLanguageInjector"/>
+        <languageInjector implementation="cc.unitmesh.sketch.language.DevInLanguageInjector"/>
 
 
-        <configurationType implementation="cc.unitmesh.devti.language.run.DevInsConfigurationType"/>
-        <programRunner implementation="cc.unitmesh.devti.language.run.DevInsProgramRunner"/>
-        <runConfigurationBeforeRunProviderDelegate implementation="cc.unitmesh.devti.language.run.DevInsBeforeRunProviderDelegate"/>
-        <runConfigurationProducer implementation="cc.unitmesh.devti.language.run.DevInsRunConfigurationProducer"/>
+        <configurationType implementation="cc.unitmesh.sketch.language.run.DevInsConfigurationType"/>
+        <programRunner implementation="cc.unitmesh.sketch.language.run.DevInsProgramRunner"/>
+        <runConfigurationBeforeRunProviderDelegate implementation="cc.unitmesh.sketch.language.run.DevInsBeforeRunProviderDelegate"/>
+        <runConfigurationProducer implementation="cc.unitmesh.sketch.language.run.DevInsRunConfigurationProducer"/>
         <runLineMarkerContributor language="DevIn"
-                                  implementationClass="cc.unitmesh.devti.language.run.DevInsRunLineMarkersProvider"/>
+                                  implementationClass="cc.unitmesh.sketch.language.run.DevInsRunLineMarkersProvider"/>
 
-        <lang.commenter language="DevIn" implementationClass="cc.unitmesh.devti.language.commenter.DevInsCommenter"/>
+        <lang.commenter language="DevIn" implementationClass="cc.unitmesh.sketch.language.commenter.DevInsCommenter"/>
 
         <lang.documentationProvider language="DevIn"
                                     id="devinsDocumentationProvider"
-                                    implementationClass="cc.unitmesh.devti.language.documentation.DevInsDocumentationProvider"/>
+                                    implementationClass="cc.unitmesh.sketch.language.documentation.DevInsDocumentationProvider"/>
 
         <localInspection language="DevIn" groupPath="DevIn" groupName="Lints"
                          displayName="Duplicate agent declaration"
                          enabledByDefault="true"
                          level="ERROR"
-                         implementationClass="cc.unitmesh.devti.language.lints.DevInsDuplicateAgentInspection"/>
+                         implementationClass="cc.unitmesh.sketch.language.lints.DevInsDuplicateAgentInspection"/>
     </extensions>
 
 
     <actions>
         <action id="runDevInsFileAction"
-                class="cc.unitmesh.devti.language.actions.DevInsRunFileAction"
+                class="cc.unitmesh.sketch.language.actions.DevInsRunFileAction"
                 use-shortcut-of="RunClass"/>
     </actions>
 
     <extensions defaultExtensionNs="cc.unitmesh">
-        <languageProcessor implementation="cc.unitmesh.devti.language.provider.DevInsPromptProcessor"/>
+        <languageProcessor implementation="cc.unitmesh.sketch.language.provider.DevInsPromptProcessor"/>
 
-        <runService implementation="cc.unitmesh.devti.language.compiler.service.ShellRunService"/>
-        <runService implementation="cc.unitmesh.devti.language.compiler.service.DevInRunService"/>
+        <runService implementation="cc.unitmesh.sketch.language.compiler.service.ShellRunService"/>
+        <runService implementation="cc.unitmesh.sketch.language.compiler.service.DevInRunService"/>
 
-        <sketchToolchainProvider implementation="cc.unitmesh.devti.language.compiler.DevInsSketchToolchainProvider"/>
+        <sketchToolchainProvider implementation="cc.unitmesh.sketch.language.compiler.DevInsSketchToolchainProvider"/>
     </extensions>
 </idea-plugin>

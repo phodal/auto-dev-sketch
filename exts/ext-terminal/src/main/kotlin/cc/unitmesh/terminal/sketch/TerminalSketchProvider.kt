@@ -1,16 +1,16 @@
 package cc.unitmesh.terminal.sketch
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevColors
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.settings.coder.coderSetting
-import cc.unitmesh.devti.sketch.SketchToolWindow
-import cc.unitmesh.devti.sketch.run.ShellSafetyCheck
-import cc.unitmesh.devti.sketch.ui.ExtensionLangSketch
-import cc.unitmesh.devti.sketch.ui.LanguageSketchProvider
-import cc.unitmesh.devti.sketch.ui.code.CodeHighlightSketch
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevColors
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.settings.coder.coderSetting
+import cc.unitmesh.sketch.sketch.SketchToolWindow
+import cc.unitmesh.sketch.sketch.run.ShellSafetyCheck
+import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
+import cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider
+import cc.unitmesh.sketch.sketch.ui.code.CodeHighlightSketch
+import cc.unitmesh.sketch.util.parser.CodeFence
 import cc.unitmesh.terminal.service.TerminalRunnerService
 import com.intellij.icons.AllIcons
 import com.intellij.lang.Language

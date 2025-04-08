@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.bridge
 
-import cc.unitmesh.devti.bridge.archview.model.UiComponent
-import cc.unitmesh.devti.bridge.provider.ComponentViewMode
+import cc.unitmesh.sketch.bridge.archview.model.UiComponent
+import cc.unitmesh.sketch.bridge.provider.ComponentViewMode
 import cc.unitmesh.ide.javascript.flow.ReactAutoPage
 import cc.unitmesh.ide.javascript.util.ReactPsiUtil
 import com.intellij.lang.javascript.JavaScriptFileType

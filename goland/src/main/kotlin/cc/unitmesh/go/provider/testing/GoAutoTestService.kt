@@ -1,8 +1,8 @@
 package cc.unitmesh.go.provider.testing
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.provider.AutoTestService
-import cc.unitmesh.devti.provider.context.TestFileContext
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.provider.AutoTestService
+import cc.unitmesh.sketch.provider.context.TestFileContext
 import cc.unitmesh.go.context.GoMethodContextBuilder
 import cc.unitmesh.go.context.GoStructContextBuilder
 import cc.unitmesh.go.util.GoPsiUtil

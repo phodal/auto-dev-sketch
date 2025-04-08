@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.embedding
+package cc.unitmesh.sketch.embedding
 
 import cc.unitmesh.document.parser.MdDocumentParser
 import cc.unitmesh.document.parser.MsOfficeDocumentParser

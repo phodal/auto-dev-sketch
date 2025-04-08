@@ -1,11 +1,11 @@
 package cc.unitmesh.terminal.sketch
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.sketch.run.ProcessExecutor
-import cc.unitmesh.devti.sketch.run.UIUpdatingWriter
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.sketch.run.ProcessExecutor
+import cc.unitmesh.sketch.sketch.run.UIUpdatingWriter
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction

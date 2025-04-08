@@ -1,9 +1,9 @@
 package cc.unitmesh.idea.service
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.ClassContextProvider
-import cc.unitmesh.devti.provider.AutoTestService
-import cc.unitmesh.devti.provider.context.TestFileContext
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.ClassContextProvider
+import cc.unitmesh.sketch.provider.AutoTestService
+import cc.unitmesh.sketch.provider.context.TestFileContext
 import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
 import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
 import com.intellij.execution.RunManager

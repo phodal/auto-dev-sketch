@@ -1,8 +1,8 @@
 package cc.unitmesh.python.provider
 
-import cc.unitmesh.devti.provider.BuildSystemProvider
-import cc.unitmesh.devti.provider.DevPackage
-import cc.unitmesh.devti.template.context.DockerfileContext
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.provider.DevPackage
+import cc.unitmesh.sketch.template.context.DockerfileContext
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.jetbrains.python.packaging.PyRequirement

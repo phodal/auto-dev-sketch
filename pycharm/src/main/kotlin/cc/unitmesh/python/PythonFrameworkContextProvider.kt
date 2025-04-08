@@ -1,8 +1,8 @@
 package cc.unitmesh.python
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
 import com.jetbrains.python.configuration.PyConfigurableInterpreterList

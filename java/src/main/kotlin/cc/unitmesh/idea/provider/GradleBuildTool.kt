@@ -1,7 +1,7 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.BuildTool
-import cc.unitmesh.devti.provider.CommonLibraryData
+import cc.unitmesh.sketch.provider.BuildTool
+import cc.unitmesh.sketch.provider.CommonLibraryData
 import com.intellij.execution.RunManager
 import com.intellij.execution.configurations.LocatableConfigurationBase
 import com.intellij.openapi.externalSystem.model.project.LibraryData

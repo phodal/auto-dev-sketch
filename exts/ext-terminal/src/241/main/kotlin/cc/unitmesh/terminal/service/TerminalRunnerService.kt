@@ -1,6 +1,6 @@
 package cc.unitmesh.terminal.service
 
-import cc.unitmesh.devti.sketch.run.ProcessExecutor
+import cc.unitmesh.sketch.sketch.run.ProcessExecutor
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service

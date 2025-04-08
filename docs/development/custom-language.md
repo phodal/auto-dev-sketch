@@ -45,25 +45,25 @@ JetBrains AI Assistant Extension Points:
     <extensionPoint qualifiedName="cc.unitmesh.fileContextBuilder"
                     beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
         <with attribute="implementationClass"
-              implements="cc.unitmesh.devti.context.builder.FileContextBuilder"/>
+              implements="cc.unitmesh.sketch.context.builder.FileContextBuilder"/>
     </extensionPoint>
 
     <extensionPoint qualifiedName="cc.unitmesh.classContextBuilder"
                     beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
         <with attribute="implementationClass"
-              implements="cc.unitmesh.devti.context.builder.ClassContextBuilder"/>
+              implements="cc.unitmesh.sketch.context.builder.ClassContextBuilder"/>
     </extensionPoint>
 
     <extensionPoint qualifiedName="cc.unitmesh.methodContextBuilder"
                     beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
         <with attribute="implementationClass"
-              implements="cc.unitmesh.devti.context.builder.MethodContextBuilder"/>
+              implements="cc.unitmesh.sketch.context.builder.MethodContextBuilder"/>
     </extensionPoint>
 
     <extensionPoint qualifiedName="cc.unitmesh.variableContextBuilder"
                     beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
         <with attribute="implementationClass"
-              implements="cc.unitmesh.devti.context.builder.VariableContextBuilder"/>
+              implements="cc.unitmesh.sketch.context.builder.VariableContextBuilder"/>
     </extensionPoint>
 </extensionPoints>
 ```
@@ -74,7 +74,7 @@ AutoDev Extension Points:
 
 <extensionPoints>
     <extensionPoint qualifiedName="cc.unitmesh.contextPrompter"
-                    interface="cc.unitmesh.devti.provider.ContextPrompter"
+                    interface="cc.unitmesh.sketch.provider.ContextPrompter"
                     dynamic="true"/>
 </extensionPoints>
 ```
@@ -82,6 +82,7 @@ AutoDev Extension Points:
 #### Java/IDEA Example
 
 ```xml
+
 <extensions defaultExtensionNs="cc.unitmesh">
     <!-- Language support   -->
     <classContextBuilder language="JAVA"
@@ -98,15 +99,15 @@ AutoDev Extension Points:
 
     <!-- TechStack Binding -->
     <extensionPoint qualifiedName="cc.unitmesh.contextPrompter"
-                    interface="cc.unitmesh.devti.provider.ContextPrompter"
+                    interface="cc.unitmesh.sketch.provider.ContextPrompter"
                     dynamic="true"/>
-  
+
     <extensionPoint qualifiedName="cc.unitmesh.testContextProvider"
-                    interface="cc.unitmesh.devti.provider.WriteTestService"
+                    interface="cc.unitmesh.sketch.provider.WriteTestService"
                     dynamic="true"/>
-  
+
     <extensionPoint qualifiedName="cc.unitmesh.chatContextProvider"
-                    interface="cc.unitmesh.devti.provider.context.ChatContextProvider"
+                    interface="cc.unitmesh.sketch.provider.context.ChatContextProvider"
                     dynamic="true"/>
 </extensions>
 ```

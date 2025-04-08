@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.util
 
-import cc.unitmesh.devti.util.isInProject
+import cc.unitmesh.sketch.util.isInProject
 import com.intellij.lang.ecmascript6.psi.ES6ExportDeclaration
 import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.lang.javascript.frameworks.commonjs.CommonJSUtil
@@ -17,7 +17,6 @@ import com.intellij.lang.javascript.psi.util.JSStubBasedPsiTreeUtil
 import com.intellij.lang.javascript.psi.util.JSUtils
 import com.intellij.openapi.roots.ProjectFileIndex
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.PsiPolyVariantReference
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.parents

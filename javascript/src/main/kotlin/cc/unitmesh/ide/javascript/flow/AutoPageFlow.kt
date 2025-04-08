@@ -1,11 +1,11 @@
 package cc.unitmesh.ide.javascript.flow
 
-import cc.unitmesh.devti.bridge.archview.model.UiComponent
-import cc.unitmesh.devti.flow.TaskFlow
-import cc.unitmesh.devti.gui.chat.NormalChatCodingPanel
-import cc.unitmesh.devti.llms.LLMProvider
-import cc.unitmesh.devti.template.GENIUS_PAGE
-import cc.unitmesh.devti.template.TemplateRender
+import cc.unitmesh.sketch.bridge.archview.model.UiComponent
+import cc.unitmesh.sketch.flow.TaskFlow
+import cc.unitmesh.sketch.gui.chat.NormalChatCodingPanel
+import cc.unitmesh.sketch.llms.LLMProvider
+import cc.unitmesh.sketch.template.GENIUS_PAGE
+import cc.unitmesh.sketch.template.TemplateRender
 import cc.unitmesh.ide.javascript.flow.model.AutoPageContext
 import kotlinx.coroutines.runBlocking
 

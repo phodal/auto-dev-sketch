@@ -1,8 +1,8 @@
 package cc.unitmesh.mermaid
 
-import cc.unitmesh.devti.sketch.ui.ExtensionLangSketch
-import cc.unitmesh.devti.sketch.ui.preview.FileEditorPreviewSketch
-import cc.unitmesh.devti.sketch.ui.LanguageSketchProvider
+import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
+import cc.unitmesh.sketch.sketch.ui.preview.FileEditorPreviewSketch
+import cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.testFramework.LightVirtualFile

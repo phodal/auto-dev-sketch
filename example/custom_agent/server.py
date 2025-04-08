@@ -223,7 +223,7 @@ diff --git a/src/main/java/cc/unitmesh/untitled/demo/controller/BlogCategoryCont
  
  @RestController
  public class BlogCategoryController {
--    // devti://story/github/1
+-    // sketch://story/github/1
 +    public void addCategory(String categoryName) {
 +        // ... add category logic here
 +    }

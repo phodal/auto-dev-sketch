@@ -1,7 +1,7 @@
 package cc.unitmesh.endpoints.bridge
 
-import cc.unitmesh.devti.bridge.provider.KnowledgeWebApiProvider
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.bridge.provider.KnowledgeWebApiProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import com.intellij.microservices.endpoints.EndpointsProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.progress.ProgressIndicator

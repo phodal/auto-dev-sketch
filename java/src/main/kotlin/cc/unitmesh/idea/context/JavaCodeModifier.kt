@@ -1,7 +1,6 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.builder.CodeModifier
-import cc.unitmesh.idea.service.JavaAutoTestService
+import cc.unitmesh.sketch.context.builder.CodeModifier
 import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.application.ReadAction

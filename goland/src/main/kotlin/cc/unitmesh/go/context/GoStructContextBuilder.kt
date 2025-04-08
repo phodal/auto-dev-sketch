@@ -1,7 +1,7 @@
 package cc.unitmesh.go.context
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
 import cc.unitmesh.go.util.GoPsiUtil
 import com.goide.psi.GoMethodDeclaration
 import com.goide.psi.GoTypeDeclaration

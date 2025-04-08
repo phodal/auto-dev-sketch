@@ -1,8 +1,8 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.MethodContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
-import cc.unitmesh.devti.context.builder.MethodContextBuilder
+import cc.unitmesh.sketch.context.MethodContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.builder.MethodContextBuilder
 import cc.unitmesh.idea.service.JavaRelatedContext.cleanUp
 import cc.unitmesh.idea.service.JavaTypeUtil
 import com.intellij.openapi.application.runReadAction

@@ -1,6 +1,6 @@
 package cc.unitmesh.ide.javascript.flow
 
-import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevBundle
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task

@@ -1,12 +1,11 @@
 package cc.unitmesh.database.flow
 
 import cc.unitmesh.database.DbContextActionProvider
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.flow.TaskFlow
-import cc.unitmesh.devti.gui.chat.NormalChatCodingPanel
-import cc.unitmesh.devti.llms.LLMProvider
-import cc.unitmesh.devti.template.GENIUS_SQL
-import cc.unitmesh.devti.template.TemplateRender
+import cc.unitmesh.sketch.flow.TaskFlow
+import cc.unitmesh.sketch.gui.chat.NormalChatCodingPanel
+import cc.unitmesh.sketch.llms.LLMProvider
+import cc.unitmesh.sketch.template.GENIUS_SQL
+import cc.unitmesh.sketch.template.TemplateRender
 import com.intellij.openapi.diagnostic.logger
 import kotlinx.coroutines.runBlocking
 

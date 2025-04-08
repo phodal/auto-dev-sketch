@@ -1,7 +1,7 @@
 package cc.unitmesh.dependencies
 
-import cc.unitmesh.devti.provider.BuildSystemProvider
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.packageChecker.api.PackageDeclaration

@@ -1,9 +1,9 @@
 package cc.unitmesh.go.provider
 
-import cc.unitmesh.devti.sketch.ui.ExtensionLangSketch
-import cc.unitmesh.devti.sketch.ui.LanguageSketchProvider
-import cc.unitmesh.devti.sketch.ui.code.CodeHighlightSketch
-import cc.unitmesh.devti.sketch.ui.preview.FileEditorPreviewSketch
+import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
+import cc.unitmesh.sketch.sketch.ui.LanguageSketchProvider
+import cc.unitmesh.sketch.sketch.ui.code.CodeHighlightSketch
+import cc.unitmesh.sketch.sketch.ui.preview.FileEditorPreviewSketch
 import com.goide.GoLanguage
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.EditorFactory

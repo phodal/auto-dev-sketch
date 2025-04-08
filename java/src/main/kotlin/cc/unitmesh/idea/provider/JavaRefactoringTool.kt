@@ -1,8 +1,8 @@
 // Copyright 2000-2024 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.RefactorInstElement
-import cc.unitmesh.devti.provider.RefactoringTool
+import cc.unitmesh.sketch.provider.RefactorInstElement
+import cc.unitmesh.sketch.provider.RefactoringTool
 import com.intellij.codeInsight.daemon.impl.quickfix.RenameElementFix
 import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.openapi.application.runReadAction

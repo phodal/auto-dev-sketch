@@ -1,8 +1,8 @@
 package cc.unitmesh.git.mcp
 
-import cc.unitmesh.devti.mcp.host.AbstractMcpTool
-import cc.unitmesh.devti.mcp.host.NoArgs
-import cc.unitmesh.devti.mcp.host.Response
+import cc.unitmesh.sketch.mcp.host.AbstractMcpTool
+import cc.unitmesh.sketch.mcp.host.NoArgs
+import cc.unitmesh.sketch.mcp.host.Response
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.vcs.ProjectLevelVcsManager

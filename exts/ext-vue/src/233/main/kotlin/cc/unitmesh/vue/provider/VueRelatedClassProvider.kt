@@ -1,7 +1,7 @@
 // Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package cc.unitmesh.vue.provider
 
-import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.sketch.provider.RelatedClassesProvider
 import com.intellij.javascript.nodejs.PackageJsonData
 import com.intellij.lang.ecmascript6.psi.*
 import com.intellij.lang.ecmascript6.psi.impl.ES6ImportPsiUtil.ES6_IMPORT_DECLARATION

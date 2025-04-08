@@ -1,12 +1,10 @@
 <idea-plugin package="cc.unitmesh" xmlns:xi="http://www.w3.org/2001/XInclude" allow-bundled-update="true">
-    <id>cc.unitmesh.devti</id>
-    <name>AutoDev</name>
+    <id>cc.unitmesh.sketch</id>
+    <name>AutoDev Sketch</name>
     <vendor>Phodal Huang</vendor>
 
     <description><![CDATA[
-    <a href="https://plugins.jetbrains.com/plugin/21520-autodev">Homepage</a> | <a href="https://github.com/unit-mesh/auto-dev">Github</a> | <a href="https://github.com/unit-mesh/auto-dev-vscode">VSCode Version</a> | <a href="https://github.com/unit-mesh/auto-dev/issues">Issues</a>.<br />
-    <br/>
-    AutoDev is a fully automated AI-assisted programming tool and an implementation of the DevTi Intellij IDE designed for use in-flight.
+    🧙‍AutoDev: The AI-powered coding wizard（AI 驱动编程助手）with multilingual support 🌐, auto code generation 🏗️.
     ]]></description>
 
     <change-notes><![CDATA[

@@ -1,24 +1,18 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.BuildSystemProvider
-import cc.unitmesh.devti.provider.DevPackage
-import cc.unitmesh.devti.template.context.DockerfileContext
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.provider.DevPackage
+import cc.unitmesh.sketch.template.context.DockerfileContext
 import cc.unitmesh.idea.detectLanguageLevel
-import com.intellij.openapi.externalSystem.model.ProjectKeys
 import com.intellij.openapi.externalSystem.service.project.ProjectDataManager
 import com.intellij.openapi.externalSystem.service.ui.completion.TextCompletionInfo
-import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.psi.PsiFile
 import org.jetbrains.idea.maven.project.MavenProjectsManager
-import org.jetbrains.plugins.gradle.GradleManager
 import org.jetbrains.plugins.gradle.service.project.GradleTasksIndices
-import org.jetbrains.plugins.gradle.settings.GradleSettings
-import org.jetbrains.plugins.gradle.settings.GradleSystemSettings
 import org.jetbrains.plugins.gradle.util.GradleConstants
-import org.jetbrains.plugins.gradle.util.GradleModuleData
 
 
 open class JavaBuildSystemProvider : BuildSystemProvider() {

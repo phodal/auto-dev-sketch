@@ -1,8 +1,8 @@
 package cc.unitmesh.endpoints.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.intellij.microservices.endpoints.EndpointsProvider
 import com.intellij.microservices.endpoints.EndpointsUrlTargetProvider
 import com.intellij.openapi.application.runReadAction

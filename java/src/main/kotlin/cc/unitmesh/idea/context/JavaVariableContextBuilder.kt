@@ -1,8 +1,8 @@
 package cc.unitmesh.idea.context
 
-import cc.unitmesh.devti.context.VariableContext
-import cc.unitmesh.devti.context.builder.ClassContextBuilder
-import cc.unitmesh.devti.context.builder.VariableContextBuilder
+import cc.unitmesh.sketch.context.VariableContext
+import cc.unitmesh.sketch.context.builder.ClassContextBuilder
+import cc.unitmesh.sketch.context.builder.VariableContextBuilder
 import com.intellij.openapi.application.runReadAction
 import com.intellij.psi.*
 

@@ -1,6 +1,6 @@
 package cc.unitmesh.python.provider
 
-import cc.unitmesh.devti.provider.RunService
+import cc.unitmesh.sketch.provider.RunService
 import com.intellij.execution.RunManager
 import com.intellij.execution.actions.ConfigurationContext
 import com.intellij.execution.actions.RunConfigurationProducer

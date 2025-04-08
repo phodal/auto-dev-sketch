@@ -1,7 +1,7 @@
 package cc.unitmesh.ide.javascript.provider
 
-import cc.unitmesh.devti.custom.document.LivingDocumentationType
-import cc.unitmesh.devti.provider.LivingDocumentation
+import cc.unitmesh.sketch.custom.document.LivingDocumentationType
+import cc.unitmesh.sketch.provider.LivingDocumentation
 import com.intellij.codeInsight.daemon.impl.CollectHighlightsUtil
 import com.intellij.lang.ecmascript6.psi.ES6ExportDefaultAssignment
 import com.intellij.lang.ecmascript6.psi.ES6ImportSpecifier

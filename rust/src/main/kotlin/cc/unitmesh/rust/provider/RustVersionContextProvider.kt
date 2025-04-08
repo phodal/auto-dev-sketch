@@ -1,8 +1,8 @@
 package cc.unitmesh.rust.provider
 
-import cc.unitmesh.devti.provider.context.ChatContextItem
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import org.rust.cargo.project.model.CargoProjectsService

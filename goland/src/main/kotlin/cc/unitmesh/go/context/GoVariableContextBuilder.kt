@@ -1,7 +1,7 @@
 package cc.unitmesh.go.context
 
-import cc.unitmesh.devti.context.VariableContext
-import cc.unitmesh.devti.context.builder.VariableContextBuilder
+import cc.unitmesh.sketch.context.VariableContext
+import cc.unitmesh.sketch.context.builder.VariableContextBuilder
 import com.goide.psi.GoVarOrConstDefinition
 import com.intellij.psi.PsiElement
 

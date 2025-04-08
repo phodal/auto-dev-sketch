@@ -1,6 +1,6 @@
 package cc.unitmesh.idea.provider
 
-import cc.unitmesh.devti.provider.devins.DevInsSymbolProvider
+import cc.unitmesh.sketch.provider.devins.DevInsSymbolProvider
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.codeInsight.lookup.LookupElementBuilder

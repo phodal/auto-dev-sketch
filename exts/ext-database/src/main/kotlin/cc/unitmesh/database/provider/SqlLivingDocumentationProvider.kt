@@ -1,7 +1,7 @@
 package cc.unitmesh.database.provider
 
-import cc.unitmesh.devti.custom.document.LivingDocumentationType
-import cc.unitmesh.devti.provider.LivingDocumentation
+import cc.unitmesh.sketch.custom.document.LivingDocumentationType
+import cc.unitmesh.sketch.provider.LivingDocumentation
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
