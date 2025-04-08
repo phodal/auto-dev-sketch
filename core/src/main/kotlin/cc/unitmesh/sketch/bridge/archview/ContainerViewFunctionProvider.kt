@@ -4,7 +4,6 @@ import cc.unitmesh.sketch.bridge.ArchViewCommand
 import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.util.NlsSafe
 
 class ContainerViewFunctionProvider : ToolchainFunctionProvider {
     override suspend fun isApplicable(project: Project, funcName: String) =
@@ -17,11 +16,11 @@ class ContainerViewFunctionProvider : ToolchainFunctionProvider {
         prop: String,
         args: List<Any>,
         allVariables: Map<String, Any?>,
-        commandName: @NlsSafe String
+        commandName: String
     ): String {
         val modules = ModuleManager.getInstance(project).modules
         return "Here is current project modules:\n```\n" + modules.joinToString("\n") {
-            "module: ${it.moduleTypeName} - ${it.name}"
+            "module: ${it.getOptionValue("type")} - ${it.name}"
         } + "\n```"
     }
 }
