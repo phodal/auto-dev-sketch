@@ -592,106 +592,106 @@ class GetProjectDependenciesTool : AbstractMcpTool<NoArgs>() {
     }
 }
 
-class ListAvailableActionsTool : AbstractMcpTool<NoArgs>() {
-    override val name: String = "list_available_actions"
-    override val description: String = """
-        Lists all available actions in JetBrains IDE editor.
-        Returns a JSON array of objects containing action information:
-        - id: The action ID
-        - text: The action presentation text
-        Use this tool to discover available actions for execution with execute_action_by_id.
-    """.trimIndent()
-
-    override fun handle(project: Project, args: NoArgs): Response {
-        val actionManager = ActionManager.getInstance() as ActionManagerEx
-        val dataContext = DataManager.getInstance().getDataContext()
-
-        val availableActions = runReadAction {
-            // Get all action IDs
-            actionManager.getActionIdList("").mapNotNull { actionId ->
-                val action = actionManager.getAction(actionId) ?: return@mapNotNull null
-
-                // Create event and presentation to check if action is enabled
-                val event = AnActionEvent.createFromAnAction(action, null, "", dataContext)
-                val presentation = action.templatePresentation.clone()
-
-                // Update presentation to check if action is available
-                action.update(event)
-
-                // Only include actions that have text and are enabled
-                if (event.presentation.isEnabledAndVisible && !presentation.text.isNullOrBlank()) {
-                    """{"id": "$actionId", "text": "${presentation.text.replace("\"", "\\\"")}"}"""
-                } else {
-                    null
-                }
-            }
-        }
-
-        return Response(availableActions.joinToString(",\n", prefix = "[", postfix = "]"))
-    }
-}
+//class ListAvailableActionsTool : AbstractMcpTool<NoArgs>() {
+//    override val name: String = "list_available_actions"
+//    override val description: String = """
+//        Lists all available actions in JetBrains IDE editor.
+//        Returns a JSON array of objects containing action information:
+//        - id: The action ID
+//        - text: The action presentation text
+//        Use this tool to discover available actions for execution with execute_action_by_id.
+//    """.trimIndent()
+//
+//    override fun handle(project: Project, args: NoArgs): Response {
+//        val actionManager = ActionManager.getInstance() as ActionManagerEx
+//        val dataContext = DataManager.getInstance().getDataContext()
+//
+//        val availableActions = runReadAction {
+//            // Get all action IDs
+//            actionManager.getActionIdList("").mapNotNull { actionId ->
+//                val action = actionManager.getAction(actionId) ?: return@mapNotNull null
+//
+//                // Create event and presentation to check if action is enabled
+//                val event = AnActionEvent.createFromAnAction(action, null, "", dataContext)
+//                val presentation = action.templatePresentation.clone()
+//
+//                // Update presentation to check if action is available
+//                action.update(event)
+//
+//                // Only include actions that have text and are enabled
+//                if (event.presentation.isEnabledAndVisible && !presentation.text.isNullOrBlank()) {
+//                    """{"id": "$actionId", "text": "${presentation.text.replace("\"", "\\\"")}"}"""
+//                } else {
+//                    null
+//                }
+//            }
+//        }
+//
+//        return Response(availableActions.joinToString(",\n", prefix = "[", postfix = "]"))
+//    }
+//}
 
 @Serializable
 data class ExecuteActionArgs(val actionId: String)
 
-class ExecuteActionByIdTool : AbstractMcpTool<ExecuteActionArgs>() {
-    override val name: String = "execute_action_by_id"
-    override val description: String = """
-        Executes an action by its ID in JetBrains IDE editor.
-        Requires an actionId parameter containing the ID of the action to execute.
-        Returns one of two possible responses:
-        - "ok" if the action was successfully executed
-        - "action not found" if the action with the specified ID was not found
-        Note: This tool doesn't wait for the action to complete.
-    """.trimIndent()
+//class ExecuteActionByIdTool : AbstractMcpTool<ExecuteActionArgs>() {
+//    override val name: String = "execute_action_by_id"
+//    override val description: String = """
+//        Executes an action by its ID in JetBrains IDE editor.
+//        Requires an actionId parameter containing the ID of the action to execute.
+//        Returns one of two possible responses:
+//        - "ok" if the action was successfully executed
+//        - "action not found" if the action with the specified ID was not found
+//        Note: This tool doesn't wait for the action to complete.
+//    """.trimIndent()
+//
+//    override fun handle(project: Project, args: ExecuteActionArgs): Response {
+//        val actionManager = ActionManager.getInstance()
+//        val action = actionManager.getAction(args.actionId)
+//
+//        if (action == null) {
+//            return Response(error = "action not found")
+//        }
+//
+//        ApplicationManager.getApplication().invokeLater({
+//            val event = AnActionEvent.createFromAnAction(
+//                action,
+//                null,
+//                "",
+//                DataManager.getInstance().dataContext
+//            )
+//            action.actionPerformed(event)
+//        }, ModalityState.NON_MODAL)
+//
+//        return Response("ok")
+//    }
+//}
 
-    override fun handle(project: Project, args: ExecuteActionArgs): Response {
-        val actionManager = ActionManager.getInstance()
-        val action = actionManager.getAction(args.actionId)
-
-        if (action == null) {
-            return Response(error = "action not found")
-        }
-
-        ApplicationManager.getApplication().invokeLater({
-            val event = AnActionEvent.createFromAnAction(
-                action,
-                null,
-                "",
-                DataManager.getInstance().dataContext
-            )
-            action.actionPerformed(event)
-        }, ModalityState.NON_MODAL)
-
-        return Response("ok")
-    }
-}
-
-class GetProgressIndicatorsTool : AbstractMcpTool<NoArgs>() {
-    override val name: String = "get_progress_indicators"
-    override val description: String = """
-        Retrieves the status of all running progress indicators in JetBrains IDE editor.
-        Returns a JSON array of objects containing progress information:
-        - text: The progress text/description
-        - fraction: The progress ratio (0.0 to 1.0)
-        - indeterminate: Whether the progress is indeterminate
-        Returns an empty array if no progress indicators are running.
-    """.trimIndent()
-
-    override fun handle(project: Project, args: NoArgs): Response {
-        val runningIndicators = CoreProgressManager.getCurrentIndicators()
-
-        val progressInfos = runningIndicators.map { indicator ->
-            val text = indicator.text ?: ""
-            val fraction = if (indicator.isIndeterminate) -1.0 else indicator.fraction
-            val indeterminate = indicator.isIndeterminate
-
-            """{"text": "${text.replace("\"", "\\\"")}", "fraction": $fraction, "indeterminate": $indeterminate}"""
-        }
-
-        return Response(progressInfos.joinToString(",\n", prefix = "[", postfix = "]"))
-    }
-}
+//class GetProgressIndicatorsTool : AbstractMcpTool<NoArgs>() {
+//    override val name: String = "get_progress_indicators"
+//    override val description: String = """
+//        Retrieves the status of all running progress indicators in JetBrains IDE editor.
+//        Returns a JSON array of objects containing progress information:
+//        - text: The progress text/description
+//        - fraction: The progress ratio (0.0 to 1.0)
+//        - indeterminate: Whether the progress is indeterminate
+//        Returns an empty array if no progress indicators are running.
+//    """.trimIndent()
+//
+//    override fun handle(project: Project, args: NoArgs): Response {
+//        val runningIndicators = CoreProgressManager.getCurrentIndicators()
+//
+//        val progressInfos = runningIndicators.map { indicator ->
+//            val text = indicator.text ?: ""
+//            val fraction = if (indicator.isIndeterminate) -1.0 else indicator.fraction
+//            val indeterminate = indicator.isIndeterminate
+//
+//            """{"text": "${text.replace("\"", "\\\"")}", "fraction": $fraction, "indeterminate": $indeterminate}"""
+//        }
+//
+//        return Response(progressInfos.joinToString(",\n", prefix = "[", postfix = "]"))
+//    }
+//}
 
 @Serializable
 data class WaitArgs(val milliseconds: Long = 5000)

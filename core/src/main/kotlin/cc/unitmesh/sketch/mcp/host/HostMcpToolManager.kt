@@ -34,9 +34,9 @@ class HostMcpToolManager {
             GetAllOpenFileTextsTool(),
             GetAllOpenFilePathsTool(),
             OpenFileInEditorTool(),
-            ListAvailableActionsTool(),
-            ExecuteActionByIdTool(),
-            GetProgressIndicatorsTool(),
+//            ListAvailableActionsTool(),
+//            ExecuteActionByIdTool(),
+//            GetProgressIndicatorsTool(),
             WaitTool(),
 
             /// autodev code
