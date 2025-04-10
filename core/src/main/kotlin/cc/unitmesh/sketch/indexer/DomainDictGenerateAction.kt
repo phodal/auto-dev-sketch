@@ -1,21 +1,21 @@
-package cc.unitmesh.devti.indexer
+package cc.unitmesh.sketch.indexer
 
-import cc.unitmesh.devti.indexer.provider.LangDictProvider
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.settings.coder.coderSetting
-import cc.unitmesh.devti.settings.locale.LanguageChangedCallback.presentationText
-import cc.unitmesh.devti.statusbar.AutoDevStatus
-import cc.unitmesh.devti.statusbar.AutoDevStatusService
-import cc.unitmesh.devti.template.GENIUS_CODE
-import cc.unitmesh.devti.template.TemplateRender
-import cc.unitmesh.devti.template.context.TemplateContext
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.indexer.provider.LangDictProvider
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.settings.coder.coderSetting
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.presentationText
+import cc.unitmesh.sketch.statusbar.AutoDevStatus
+import cc.unitmesh.sketch.statusbar.AutoDevStatusService
+import cc.unitmesh.sketch.template.GENIUS_CODE
+import cc.unitmesh.sketch.template.TemplateRender
+import cc.unitmesh.sketch.template.context.TemplateContext
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.guessProjectDir
 import kotlinx.coroutines.launch
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.indexer.usage.PromptEnhancer
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.indexer.usage.PromptEnhancer
 import com.intellij.openapi.actionSystem.Presentation
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
@@ -29,6 +29,7 @@ import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.fileEditor.FileEditor
 import com.intellij.openapi.editor.ScrollType
 import com.intellij.openapi.vfs.LocalFileSystem
+import javax.swing.Icon
 
 class DomainDictGenerateAction : AnAction() {
     init {
@@ -103,7 +104,7 @@ class DomainDictGenerateAction : AnAction() {
         return prompt
     }
 
-    private fun updatePresentation(presentation: Presentation, icon: javax.swing.Icon, enabled: Boolean) {
+    private fun updatePresentation(presentation: Presentation, icon: Icon, enabled: Boolean) {
         presentation.icon = icon
         presentation.isEnabled = enabled
     }

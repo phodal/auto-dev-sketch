@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.indexer
+package cc.unitmesh.sketch.indexer
 
-import cc.unitmesh.devti.mcp.host.readText
-import cc.unitmesh.devti.settings.coder.coderSetting
+import cc.unitmesh.sketch.mcp.host.readText
+import cc.unitmesh.sketch.settings.coder.coderSetting
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.components.Service

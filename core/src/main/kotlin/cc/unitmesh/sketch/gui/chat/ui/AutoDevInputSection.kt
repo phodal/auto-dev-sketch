@@ -113,7 +113,7 @@ class AutoDevInputSection(private val project: Project, val disposable: Disposab
 
         setupElementsList()
         val sendButtonPresentation = Presentation(AutoDevBundle.message("chat.panel.send"))
-        sendButtonPresentation.icon = AutoDevIcons.Send
+        sendButtonPresentation.icon = AutoDevIcons.SEND
         this.sendButtonPresentation = sendButtonPresentation
 
         val stopButtonPresentation = Presentation("Stop")

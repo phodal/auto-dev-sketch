@@ -228,7 +228,7 @@
         <!-- Indexer -->
         <extensionPoint qualifiedName="cc.unitmesh.langDictProvider"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
-            <with attribute="implementationClass" implements="cc.unitmesh.devti.indexer.provider.LangDictProvider"/>
+            <with attribute="implementationClass" implements="cc.unitmesh.sketch.indexer.provider.LangDictProvider"/>
         </extensionPoint>
     </extensionPoints>
 
@@ -417,10 +417,10 @@
                 icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
         </action>
 
-        <action id="cc.unitmesh.devti.DomainDictGenerate"
-                class="cc.unitmesh.devti.indexer.DomainDictGenerateAction"
+        <action id="cc.unitmesh.sketch.DomainDictGenerate"
+                class="cc.unitmesh.sketch.indexer.DomainDictGenerateAction"
                 description="Generate domains.csv"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT">
 
             <add-to-group group-id="ProjectViewToolbar" anchor="last"/>
         </action>

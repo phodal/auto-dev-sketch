@@ -1,6 +1,6 @@
 package cc.unitmesh.go.indexer.provider
 
-import cc.unitmesh.devti.indexer.provider.LangDictProvider
+import cc.unitmesh.sketch.indexer.provider.LangDictProvider
 import com.goide.GoFileType
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project

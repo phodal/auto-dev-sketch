@@ -1,6 +1,6 @@
 package cc.unitmesh.kotlin.indexer.provider
 
-import cc.unitmesh.devti.indexer.provider.LangDictProvider
+import cc.unitmesh.sketch.indexer.provider.LangDictProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project
 import com.intellij.psi.search.FileTypeIndex

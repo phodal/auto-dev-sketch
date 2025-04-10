@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.indexer.usage
+package cc.unitmesh.sketch.indexer.usage
 
-import cc.unitmesh.devti.indexer.DomainDictService
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.sketch.ui.patch.readText
-import cc.unitmesh.devti.template.GENIUS_CODE
-import cc.unitmesh.devti.template.TemplateRender
-import cc.unitmesh.devti.template.context.TemplateContext
+import cc.unitmesh.sketch.indexer.DomainDictService
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.sketch.ui.patch.readText
+import cc.unitmesh.sketch.template.GENIUS_CODE
+import cc.unitmesh.sketch.template.TemplateRender
+import cc.unitmesh.sketch.template.context.TemplateContext
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir

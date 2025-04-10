@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.indexer.provider
+package cc.unitmesh.sketch.indexer.provider
 
 import com.intellij.openapi.extensions.ExtensionPointName
 import com.intellij.openapi.project.Project
