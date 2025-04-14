@@ -1,8 +1,8 @@
-package cc.unitmesh.sketch.bridge
+package cc.unitmesh.devti.bridge
 
-import cc.unitmesh.sketch.gui.chat.message.ChatActionType
-import cc.unitmesh.sketch.sketch.SketchInputListener
-import cc.unitmesh.sketch.sketch.SketchToolWindow
+import cc.unitmesh.devti.gui.chat.message.ChatActionType
+import cc.unitmesh.devti.sketch.SketchInputListener
+import cc.unitmesh.devti.sketch.SketchToolWindow
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 
