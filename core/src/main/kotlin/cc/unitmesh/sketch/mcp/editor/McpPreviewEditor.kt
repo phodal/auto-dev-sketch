@@ -1,15 +1,15 @@
-package cc.unitmesh.devti.mcp.editor
+package cc.unitmesh.sketch.mcp.editor
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.llm2.model.LlmConfig
-import cc.unitmesh.devti.llms.custom.CustomLLMProvider
-import cc.unitmesh.devti.mcp.ui.McpToolListPanel
-import cc.unitmesh.devti.mcp.ui.McpChatResultPanel
-import cc.unitmesh.devti.mcp.ui.model.McpChatConfig
-import cc.unitmesh.devti.mcp.ui.McpChatConfigDialog
-import cc.unitmesh.devti.sketch.ui.patch.readText
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.llm2.model.LlmConfig
+import cc.unitmesh.sketch.llms.custom.CustomLLMProvider
+import cc.unitmesh.sketch.mcp.ui.McpToolListPanel
+import cc.unitmesh.sketch.mcp.ui.McpChatResultPanel
+import cc.unitmesh.sketch.mcp.ui.model.McpChatConfig
+import cc.unitmesh.sketch.mcp.ui.McpChatConfigDialog
+import cc.unitmesh.sketch.sketch.ui.patch.readText
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.actionSystem.Presentation
 import com.intellij.openapi.actionSystem.impl.ActionButton
 import com.intellij.openapi.application.runReadAction
@@ -18,6 +18,7 @@ import com.intellij.openapi.fileEditor.FileEditor
 import com.intellij.openapi.fileEditor.FileEditorState
 import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.util.UserDataHolder
 import com.intellij.openapi.util.UserDataHolderBase
 import com.intellij.openapi.vfs.VirtualFile
@@ -151,7 +152,7 @@ open class McpPreviewEditor(
             llmConfigs.map { it.name }.toTypedArray()
         }
 
-        chatbotSelector = com.intellij.openapi.ui.ComboBox(modelNames)
+        chatbotSelector = ComboBox(modelNames)
         configButton = JButton("Configure").apply {
             isFocusPainted = false
             addActionListener { showConfigDialog() }

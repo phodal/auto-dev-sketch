@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.mcp.ui.model
+package cc.unitmesh.sketch.mcp.ui.model
 
 import io.modelcontextprotocol.kotlin.sdk.Tool
 import kotlinx.serialization.encodeToString

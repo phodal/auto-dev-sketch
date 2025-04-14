@@ -1,6 +1,6 @@
 package cc.unitmesh.idea.indexer.provider
 
-import cc.unitmesh.devti.indexer.provider.LangDictProvider
+import cc.unitmesh.sketch.indexer.provider.LangDictProvider
 import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project

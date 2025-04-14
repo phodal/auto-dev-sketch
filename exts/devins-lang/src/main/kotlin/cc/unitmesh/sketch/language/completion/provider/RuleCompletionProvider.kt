@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.completion.provider
+package cc.unitmesh.sketch.language.completion.provider
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.completion.AutoDevFileLookupElement
-import cc.unitmesh.devti.sketch.rule.ProjectRule
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.completion.AutoDevFileLookupElement
+import cc.unitmesh.sketch.sketch.rule.ProjectRule
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionProvider
 import com.intellij.codeInsight.completion.CompletionResultSet

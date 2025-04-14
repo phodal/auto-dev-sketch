@@ -1,5 +1,6 @@
 package cc.unitmesh.devti.mcp.ui.model
 
+import cc.unitmesh.sketch.mcp.ui.model.ToolCall
 import org.assertj.core.api.Assertions.assertThat
 import kotlin.test.Test
 

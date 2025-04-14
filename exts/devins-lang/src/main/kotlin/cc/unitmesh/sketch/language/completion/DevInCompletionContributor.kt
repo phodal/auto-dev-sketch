@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.language.completion
 
+import cc.unitmesh.sketch.language.completion.provider.RuleCompletionProvider
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.language.completion.provider.*
 import cc.unitmesh.sketch.language.psi.DevInTypes

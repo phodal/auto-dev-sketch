@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.mcp.ui.model
+package cc.unitmesh.sketch.mcp.ui.model
 
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.util.parser.CodeFence
 import org.w3c.dom.Element
 import org.xml.sax.InputSource
 import java.io.StringReader

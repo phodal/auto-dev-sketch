@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.mcp.editor
+package cc.unitmesh.sketch.mcp.editor
 
 import com.intellij.openapi.fileEditor.*
 import com.intellij.openapi.fileEditor.impl.text.TextEditorProvider

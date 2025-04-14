@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.mcp.client
 
+import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
 import cc.unitmesh.sketch.AutoDevBundle
 import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.icons.AllIcons

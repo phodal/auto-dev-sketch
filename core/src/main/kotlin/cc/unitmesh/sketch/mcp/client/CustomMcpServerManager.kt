@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.mcp.client
+package cc.unitmesh.sketch.mcp.client
 
-import cc.unitmesh.devti.settings.customize.customizeSetting
+import cc.unitmesh.sketch.settings.customize.customizeSetting
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

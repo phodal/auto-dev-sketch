@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.mcp.editor
+package cc.unitmesh.sketch.mcp.editor
 
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.*

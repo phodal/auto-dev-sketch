@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.mcp.ui.eval
+package cc.unitmesh.sketch.mcp.ui.eval
 
-import cc.unitmesh.devti.mcp.ui.model.McpMessage
+import cc.unitmesh.sketch.mcp.ui.model.McpMessage
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBScrollPane

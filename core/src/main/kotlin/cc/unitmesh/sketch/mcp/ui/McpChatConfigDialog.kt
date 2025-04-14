@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.mcp.ui
+package cc.unitmesh.sketch.mcp.ui
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevSnippetFile
-import cc.unitmesh.devti.mcp.ui.model.McpChatConfig
-import cc.unitmesh.devti.sketch.ui.code.EditorUtil
-import cc.unitmesh.devti.sketch.ui.code.findDocument
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevSnippetFile
+import cc.unitmesh.sketch.mcp.ui.model.McpChatConfig
+import cc.unitmesh.sketch.sketch.ui.code.EditorUtil
+import cc.unitmesh.sketch.sketch.ui.code.findDocument
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.editor.EditorKind

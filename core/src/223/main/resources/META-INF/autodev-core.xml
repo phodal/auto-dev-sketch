@@ -227,7 +227,7 @@
 
         <!-- Indexer -->
         <extensionPoint qualifiedName="cc.unitmesh.langDictProvider"
-                        interface="cc.unitmesh.devti.indexer.provider.LangDictProvider"
+                        interface="cc.unitmesh.sketch.indexer.provider.LangDictProvider"
                         dynamic="true"
         />
     </extensionPoints>
@@ -418,7 +418,7 @@
         </action>
 
         <action id="cc.unitmesh.devti.DomainDictGenerate"
-                class="cc.unitmesh.devti.indexer.DomainDictGenerateAction"
+                class="cc.unitmesh.sketch.indexer.DomainDictGenerateAction"
                 description="Generate domains.csv"
                 icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT">
 

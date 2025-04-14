@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.mcp.ui
+package cc.unitmesh.sketch.mcp.ui
 
-import cc.unitmesh.devti.mcp.client.CustomMcpServerManager
-import cc.unitmesh.devti.mcp.client.MockDataGenerator
+import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
+import cc.unitmesh.sketch.mcp.client.MockDataGenerator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.HyperlinkLabel

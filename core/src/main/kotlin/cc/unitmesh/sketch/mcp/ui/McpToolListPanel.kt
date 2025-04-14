@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.mcp.ui
+package cc.unitmesh.sketch.mcp.ui
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.mcp.client.CustomMcpServerManager
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
 import com.intellij.openapi.project.Project
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel
@@ -14,7 +14,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.awt.BorderLayout
 import java.awt.GridLayout
-import javax.swing.BorderFactory
 import javax.swing.BoxLayout
 import javax.swing.JPanel
 import javax.swing.SwingConstants
