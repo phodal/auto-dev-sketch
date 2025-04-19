@@ -1,9 +1,9 @@
 package cc.unitmesh.ide.javascript.flow
 
-import cc.unitmesh.sketch.bridge.archview.model.UiComponent
+// keep this import
 import cc.unitmesh.ide.javascript.bridge.ReactComponentViewProvider
+import cc.unitmesh.sketch.bridge.archview.model.UiComponent
 import com.intellij.lang.javascript.JavaScriptFileType
-import com.intellij.lang.javascript.TypeScriptJSXFileType
 import com.intellij.lang.javascript.psi.JSFile
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -12,7 +12,6 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FileTypeIndex
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.ProjectScope
-// keep this import
 import kotlinx.serialization.json.Json
 
 enum class RouterFile(val filename: String) {
@@ -37,8 +36,8 @@ class ReactAutoPage(
         val psiManager = PsiManager.getInstance(project)
 
         val virtualFiles =
-            FileTypeIndex.getFiles(JavaScriptFileType.INSTANCE, searchScope) +
-                    FileTypeIndex.getFiles(TypeScriptJSXFileType.INSTANCE, searchScope)
+            FileTypeIndex.getFiles(JavaScriptFileType.INSTANCE, searchScope)
+//        + FileTypeIndex.getFiles(TypeScriptJSXFileType.INSTANCE, searchScope)
 
         val root = project.guessProjectDir()!!
 
