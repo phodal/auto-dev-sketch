@@ -5,7 +5,6 @@ import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.gui.snippet.container.AutoDevContainer
 import cc.unitmesh.sketch.provider.RunService
 import com.intellij.ide.scratch.ScratchRootType
-import com.intellij.json.JsonLanguage
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -36,7 +35,7 @@ class AutoDevRunAction : AnAction(AutoDevBundle.message("autodev.run.action")) {
         }
 
         val lightFile = file as? LightVirtualFile
-        if (lightFile?.language == JsonLanguage.INSTANCE) {
+        if (lightFile?.language?.displayName?.lowercase() == "json") {
             val virtualFile = AutoDevContainer.updateForDevContainer(project, file, document.text)
                 ?: lightFile
             e.presentation.isEnabled = RunService.provider(project, virtualFile) != null

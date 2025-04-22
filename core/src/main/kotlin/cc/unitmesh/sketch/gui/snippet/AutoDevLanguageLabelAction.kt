@@ -2,7 +2,6 @@ package cc.unitmesh.sketch.gui.snippet
 
 import cc.unitmesh.sketch.gui.snippet.container.AutoDevContainer
 import cc.unitmesh.sketch.util.parser.CodeFence
-import com.intellij.json.JsonLanguage
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -47,10 +46,11 @@ class AutoDevLanguageLabelAction : DumbAwareAction(), CustomComponentAction {
         var lightVirtualFile = FileDocumentManager.getInstance().getFile(editor.document) as? LightVirtualFile ?: return
 
         val project = e.project ?: return
+        val lang = lightVirtualFile.language?.displayName
         var displayName =
-            lightVirtualFile.language?.displayName ?: CodeFence.displayNameByExt(lightVirtualFile.extension ?: "txt")
+            lang ?: CodeFence.displayNameByExt(lightVirtualFile.extension ?: "txt")
 
-        if (lightVirtualFile.language == JsonLanguage.INSTANCE) {
+        if (lang?.lowercase() == "json") {
             val content = editor.document.text
             val possibleDevContainer = AutoDevContainer.updateForDevContainer(project, lightVirtualFile, content)
             if (possibleDevContainer != null) {

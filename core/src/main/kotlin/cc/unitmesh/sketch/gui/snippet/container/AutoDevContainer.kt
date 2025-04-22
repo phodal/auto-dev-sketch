@@ -1,9 +1,9 @@
 package cc.unitmesh.sketch.gui.snippet.container
 
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.intellij.json.JsonLanguage
 import com.intellij.openapi.project.Project
 import com.intellij.testFramework.LightVirtualFile
 
@@ -45,6 +45,7 @@ object AutoDevContainer {
         }
 
         if (!isDevContainer) return null
-        return LightVirtualFile("devcontainer.json", JsonLanguage.INSTANCE, content)
+        val language = CodeFence.findLanguage("json")
+        return LightVirtualFile("devcontainer.json", language, content)
     }
 }
