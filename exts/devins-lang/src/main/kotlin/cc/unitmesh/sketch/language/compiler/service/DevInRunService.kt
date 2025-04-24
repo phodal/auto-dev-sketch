@@ -1,8 +1,9 @@
-package cc.unitmesh.sketch.language.compiler.service
+package cc.unitmesh.devti.language.compiler.service
 
-import cc.unitmesh.sketch.language.run.DevInsConfiguration
-import cc.unitmesh.sketch.language.status.DevInsRunListener
-import cc.unitmesh.sketch.provider.RunService
+import cc.unitmesh.devti.language.run.DevInsConfiguration
+import cc.unitmesh.devti.language.run.runner.ShireConsoleView
+import cc.unitmesh.devti.language.status.DevInsRunListener
+import cc.unitmesh.devti.provider.RunService
 import com.intellij.execution.ExecutionManager
 import com.intellij.execution.configurations.RunProfile
 import com.intellij.execution.executors.DefaultRunExecutor
@@ -63,8 +64,10 @@ class DevInRunService : RunService {
         connection.subscribe(DevInsRunListener.TOPIC, object : DevInsRunListener {
             override fun runFinish(
                 string: String,
+                llmOutput: String,
                 event: ProcessEvent,
-                scriptPath: String
+                scriptPath: String,
+                consoleView: ShireConsoleView?
             ) {
                 future.complete(string)
                 /// append to input box

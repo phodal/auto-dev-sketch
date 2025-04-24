@@ -1,10 +1,10 @@
-package cc.unitmesh.sketch.custom.compile
+package cc.unitmesh.devti.custom.compile
 
-import cc.unitmesh.sketch.custom.team.DefaultTeamContextProvider
-import cc.unitmesh.sketch.gui.chat.message.ChatActionType
-import cc.unitmesh.sketch.provider.context.ChatContextProvider
-import cc.unitmesh.sketch.provider.context.ChatCreationContext
-import cc.unitmesh.sketch.provider.context.ChatOrigin
+import cc.unitmesh.devti.custom.team.DefaultTeamContextProvider
+import cc.unitmesh.devti.gui.chat.message.ChatActionType
+import cc.unitmesh.devti.provider.context.ChatContextProvider
+import cc.unitmesh.devti.provider.context.ChatCreationContext
+import cc.unitmesh.devti.provider.context.ChatOrigin
 import com.intellij.lang.Language
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.editor.Editor
@@ -14,7 +14,11 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiNameIdentifierOwner
-import cc.unitmesh.sketch.intentions.action.getElementToAction
+import cc.unitmesh.devti.intentions.action.getElementToAction
+import com.intellij.openapi.application.ReadAction
+import com.intellij.openapi.application.runReadAction
+import com.intellij.openapi.fileEditor.FileDocumentManager
+import com.intellij.psi.PsiManager
 import kotlinx.coroutines.runBlocking
 import org.apache.velocity.VelocityContext
 import org.apache.velocity.app.Velocity
@@ -31,7 +35,7 @@ class VariableTemplateCompiler(
     private val velocityContext = VelocityContext()
 
     init {
-        this.set(CustomVariable.SELECTION.variable, editor.selectionModel.selectedText ?: selectedText)
+        this.set(CustomVariable.SELECTION.variable, runReadAction { editor.selectionModel.selectedText ?: selectedText })
         this.set(CustomVariable.BEFORE_CURSOR.variable, file.text.substring(0, editor.caretModel.offset))
         this.set(CustomVariable.AFTER_CURSOR.variable, file.text.substring(editor.caretModel.offset))
         this.set(CustomVariable.ALL.variable, file.text)
@@ -39,6 +43,12 @@ class VariableTemplateCompiler(
 
     fun set(key: String, value: String) {
         velocityContext.put(key, value)
+    }
+
+    fun putAll(map: Map<String, Any>) {
+        map.forEach { (key, value) ->
+            velocityContext.put(key, value)
+        }
     }
 
     fun compile(template: String): String {
@@ -119,5 +129,24 @@ class VariableTemplateCompiler(
                 selectedText = selectedText,
             )
         }
+
+        fun defaultEditor(myProject: Project): Editor? {
+            return FileEditorManager.getInstance(myProject).selectedTextEditor
+        }
+
+        fun defaultElement(myProject: Project, currentEditor: Editor?): PsiElement? =
+            ReadAction.compute<PsiElement?, Throwable> {
+                currentEditor?.caretModel?.currentCaret?.offset?.let {
+                    val psiFile = currentEditor.let { editor ->
+                        val psiFile = FileDocumentManager.getInstance().getFile(editor.document)?.let { file ->
+                            PsiManager.getInstance(myProject).findFile(file)
+                        }
+
+                        psiFile
+                    } ?: return@let null
+
+                    psiFile.findElementAt(it) ?: return@let psiFile
+                }
+            }
     }
 }

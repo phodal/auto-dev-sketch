@@ -1,26 +1,27 @@
-package cc.unitmesh.sketch.gui.chat
+package cc.unitmesh.devti.gui.chat
 
 import cc.unitmesh.cf.core.llms.LlmMsg
-import cc.unitmesh.sketch.AutoDevBundle
-import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.sketch.alignRight
-import cc.unitmesh.sketch.fullHeight
-import cc.unitmesh.sketch.fullWidth
-import cc.unitmesh.sketch.gui.chat.message.ChatActionType
-import cc.unitmesh.sketch.gui.chat.message.ChatContext
-import cc.unitmesh.sketch.gui.chat.message.ChatRole
-import cc.unitmesh.sketch.gui.chat.ui.AutoDevInputListener
-import cc.unitmesh.sketch.gui.chat.ui.AutoDevInputSection
-import cc.unitmesh.sketch.gui.chat.ui.AutoDevInputTrigger
-import cc.unitmesh.sketch.gui.chat.view.MessageView
-import cc.unitmesh.sketch.gui.toolbar.CopyAllMessagesAction
-import cc.unitmesh.sketch.gui.toolbar.NewChatAction
-import cc.unitmesh.sketch.provider.TextContextPrompter
-import cc.unitmesh.sketch.provider.devins.LanguageProcessor
-import cc.unitmesh.sketch.settings.AutoDevSettingsState
-import cc.unitmesh.sketch.sketch.createActionButton
-import cc.unitmesh.sketch.sketch.ui.code.HtmlHighlightSketch
-import cc.unitmesh.sketch.util.whenDisposed
+import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.devti.alignRight
+import cc.unitmesh.devti.fullHeight
+import cc.unitmesh.devti.fullWidth
+import cc.unitmesh.devti.gui.chat.message.ChatActionType
+import cc.unitmesh.devti.gui.chat.message.ChatContext
+import cc.unitmesh.devti.gui.chat.message.ChatRole
+import cc.unitmesh.devti.gui.chat.ui.AutoDevInputListener
+import cc.unitmesh.devti.gui.chat.ui.AutoDevInputSection
+import cc.unitmesh.devti.gui.chat.ui.AutoDevInputTrigger
+import cc.unitmesh.devti.gui.chat.view.MessageView
+import cc.unitmesh.devti.gui.component.LoadingSpinner
+import cc.unitmesh.devti.gui.toolbar.CopyAllMessagesAction
+import cc.unitmesh.devti.gui.toolbar.NewChatAction
+import cc.unitmesh.devti.provider.TextContextPrompter
+import cc.unitmesh.devti.provider.devins.LanguageProcessor
+import cc.unitmesh.devti.settings.AutoDevSettingsState
+import cc.unitmesh.devti.sketch.createActionButton
+import cc.unitmesh.devti.sketch.ui.code.HtmlHighlightSketch
+import cc.unitmesh.devti.util.whenDisposed
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.progress.ProgressIndicator
@@ -44,33 +45,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.awt.*
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import javax.swing.*
-
-interface AutoDevChatPanel {
-    val progressBar: JProgressBar get() = JProgressBar()
-    fun resetChatSession()
-
-    /**
-     * Custom Agent Event
-     */
-    fun resetAgent()
-    fun hasSelectedCustomAgent(): Boolean
-    fun getSelectedCustomAgent(): CustomAgentConfig
-    fun selectAgent(config: CustomAgentConfig)
-
-    /**
-     * Progress Bar
-     */
-    fun hiddenProgressBar()
-    fun showProgressBar()
-
-    /**
-     * append custom view
-     */
-    fun appendWebView(content: String, project: Project)
-}
 
 class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, val disposable: Disposable?) :
     SimpleToolWindowPanel(true, true), NullableComponent, AutoDevChatPanel {
@@ -80,6 +58,15 @@ class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, va
     private var panelContent: DialogPanel
     private val myScrollPane: JBScrollPane
     private val delaySeconds: String get() = AutoDevSettingsState.getInstance().delaySeconds
+    
+    // Add a field to hold the loading panel
+    private var loadingPanel: JPanel? = null
+    
+    // Add a field to track if loading animation timer is running
+    private var loadingTimer: Timer? = null
+    
+    // Add a field to track loading animation step
+    private var loadingStep = 0
 
     init {
         focusMouseListener = object : MouseAdapter() {
@@ -176,6 +163,8 @@ class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, va
      * Add a message to the chat panel and update ui
      */
     fun addMessage(message: String, isMe: Boolean = false, displayPrompt: String = ""): MessageView {
+        clearLoadingView()
+        
         val role = if (isMe) ChatRole.User else ChatRole.Assistant
         val displayText = displayPrompt.ifEmpty { message }
 
@@ -188,6 +177,59 @@ class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, va
         progressBar.isIndeterminate = true
         updateUI()
         return messageView
+    }
+
+    fun showInitLoading(string: String) {
+        clearLoadingView()
+        loadingPanel = JPanel(BorderLayout())
+        loadingPanel!!.background = UIUtil.getListBackground()
+        loadingPanel!!.border = JBUI.Borders.empty(10)
+        
+        val spinnerPanel = JPanel()
+        spinnerPanel.isOpaque = false
+        
+        val spinner = LoadingSpinner()
+        spinnerPanel.add(spinner)
+        
+        val loadingLabel = JLabel(string, SwingConstants.CENTER)
+        loadingPanel!!.add(spinnerPanel, BorderLayout.CENTER)
+        loadingPanel!!.add(loadingLabel, BorderLayout.SOUTH)
+        
+        runInEdt {
+            myList.add(loadingPanel!!)
+            updateUI()
+            scrollToBottom()
+        }
+        
+        loadingStep = 0
+        
+        loadingTimer = Timer(100, null) // 100ms interval for smooth animation
+        loadingTimer!!.addActionListener {
+            loadingStep = (loadingStep + 1) % 12
+            spinner.repaint()
+        }
+        
+        loadingTimer!!.start()
+    }
+    
+    private fun clearLoadingView() {
+        loadingTimer?.stop()
+        loadingTimer = null
+        
+        if (loadingPanel != null) {
+            val panelToRemove = loadingPanel
+            runInEdt {
+                if (panelToRemove != null && panelToRemove.parent === myList) {
+                    try {
+                        myList.remove(panelToRemove)
+                        updateUI()
+                    } catch (e: Exception) {
+                        // Log or handle any exceptions that might occur during removal
+                    }
+                }
+            }
+            loadingPanel = null
+        }
     }
 
     fun getHistoryMessages(): List<LlmMsg.ChatMessage> {
@@ -293,6 +335,7 @@ class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, va
     override fun resetChatSession() {
         chatCodingService.stop()
         chatCodingService.clearSession()
+        clearLoadingView() // Clear loading view when resetting chat
         myList.removeAll()
         this.hiddenProgressBar()
         this.resetAgent()
@@ -342,4 +385,3 @@ class NormalChatCodingPanel(private val chatCodingService: ChatCodingService, va
         inputSection.moveCursorToStart()
     }
 }
-

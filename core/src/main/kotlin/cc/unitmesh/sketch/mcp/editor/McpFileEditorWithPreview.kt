@@ -1,11 +1,8 @@
 package cc.unitmesh.sketch.mcp.editor
 
+import cc.unitmesh.devti.AutoDevBundle
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.*
-import com.intellij.openapi.editor.event.VisibleAreaEvent
-import com.intellij.openapi.editor.event.VisibleAreaListener
-import com.intellij.openapi.editor.ex.util.EditorUtil
-import com.intellij.openapi.editor.impl.EditorImpl
 import com.intellij.openapi.fileEditor.TextEditor
 import com.intellij.openapi.fileEditor.TextEditorWithPreview
 import com.intellij.openapi.fileEditor.impl.text.TextEditorProvider
@@ -22,27 +19,10 @@ class McpFileEditorWithPreview(
 
     init {
         preview.setMainEditor(ourEditor.editor)
-        ourEditor.editor.scrollingModel.addVisibleAreaListener(MyVisibleAreaListener(), this)
     }
 
     override fun dispose() {
         TextEditorProvider.getInstance().disposeEditor(ourEditor)
-    }
-
-    inner class MyVisibleAreaListener : VisibleAreaListener {
-        private var previousLine = 0
-
-        override fun visibleAreaChanged(event: VisibleAreaEvent) {
-            val editor = event.editor
-            val y = editor.scrollingModel.verticalScrollOffset
-            val currentLine = if (editor is EditorImpl) editor.yToVisualLine(y) else y / editor.lineHeight
-            if (currentLine == previousLine) {
-                return
-            }
-
-            previousLine = currentLine
-            preview.scrollToSrcOffset(EditorUtil.getVisualLineEndOffset(editor, currentLine))
-        }
     }
 
     override fun createToolbar(): ActionToolbar {
@@ -55,7 +35,11 @@ class McpFileEditorWithPreview(
 
     private fun createActionGroup(project: Project): ActionGroup {
         return DefaultActionGroup(
-            object : AnAction("Preview", "Preview", AllIcons.Actions.Preview) {
+            object : AnAction(
+                AutoDevBundle.message("mcp.preview.editor.title"),
+                AutoDevBundle.message("mcp.preview.editor.title"),
+                AllIcons.Actions.Preview
+            ) {
                 override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
                 override fun update(e: AnActionEvent) {
                     e.presentation.isEnabled = !DumbService.isDumb(project)
@@ -68,7 +52,11 @@ class McpFileEditorWithPreview(
                     }
                 }
             },
-            object : AnAction("Refresh", "Refresh preview panel", AllIcons.Actions.Refresh) {
+            object : AnAction(
+                AutoDevBundle.message("mcp.editor.refresh.title"),
+                AutoDevBundle.message("mcp.editor.refresh.title"),
+                AllIcons.Actions.Refresh
+            ) {
                 override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
                 override fun update(e: AnActionEvent) {
                     e.presentation.isEnabled = !DumbService.isDumb(project)

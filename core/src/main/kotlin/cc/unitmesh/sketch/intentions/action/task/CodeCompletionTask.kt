@@ -1,13 +1,12 @@
-package cc.unitmesh.sketch.intentions.action.task
+package cc.unitmesh.devti.intentions.action.task
 
-import cc.unitmesh.sketch.AutoDevBundle
-import cc.unitmesh.sketch.inlay.chunks.SimilarChunksWithPaths
-import cc.unitmesh.sketch.llms.LlmFactory
-import cc.unitmesh.sketch.util.AutoDevCoroutineScope
-import cc.unitmesh.sketch.intentions.action.CodeCompletionBaseIntention
-import cc.unitmesh.sketch.statusbar.AutoDevStatus
-import cc.unitmesh.sketch.statusbar.AutoDevStatusService
-import cc.unitmesh.sketch.util.InsertUtil
+import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.devti.inlay.chunks.SimilarChunksWithPaths
+import cc.unitmesh.devti.llms.LlmFactory
+import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.devti.statusbar.AutoDevStatus
+import cc.unitmesh.devti.statusbar.AutoDevStatusService
+import cc.unitmesh.devti.util.InsertUtil
 import com.intellij.lang.LanguageCommenters
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.command.WriteCommandAction
@@ -64,16 +63,16 @@ class CodeCompletionTask(private val request: CodeCompletionRequest) :
     private fun promptText(): String {
         val documentLength = request.editor.document.textLength
         val prefix = if (request.offset > documentLength) {
-            request.prefixText
+            request.prefix
         } else {
             val text = request.editor.document.text
             text.substring(0, request.offset)
         }
 
         val prompt = if (chunksString == null) {
-            "Complete code: \n$prefix"
+            prefix
         } else {
-            "Complete code: \n$commentPrefix\n$chunksString\n$prefix"
+            "$commentPrefix\n$chunksString\n$prefix"
         }
 
         return prompt
@@ -83,7 +82,6 @@ class CodeCompletionTask(private val request: CodeCompletionRequest) :
         AutoDevStatusService.notifyApplication(AutoDevStatus.InProgress)
         val prompt = promptText()
 
-        logger.warn("Prompt: $prompt")
         AutoDevCoroutineScope.scope(project).launch {
             try {
                 val flow: Flow<String> = LlmFactory.createCompletion(project).stream(prompt, "", false)
@@ -103,6 +101,6 @@ class CodeCompletionTask(private val request: CodeCompletionRequest) :
     }
 
     companion object {
-        private val logger = logger<CodeCompletionBaseIntention>()
+        private val logger = logger<CodeCompletionTask>()
     }
 }
