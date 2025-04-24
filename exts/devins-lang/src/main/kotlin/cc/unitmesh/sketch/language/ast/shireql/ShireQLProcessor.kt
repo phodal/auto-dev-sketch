@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.ast.shireql
+package cc.unitmesh.sketch.language.ast.shireql
 
-import cc.unitmesh.devti.devins.shireql.ShireQLInterpreter
-import cc.unitmesh.devti.language.ast.FunctionStatementProcessor
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.ast.MethodCall
+import cc.unitmesh.sketch.devins.shireql.ShireQLInterpreter
+import cc.unitmesh.sketch.language.ast.FunctionStatementProcessor
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.MethodCall
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

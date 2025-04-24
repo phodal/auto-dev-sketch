@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.regression
+package cc.unitmesh.sketch.language.regression
 
-import cc.unitmesh.devti.language.ast.variable.ShireVariableTemplateCompiler
-import cc.unitmesh.devti.language.compiler.DevInsCompiler
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.language.ast.variable.ShireVariableTemplateCompiler
+import cc.unitmesh.sketch.language.compiler.DevInsCompiler
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.language.psi.DevInFile
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import kotlinx.coroutines.runBlocking
 import org.intellij.lang.annotations.Language

@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.ast.shireql
+package cc.unitmesh.sketch.language.ast.shireql
 
-import cc.unitmesh.devti.language.ast.FrontMatterType
-import cc.unitmesh.devti.language.ast.ShirePsiQueryStatement
-import cc.unitmesh.devti.language.ast.Statement
-import cc.unitmesh.devti.language.ast.VariableElement
-import cc.unitmesh.devti.language.compiler.HobbitHoleParser
-import cc.unitmesh.devti.language.psi.DevInFromClause
-import cc.unitmesh.devti.language.psi.DevInQueryStatement
-import cc.unitmesh.devti.language.psi.DevInSelectClause
-import cc.unitmesh.devti.language.psi.DevInWhereClause
+import cc.unitmesh.sketch.language.ast.FrontMatterType
+import cc.unitmesh.sketch.language.ast.ShirePsiQueryStatement
+import cc.unitmesh.sketch.language.ast.Statement
+import cc.unitmesh.sketch.language.ast.VariableElement
+import cc.unitmesh.sketch.language.compiler.HobbitHoleParser
+import cc.unitmesh.sketch.language.psi.DevInFromClause
+import cc.unitmesh.sketch.language.psi.DevInQueryStatement
+import cc.unitmesh.sketch.language.psi.DevInSelectClause
+import cc.unitmesh.sketch.language.psi.DevInWhereClause
 
 
 object ShireAstQLParser {

@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.middleware.builtin.ui
+package cc.unitmesh.sketch.language.middleware.builtin.ui
 
 import com.intellij.ui.JBColor
 import com.intellij.ui.jcef.JBCefBrowser

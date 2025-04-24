@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.parser
+package cc.unitmesh.sketch.language.parser
 
-import cc.unitmesh.devti.language.psi.DevInTypes
+import cc.unitmesh.sketch.language.psi.DevInTypes
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.TokenSet
 

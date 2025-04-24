@@ -1,13 +1,13 @@
-package cc.unitmesh.devti.language.actions
+package cc.unitmesh.sketch.language.actions
 
-import cc.unitmesh.devti.language.startup.DynamicDevInsActionConfig
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.language.run.DevInsConfiguration
-import cc.unitmesh.devti.language.run.DevInsConfigurationType
-import cc.unitmesh.devti.language.run.DevInsRunConfigurationProducer
-import cc.unitmesh.devti.language.run.runner.ShireConsoleView
-import cc.unitmesh.devti.language.status.DevInsRunListener
+import cc.unitmesh.sketch.language.startup.DynamicDevInsActionConfig
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.run.DevInsConfiguration
+import cc.unitmesh.sketch.language.run.DevInsConfigurationType
+import cc.unitmesh.sketch.language.run.DevInsRunConfigurationProducer
+import cc.unitmesh.sketch.language.run.runner.ShireConsoleView
+import cc.unitmesh.sketch.language.status.DevInsRunListener
 import com.intellij.execution.ExecutionManager
 import com.intellij.execution.RunManager
 import com.intellij.execution.RunnerAndConfigurationSettings

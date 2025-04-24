@@ -1,6 +1,6 @@
 package cc.unitmesh.sketch.intentions.action.task
 
-import cc.unitmesh.devti.template.context.TemplateContext
+import cc.unitmesh.sketch.template.context.TemplateContext
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.DocumentEx

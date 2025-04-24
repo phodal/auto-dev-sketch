@@ -1,6 +1,6 @@
 package cc.unitmesh.sketch.language.status
 
-import cc.unitmesh.devti.language.run.runner.ShireConsoleView
+import cc.unitmesh.sketch.language.run.runner.ShireConsoleView
 import com.intellij.execution.process.ProcessEvent
 import com.intellij.util.messages.Topic
 import java.util.*

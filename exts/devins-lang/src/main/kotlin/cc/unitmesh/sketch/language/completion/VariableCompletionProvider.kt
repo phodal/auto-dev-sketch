@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.completion
+package cc.unitmesh.sketch.language.completion
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.language.ast.variable.CompositeVariableProvider
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.language.ast.variable.CompositeVariableProvider
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionProvider
 import com.intellij.codeInsight.completion.CompletionResultSet

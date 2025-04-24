@@ -1,10 +1,9 @@
-package cc.unitmesh.devti.language.completion.provider
+package cc.unitmesh.sketch.language.completion.provider
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.devti.gui.AutoDevToolWindowFactory.AutoDevToolUtil
-import cc.unitmesh.devti.gui.chat.NormalChatCodingPanel
-import cc.unitmesh.devti.provider.DevInsAgentToolCollector
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.sketch.gui.AutoDevToolWindowFactory.AutoDevToolUtil
+import cc.unitmesh.sketch.gui.chat.NormalChatCodingPanel
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionProvider
 import com.intellij.codeInsight.completion.CompletionResultSet

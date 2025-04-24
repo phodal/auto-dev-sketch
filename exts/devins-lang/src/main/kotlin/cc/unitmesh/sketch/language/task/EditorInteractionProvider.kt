@@ -1,19 +1,19 @@
-package cc.unitmesh.devti.language.task
+package cc.unitmesh.sketch.language.task
 
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.custom.team.InteractionType
-import cc.unitmesh.devti.diff.DiffStreamHandler
-import cc.unitmesh.devti.gui.AutoDevToolWindowFactory
-import cc.unitmesh.devti.gui.AutoDevToolWindowFactory.AutoDevToolUtil
-import cc.unitmesh.devti.gui.chat.ChatCodingService
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.devins.PostFunction
-import cc.unitmesh.devti.devins.provider.LocationInteractionProvider
-import cc.unitmesh.devti.devins.provider.location.LocationInteractionContext
-import cc.unitmesh.devti.language.run.runner.cancelWithConsole
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.virtualFile
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.custom.team.InteractionType
+import cc.unitmesh.sketch.diff.DiffStreamHandler
+import cc.unitmesh.sketch.gui.AutoDevToolWindowFactory
+import cc.unitmesh.sketch.gui.AutoDevToolWindowFactory.AutoDevToolUtil
+import cc.unitmesh.sketch.gui.chat.ChatCodingService
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.devins.PostFunction
+import cc.unitmesh.sketch.devins.provider.LocationInteractionProvider
+import cc.unitmesh.sketch.devins.provider.location.LocationInteractionContext
+import cc.unitmesh.sketch.language.run.runner.cancelWithConsole
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.virtualFile
 import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
@@ -149,7 +149,7 @@ class EditorInteractionProvider : LocationInteractionProvider {
 
             InteractionType.OnPaste -> {
                 /**
-                 *  already handle in [cc.unitmesh.devti.language.actions.copyPaste.ShireCopyPastePreProcessor]
+                 *  already handle in [cc.unitmesh.sketch.language.actions.copyPaste.ShireCopyPastePreProcessor]
                  */
             }
 

@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.DevInFileType
+import cc.unitmesh.sketch.language.DevInFileType
 import com.intellij.openapi.fileEditor.AsyncFileEditorProvider
 import com.intellij.openapi.fileEditor.FileEditor
 import com.intellij.openapi.fileEditor.FileEditorPolicy

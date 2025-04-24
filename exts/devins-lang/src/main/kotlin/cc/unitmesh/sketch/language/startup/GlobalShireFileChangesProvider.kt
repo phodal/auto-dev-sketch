@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.startup
+package cc.unitmesh.sketch.language.startup
 
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.util.workerThread
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.util.workerThread
 import com.intellij.concurrency.ConcurrentCollectionFactory
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.PathManager

@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.service
+package cc.unitmesh.sketch.language.service
 
-import cc.unitmesh.devti.language.run.runner.ShireExecutionConsole
+import cc.unitmesh.sketch.language.run.runner.ShireExecutionConsole
 import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service

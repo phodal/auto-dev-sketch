@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.task
+package cc.unitmesh.sketch.language.task
 
-import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevBundle
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Document

@@ -1,10 +1,10 @@
 package cc.unitmesh.git.provider
 
-import cc.unitmesh.devti.devins.variable.ToolchainVariable
-import cc.unitmesh.devti.devins.provider.ToolchainVariableProvider
-import cc.unitmesh.devti.devins.VariableActionEventDataHolder
-import cc.unitmesh.devti.devins.variable.toolchain.VcsToolchainVariable
-import cc.unitmesh.devti.vcs.VcsPrompting
+import cc.unitmesh.sketch.devins.variable.ToolchainVariable
+import cc.unitmesh.sketch.devins.provider.ToolchainVariableProvider
+import cc.unitmesh.sketch.devins.VariableActionEventDataHolder
+import cc.unitmesh.sketch.devins.variable.toolchain.VcsToolchainVariable
+import cc.unitmesh.sketch.vcs.VcsPrompting
 import com.intellij.ide.DataManager
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.diagnostic.logger

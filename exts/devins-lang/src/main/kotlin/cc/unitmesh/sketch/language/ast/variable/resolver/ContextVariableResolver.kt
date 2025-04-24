@@ -1,13 +1,13 @@
-package cc.unitmesh.devti.language.ast.variable.resolver
+package cc.unitmesh.sketch.language.ast.variable.resolver
 
 import com.intellij.lang.Language
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.editor.CaretModel
 import com.intellij.psi.PsiNameIdentifierOwner
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
-import cc.unitmesh.devti.devins.variable.ContextVariable
-import cc.unitmesh.devti.devins.variable.ContextVariable.*
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.devins.variable.ContextVariable
+import cc.unitmesh.sketch.devins.variable.ContextVariable.*
 
 class ContextVariableResolver(
     private val context: VariableResolverContext,

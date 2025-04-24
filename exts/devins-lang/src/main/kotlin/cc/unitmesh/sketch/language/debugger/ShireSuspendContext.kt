@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
 import com.intellij.openapi.project.Project
 import com.intellij.xdebugger.frame.XExecutionStack

@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.startup
+package cc.unitmesh.sketch.language.startup
 
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.language.psi.DevInFile
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.KeyboardShortcut

@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.compiler.execute
+package cc.unitmesh.sketch.language.compiler.execute
 
-import cc.unitmesh.devti.language.processor.shell.ShireShellCommandRunner
+import cc.unitmesh.sketch.language.processor.shell.ShireShellCommandRunner
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import org.intellij.lang.annotations.Language
 

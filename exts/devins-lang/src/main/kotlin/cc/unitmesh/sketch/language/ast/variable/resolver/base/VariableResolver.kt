@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.ast.variable.resolver.base
+package cc.unitmesh.sketch.language.ast.variable.resolver.base
 
 /**
  * The `VariableResolver` interface is designed to provide a mechanism for resolving variables.

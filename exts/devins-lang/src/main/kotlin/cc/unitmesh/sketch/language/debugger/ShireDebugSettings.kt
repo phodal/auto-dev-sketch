@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.options.Configurable

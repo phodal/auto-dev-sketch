@@ -1,6 +1,6 @@
 package cc.unitmesh.sketch.mcp.editor
 
-import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevBundle
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.fileEditor.TextEditor

@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.middleware.select
+package cc.unitmesh.sketch.language.middleware.select
 
 import com.intellij.lang.injection.InjectedLanguageManager
 import com.intellij.openapi.editor.Editor

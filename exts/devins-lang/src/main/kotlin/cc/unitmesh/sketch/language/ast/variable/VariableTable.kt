@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.ast.variable
+package cc.unitmesh.sketch.language.ast.variable
 
 class VariableTable {
     private val table: MutableMap<String, VariableInfo> = mutableMapOf()

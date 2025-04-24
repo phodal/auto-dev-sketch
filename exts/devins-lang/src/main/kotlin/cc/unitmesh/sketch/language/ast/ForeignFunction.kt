@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.ast
+package cc.unitmesh.sketch.language.ast
 
 data class ForeignFunction(
     val funcName: String,

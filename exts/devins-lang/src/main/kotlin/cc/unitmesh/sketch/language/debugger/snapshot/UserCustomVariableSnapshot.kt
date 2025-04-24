@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger.snapshot
+package cc.unitmesh.sketch.language.debugger.snapshot
 
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
 import com.intellij.openapi.util.UserDataHolderBase
 import com.intellij.openapi.vfs.VirtualFile
 import kotlinx.datetime.Instant

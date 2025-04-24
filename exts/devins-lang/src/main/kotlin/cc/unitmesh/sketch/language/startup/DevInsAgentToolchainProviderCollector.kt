@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.startup
+package cc.unitmesh.sketch.language.startup
 
-import cc.unitmesh.devti.agent.tool.AgentTool
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
-import cc.unitmesh.devti.language.compiler.error.DEVINS_ERROR
-import cc.unitmesh.devti.provider.DevInsAgentToolCollector
-import cc.unitmesh.devti.util.relativePath
+import cc.unitmesh.sketch.agent.tool.AgentTool
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.provider.DevInsAgentToolCollector
+import cc.unitmesh.sketch.util.relativePath
 import com.intellij.openapi.project.Project
 
 class DevInsAgentToolchainProviderCollector : DevInsAgentToolCollector {

@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
-import cc.unitmesh.devti.devins.variable.ContextVariable
-import cc.unitmesh.devti.devins.variable.PsiContextVariable
-import cc.unitmesh.devti.devins.variable.SystemInfoVariable
-import cc.unitmesh.devti.devins.variable.Variable
-import cc.unitmesh.devti.devins.variable.toolchain.BuildToolchainVariable
-import cc.unitmesh.devti.devins.variable.toolchain.DatabaseToolchainVariable
-import cc.unitmesh.devti.devins.variable.toolchain.SonarqubeVariable
-import cc.unitmesh.devti.devins.variable.toolchain.TerminalToolchainVariable
-import cc.unitmesh.devti.devins.variable.toolchain.VcsToolchainVariable
+import cc.unitmesh.sketch.devins.variable.ContextVariable
+import cc.unitmesh.sketch.devins.variable.PsiContextVariable
+import cc.unitmesh.sketch.devins.variable.SystemInfoVariable
+import cc.unitmesh.sketch.devins.variable.Variable
+import cc.unitmesh.sketch.devins.variable.toolchain.BuildToolchainVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.DatabaseToolchainVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.SonarqubeVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.TerminalToolchainVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.VcsToolchainVariable
 import kotlin.collections.addAll
 
 data class DebugValueVariable(

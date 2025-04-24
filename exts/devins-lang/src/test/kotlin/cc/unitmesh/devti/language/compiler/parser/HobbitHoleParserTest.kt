@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.compiler.parser
+package cc.unitmesh.sketch.language.compiler.parser
 
-import cc.unitmesh.devti.language.compiler.HobbitHoleParser
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.language.compiler.HobbitHoleParser
+import cc.unitmesh.sketch.language.psi.DevInFile
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import org.intellij.lang.annotations.Language
 

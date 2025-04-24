@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.parser
+package cc.unitmesh.sketch.language.parser
 
-import cc.unitmesh.devti.language.psi.impl.DevInFuncCallImpl
+import cc.unitmesh.sketch.language.psi.impl.DevInFuncCallImpl
 import com.intellij.lang.ASTNode
 import com.intellij.psi.ElementManipulators
 import com.intellij.psi.LiteralTextEscaper

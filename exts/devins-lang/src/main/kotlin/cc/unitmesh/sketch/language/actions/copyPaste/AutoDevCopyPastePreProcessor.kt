@@ -1,13 +1,13 @@
-package cc.unitmesh.devti.language.actions.copyPaste
+package cc.unitmesh.sketch.language.actions.copyPaste
 
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.ast.variable.ShireVariableTemplateCompiler
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.language.run.flow.DevInsProcessProcessor
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.variable.ShireVariableTemplateCompiler
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.run.flow.DevInsProcessProcessor
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.codeInsight.editorActions.CopyPastePreProcessor
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service

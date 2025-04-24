@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.task
+package cc.unitmesh.sketch.language.task
 
-import cc.unitmesh.devti.devins.PostFunction
+import cc.unitmesh.sketch.devins.PostFunction
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.DocumentEx

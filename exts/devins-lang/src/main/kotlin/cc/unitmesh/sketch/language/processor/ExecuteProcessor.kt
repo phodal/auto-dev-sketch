@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.processor
+package cc.unitmesh.sketch.language.processor
 
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
-import cc.unitmesh.devti.language.ast.action.PatternActionFuncDef
-import cc.unitmesh.devti.language.ast.action.PatternProcessor
-import cc.unitmesh.devti.language.compiler.error.DEVINS_ERROR
-import cc.unitmesh.devti.language.compiler.exec.RunInsCommand
-import cc.unitmesh.devti.language.utils.lookupFile
-import cc.unitmesh.devti.provider.RunService
-import cc.unitmesh.devti.language.startup.ShireActionStartupActivity
-import cc.unitmesh.devti.util.workerThread
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.language.ast.action.PatternProcessor
+import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.language.compiler.exec.RunInsCommand
+import cc.unitmesh.sketch.language.utils.lookupFile
+import cc.unitmesh.sketch.provider.RunService
+import cc.unitmesh.sketch.language.startup.ShireActionStartupActivity
+import cc.unitmesh.sketch.util.workerThread
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
-import cc.unitmesh.devti.language.run.DevInsConfiguration
+import cc.unitmesh.sketch.language.run.DevInsConfiguration
 import com.intellij.execution.configurations.RunProfile
 import com.intellij.execution.configurations.RunProfileState
 import com.intellij.execution.configurations.RunnerSettings

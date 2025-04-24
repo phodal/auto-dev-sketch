@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.regression
+package cc.unitmesh.sketch.language.regression
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFunc
-import cc.unitmesh.devti.language.ast.action.PatternActionProcessor
-import cc.unitmesh.devti.language.compiler.DevInsCompiler
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.language.ast.action.PatternActionFunc
+import cc.unitmesh.sketch.language.ast.action.PatternActionProcessor
+import cc.unitmesh.sketch.language.compiler.DevInsCompiler
+import cc.unitmesh.sketch.language.psi.DevInFile
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import com.jetbrains.rd.util.first
 import kotlinx.coroutines.runBlocking

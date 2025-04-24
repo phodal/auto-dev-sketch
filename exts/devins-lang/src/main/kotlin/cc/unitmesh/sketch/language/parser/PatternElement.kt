@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.parser
+package cc.unitmesh.sketch.language.parser
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode

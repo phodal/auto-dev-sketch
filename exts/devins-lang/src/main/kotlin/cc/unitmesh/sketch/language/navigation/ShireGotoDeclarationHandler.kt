@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.navigation
+package cc.unitmesh.sketch.language.navigation
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFuncDef
-import cc.unitmesh.devti.devins.post.PostProcessorType
-import cc.unitmesh.devti.language.psi.DevInFrontMatterEntry
-import cc.unitmesh.devti.language.psi.DevInFrontMatterHeader
-import cc.unitmesh.devti.language.psi.DevInFuncCall
-import cc.unitmesh.devti.language.psi.DevInFuncName
-import cc.unitmesh.devti.language.psi.DevInTypes
-import cc.unitmesh.devti.language.utils.findFile
-import cc.unitmesh.devti.language.utils.lookupFile
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.devins.post.PostProcessorType
+import cc.unitmesh.sketch.language.psi.DevInFrontMatterEntry
+import cc.unitmesh.sketch.language.psi.DevInFrontMatterHeader
+import cc.unitmesh.sketch.language.psi.DevInFuncCall
+import cc.unitmesh.sketch.language.psi.DevInFuncName
+import cc.unitmesh.sketch.language.psi.DevInTypes
+import cc.unitmesh.sketch.language.utils.findFile
+import cc.unitmesh.sketch.language.utils.lookupFile
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandlerBase
 import com.intellij.openapi.application.runInEdt

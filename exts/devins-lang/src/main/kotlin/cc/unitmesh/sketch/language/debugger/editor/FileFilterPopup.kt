@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.utils.canBeAdded
+import cc.unitmesh.sketch.language.utils.canBeAdded
 import com.intellij.codeInsight.AutoPopupController
 import com.intellij.codeInsight.completion.InsertHandler
 import com.intellij.codeInsight.lookup.LookupElement

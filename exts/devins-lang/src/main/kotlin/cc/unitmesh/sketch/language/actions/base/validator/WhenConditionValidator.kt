@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.actions.base.validator
+package cc.unitmesh.sketch.language.actions.base.validator
 
-import cc.unitmesh.devti.language.ast.FrontMatterType
-import cc.unitmesh.devti.language.ast.Statement
-import cc.unitmesh.devti.devins.variable.ConditionPsiVariable
+import cc.unitmesh.sketch.language.ast.FrontMatterType
+import cc.unitmesh.sketch.language.ast.Statement
+import cc.unitmesh.sketch.devins.variable.ConditionPsiVariable
 import com.intellij.psi.PsiFile
 
 

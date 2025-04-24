@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.startup
+package cc.unitmesh.sketch.language.startup
 
-import cc.unitmesh.devti.language.DevInFileType
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.language.DevInFileType
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.components.Service

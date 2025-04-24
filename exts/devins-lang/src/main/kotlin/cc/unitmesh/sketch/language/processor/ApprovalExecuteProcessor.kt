@@ -1,12 +1,12 @@
-package cc.unitmesh.devti.language.processor
+package cc.unitmesh.sketch.language.processor
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFuncDef
-import cc.unitmesh.devti.language.ast.action.PatternProcessor
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.language.ast.action.PatternProcessor
 import com.intellij.ide.DataManager
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
-import cc.unitmesh.devti.language.processor.ui.PendingApprovalPanel
+import cc.unitmesh.sketch.language.processor.ui.PendingApprovalPanel
 import java.util.concurrent.CompletableFuture
 
 object ApprovalExecuteProcessor: PatternProcessor {

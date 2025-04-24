@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.compiler.streaming
+package cc.unitmesh.sketch.language.compiler.streaming
 
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.language.console.DevInConsoleViewBase
-import cc.unitmesh.devti.devins.post.LifecycleProcessorSignature
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.language.console.DevInConsoleViewBase
+import cc.unitmesh.sketch.devins.post.LifecycleProcessorSignature
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 

@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.compiler
+package cc.unitmesh.sketch.language.compiler
 
-import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.ast.variable.VariableTable
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.variable.VariableTable
+import cc.unitmesh.sketch.language.psi.DevInFile
 
 data class DevInsCompiledResult(
     /**

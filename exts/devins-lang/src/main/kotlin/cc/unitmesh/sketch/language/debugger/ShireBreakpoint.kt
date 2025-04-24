@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
-import cc.unitmesh.devti.language.DevInFileType
+import cc.unitmesh.sketch.language.DevInFileType
 import com.intellij.openapi.fileTypes.FileTypeRegistry
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile

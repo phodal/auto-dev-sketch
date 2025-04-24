@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.completion
+package cc.unitmesh.sketch.language.completion
 
-import cc.unitmesh.devti.command.dataprovider.BuiltinCommand
-import cc.unitmesh.devti.language.completion.provider.*
-import cc.unitmesh.devti.language.psi.DevInFrontMatterEntry
-import cc.unitmesh.devti.language.psi.DevInTypes
-import cc.unitmesh.devti.language.psi.DevInUsed
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.language.completion.provider.*
+import cc.unitmesh.sketch.language.psi.DevInFrontMatterEntry
+import cc.unitmesh.sketch.language.psi.DevInTypes
+import cc.unitmesh.sketch.language.psi.DevInUsed
 import com.intellij.codeInsight.completion.CompletionContributor
 import com.intellij.codeInsight.completion.CompletionType
 import com.intellij.patterns.ElementPattern

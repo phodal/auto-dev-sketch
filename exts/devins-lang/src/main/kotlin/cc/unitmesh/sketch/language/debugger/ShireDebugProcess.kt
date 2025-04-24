@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.language.run.DevInsConfiguration
-import cc.unitmesh.devti.language.run.DevInsRunConfigurationProfileState
-import cc.unitmesh.devti.language.run.ShireProcessAdapter
-import cc.unitmesh.devti.language.run.runner.ShireConsoleView
-import cc.unitmesh.devti.language.run.runner.ShireRunner
-import cc.unitmesh.devti.language.run.runner.ShireRunnerContext
-import cc.unitmesh.devti.language.status.DevInsRunListener
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.run.DevInsConfiguration
+import cc.unitmesh.sketch.language.run.DevInsRunConfigurationProfileState
+import cc.unitmesh.sketch.language.run.ShireProcessAdapter
+import cc.unitmesh.sketch.language.run.runner.ShireConsoleView
+import cc.unitmesh.sketch.language.run.runner.ShireRunner
+import cc.unitmesh.sketch.language.run.runner.ShireRunnerContext
+import cc.unitmesh.sketch.language.status.DevInsRunListener
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.execution.process.ProcessEvent
 import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.execution.ui.ConsoleViewContentType

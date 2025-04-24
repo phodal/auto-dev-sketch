@@ -1,9 +1,5 @@
 // Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/markdown/CodeFenceLanguageAliases.kt
-package cc.unitmesh.sketch.markdown
-========
-package cc.unitmesh.devti.language.markdown
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/markdown/CodeFenceLanguageAliases.kt
+package cc.unitmesh.sketch.language.markdown
 
 import com.intellij.openapi.util.text.StringUtil
 

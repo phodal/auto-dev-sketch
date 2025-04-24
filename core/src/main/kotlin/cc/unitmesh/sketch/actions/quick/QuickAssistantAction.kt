@@ -1,15 +1,15 @@
-package cc.unitmesh.devti.actions.quick
+package cc.unitmesh.sketch.actions.quick
 
-import cc.unitmesh.devti.actions.quick.QuickPromptField.Companion.QUICK_ASSISTANT_CANCEL_ACTION
-import cc.unitmesh.devti.actions.quick.QuickPromptField.Companion.QUICK_ASSISTANT_SUBMIT_ACTION
-import cc.unitmesh.devti.custom.TeamPromptBaseIntention
-import cc.unitmesh.devti.custom.team.TeamPromptAction
-import cc.unitmesh.devti.custom.team.TeamPromptsBuilder
-import cc.unitmesh.devti.inlay.InlayPanel
-import cc.unitmesh.devti.inline.EscHandler
-import cc.unitmesh.devti.intentions.action.task.BaseCompletionTask
-import cc.unitmesh.devti.intentions.action.task.CodeCompletionRequest
-import cc.unitmesh.devti.settings.locale.LanguageChangedCallback.presentationText
+import cc.unitmesh.sketch.actions.quick.QuickPromptField.Companion.QUICK_ASSISTANT_CANCEL_ACTION
+import cc.unitmesh.sketch.actions.quick.QuickPromptField.Companion.QUICK_ASSISTANT_SUBMIT_ACTION
+import cc.unitmesh.sketch.custom.TeamPromptBaseIntention
+import cc.unitmesh.sketch.custom.team.TeamPromptAction
+import cc.unitmesh.sketch.custom.team.TeamPromptsBuilder
+import cc.unitmesh.sketch.inlay.InlayPanel
+import cc.unitmesh.sketch.inline.EscHandler
+import cc.unitmesh.sketch.intentions.action.task.BaseCompletionTask
+import cc.unitmesh.sketch.intentions.action.task.CodeCompletionRequest
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.presentationText
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.components.service

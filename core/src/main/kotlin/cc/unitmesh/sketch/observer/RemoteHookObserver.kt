@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.observer
+package cc.unitmesh.sketch.observer
 
-import cc.unitmesh.devti.observer.agent.AgentProcessor
-import cc.unitmesh.devti.provider.observer.AgentObserver
-import cc.unitmesh.devti.flow.kanban.impl.GitHubIssue
-import cc.unitmesh.devti.flow.model.SimpleStory
-import cc.unitmesh.devti.settings.devops.devopsPromptsSettings
+import cc.unitmesh.sketch.observer.agent.AgentProcessor
+import cc.unitmesh.sketch.provider.observer.AgentObserver
+import cc.unitmesh.sketch.flow.kanban.impl.GitHubIssue
+import cc.unitmesh.sketch.flow.model.SimpleStory
+import cc.unitmesh.sketch.settings.devops.devopsPromptsSettings
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vcs.ProjectLevelVcsManager

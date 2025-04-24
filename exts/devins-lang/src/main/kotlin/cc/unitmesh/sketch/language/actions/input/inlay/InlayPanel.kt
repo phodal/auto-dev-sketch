@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.actions.input.inlay
+package cc.unitmesh.sketch.language.actions.input.inlay
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ReadAction

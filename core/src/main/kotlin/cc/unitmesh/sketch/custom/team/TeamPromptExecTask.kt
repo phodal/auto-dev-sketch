@@ -1,15 +1,15 @@
-package cc.unitmesh.devti.custom.team
+package cc.unitmesh.sketch.custom.team
 
 import cc.unitmesh.cf.core.llms.LlmMsg
 import cc.unitmesh.cf.core.llms.LlmProvider
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.custom.tasks.FileGenerateTask
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.gui.sendToChatWindow
-import cc.unitmesh.devti.intentions.action.task.BaseCompletionTask
-import cc.unitmesh.devti.intentions.action.task.CodeCompletionRequest
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.custom.tasks.FileGenerateTask
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.gui.sendToChatWindow
+import cc.unitmesh.sketch.intentions.action.task.BaseCompletionTask
+import cc.unitmesh.sketch.intentions.action.task.CodeCompletionRequest
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction

@@ -1,12 +1,12 @@
-package cc.unitmesh.devti.mcp.ui
+package cc.unitmesh.sketch.mcp.ui
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.mcp.client.CustomMcpServerManager
-import cc.unitmesh.devti.mcp.ui.eval.McpMessageLogPanel
-import cc.unitmesh.devti.mcp.ui.model.McpChatConfig
-import cc.unitmesh.devti.mcp.ui.model.McpMessage
-import cc.unitmesh.devti.mcp.ui.model.MessageType
-import cc.unitmesh.devti.mcp.ui.model.ParsedToolCall
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
+import cc.unitmesh.sketch.mcp.ui.eval.McpMessageLogPanel
+import cc.unitmesh.sketch.mcp.ui.model.McpChatConfig
+import cc.unitmesh.sketch.mcp.ui.model.McpMessage
+import cc.unitmesh.sketch.mcp.ui.model.MessageType
+import cc.unitmesh.sketch.mcp.ui.model.ParsedToolCall
 import com.intellij.openapi.project.Project
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel

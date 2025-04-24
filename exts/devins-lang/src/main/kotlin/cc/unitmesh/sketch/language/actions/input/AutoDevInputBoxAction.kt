@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.actions.input
+package cc.unitmesh.sketch.language.actions.input
 
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -10,13 +10,13 @@ import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Disposer
 import com.intellij.openapi.wm.IdeFocusManager
-import cc.unitmesh.devti.language.actions.input.inlay.CustomInputBox
-import cc.unitmesh.devti.language.actions.input.inlay.CustomInputBox.Companion.CUSTOM_INPUT_CANCEL_ACTION
-import cc.unitmesh.devti.language.actions.input.inlay.CustomInputBox.Companion.CUSTOM_INPUT_SUBMIT_ACTION
-import cc.unitmesh.devti.language.actions.input.inlay.InlayPanel
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.language.startup.DynamicDevInsActionConfig
-import cc.unitmesh.devti.language.startup.DynamicShireActionService
+import cc.unitmesh.sketch.language.actions.input.inlay.CustomInputBox
+import cc.unitmesh.sketch.language.actions.input.inlay.CustomInputBox.Companion.CUSTOM_INPUT_CANCEL_ACTION
+import cc.unitmesh.sketch.language.actions.input.inlay.CustomInputBox.Companion.CUSTOM_INPUT_SUBMIT_ACTION
+import cc.unitmesh.sketch.language.actions.input.inlay.InlayPanel
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.language.startup.DynamicDevInsActionConfig
+import cc.unitmesh.sketch.language.startup.DynamicShireActionService
 import java.awt.event.ActionEvent
 import javax.swing.AbstractAction
 

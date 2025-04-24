@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.console
+package cc.unitmesh.sketch.language.console
 
 import com.intellij.execution.console.ConsoleViewWrapperBase
 import com.intellij.execution.ui.ConsoleView

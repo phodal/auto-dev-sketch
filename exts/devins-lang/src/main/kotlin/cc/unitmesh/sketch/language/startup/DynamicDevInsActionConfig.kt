@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.startup
+package cc.unitmesh.sketch.language.startup
 
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.compiler.HobbitHoleParser
-import cc.unitmesh.devti.language.psi.DevInFile
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.compiler.HobbitHoleParser
+import cc.unitmesh.sketch.language.psi.DevInFile
 import com.intellij.openapi.editor.Editor
 
 data class DynamicDevInsActionConfig(

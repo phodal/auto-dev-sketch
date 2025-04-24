@@ -1,17 +1,17 @@
-package cc.unitmesh.devti.language.ast
+package cc.unitmesh.sketch.language.ast
 
-import cc.unitmesh.devti.custom.team.InteractionType
-import cc.unitmesh.devti.language.ast.action.DirectAction
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.language.compiler.HobbitHoleParser
-import cc.unitmesh.devti.language.console.isCanceled
-import cc.unitmesh.devti.devins.post.LifecycleProcessorSignature
-import cc.unitmesh.devti.devins.post.PostProcessor
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.language.middleware.select.SelectElementStrategy
-import cc.unitmesh.devti.language.middleware.select.SelectedEntry
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.util.workerThread
+import cc.unitmesh.sketch.custom.team.InteractionType
+import cc.unitmesh.sketch.language.ast.action.DirectAction
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.language.compiler.HobbitHoleParser
+import cc.unitmesh.sketch.language.console.isCanceled
+import cc.unitmesh.sketch.devins.post.LifecycleProcessorSignature
+import cc.unitmesh.sketch.devins.post.PostProcessor
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.language.middleware.select.SelectElementStrategy
+import cc.unitmesh.sketch.language.middleware.select.SelectedEntry
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.util.workerThread
 import com.intellij.execution.ui.ConsoleView
 import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.actionSystem.KeyboardShortcut
@@ -19,7 +19,7 @@ import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import cc.unitmesh.devti.language.ast.action.PatternAction
+import cc.unitmesh.sketch.language.ast.action.PatternAction
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

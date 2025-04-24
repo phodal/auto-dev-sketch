@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.processor.shell
+package cc.unitmesh.sketch.language.processor.shell
 
-import cc.unitmesh.devti.envior.ShireEnvReader
-import cc.unitmesh.devti.envior.ShireEnvVariableFiller
-import cc.unitmesh.devti.util.readText
+import cc.unitmesh.sketch.envior.ShireEnvReader
+import cc.unitmesh.sketch.envior.ShireEnvVariableFiller
+import cc.unitmesh.sketch.util.readText
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.CapturingProcessHandler
 import com.intellij.execution.process.OSProcessHandler

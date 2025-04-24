@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language
+package cc.unitmesh.sketch.language
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir

@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.agent.custom.model
+package cc.unitmesh.sketch.agent.custom.model
 
-import cc.unitmesh.devti.settings.customize.customizeSetting
-import cc.unitmesh.devti.custom.team.InteractionType
-import cc.unitmesh.devti.provider.DevInsAgentToolCollector
+import cc.unitmesh.sketch.settings.customize.customizeSetting
+import cc.unitmesh.sketch.custom.team.InteractionType
+import cc.unitmesh.sketch.provider.DevInsAgentToolCollector
 import com.intellij.openapi.project.Project
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json

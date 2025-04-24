@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.ast.shireql
+package cc.unitmesh.sketch.language.ast.shireql
 
-import cc.unitmesh.devti.language.ast.FrontMatterType
+import cc.unitmesh.sketch.language.ast.FrontMatterType
 
 
 class VariableEvaluator(val element: Any) {

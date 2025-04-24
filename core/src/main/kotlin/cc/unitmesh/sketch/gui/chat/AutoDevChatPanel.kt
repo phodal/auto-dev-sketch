@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.gui.chat
+package cc.unitmesh.sketch.gui.chat
 
-import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
 import com.intellij.openapi.project.Project
 import javax.swing.JProgressBar
 

@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.actions.intention
+package cc.unitmesh.sketch.language.actions.intention
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevIcons
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.injection.InjectedLanguageManager
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -12,9 +12,9 @@ import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import javax.swing.Icon
-import cc.unitmesh.devti.language.actions.intention.ui.CustomPopupStep
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.language.startup.DynamicShireActionService
+import cc.unitmesh.sketch.language.actions.intention.ui.CustomPopupStep
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.language.startup.DynamicShireActionService
 
 class AutoDevIntentionHelper : IntentionAction, Iconable {
     override fun startInWriteAction(): Boolean = true

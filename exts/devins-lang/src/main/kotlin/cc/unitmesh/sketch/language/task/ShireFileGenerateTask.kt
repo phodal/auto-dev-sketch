@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.task
+package cc.unitmesh.sketch.language.task
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.devins.PostFunction
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.devins.PostFunction
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.fileEditor.FileEditorManager

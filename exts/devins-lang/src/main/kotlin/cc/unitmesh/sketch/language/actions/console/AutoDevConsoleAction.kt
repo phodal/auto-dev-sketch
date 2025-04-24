@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.actions.console
+package cc.unitmesh.sketch.language.actions.console
 
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.devins.VariableActionEventDataHolder
-import cc.unitmesh.devti.language.startup.DynamicShireActionService
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.devins.VariableActionEventDataHolder
+import cc.unitmesh.sketch.language.startup.DynamicShireActionService
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

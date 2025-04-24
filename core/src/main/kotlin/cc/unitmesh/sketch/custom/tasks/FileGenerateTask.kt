@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.custom.tasks
+package cc.unitmesh.sketch.custom.tasks
 
 import cc.unitmesh.cf.core.llms.LlmMsg
 import cc.unitmesh.cf.core.parser.MarkdownCode
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.progress.ProgressIndicator

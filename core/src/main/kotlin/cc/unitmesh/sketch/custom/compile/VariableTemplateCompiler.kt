@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.custom.compile
+package cc.unitmesh.sketch.custom.compile
 
-import cc.unitmesh.devti.custom.team.DefaultTeamContextProvider
-import cc.unitmesh.devti.gui.chat.message.ChatActionType
-import cc.unitmesh.devti.provider.context.ChatContextProvider
-import cc.unitmesh.devti.provider.context.ChatCreationContext
-import cc.unitmesh.devti.provider.context.ChatOrigin
+import cc.unitmesh.sketch.custom.team.DefaultTeamContextProvider
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatOrigin
 import com.intellij.lang.Language
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.editor.Editor
@@ -14,7 +14,7 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiNameIdentifierOwner
-import cc.unitmesh.devti.intentions.action.getElementToAction
+import cc.unitmesh.sketch.intentions.action.getElementToAction
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.fileEditor.FileDocumentManager

@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.gui
+package cc.unitmesh.sketch.gui
 
 import com.intellij.codeInsight.codeVision.ui.renderers.painters.CodeVisionThemeInfoProvider
 import com.intellij.codeWithMe.ClientId

@@ -1,15 +1,15 @@
-package cc.unitmesh.devti.agent.custom
+package cc.unitmesh.sketch.agent.custom
 
-import cc.unitmesh.devti.agent.custom.model.AuthType
-import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.devti.agent.custom.model.CustomAgentResponseAction
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.llms.custom.CustomRequest
-import cc.unitmesh.devti.llms.custom.CustomSSEProcessor
-import cc.unitmesh.devti.llms.custom.Message
-import cc.unitmesh.devti.llms.custom.updateCustomFormat
-import cc.unitmesh.devti.provider.devins.CustomAgentContext
-import cc.unitmesh.devti.provider.devins.LanguageProcessor
+import cc.unitmesh.sketch.agent.custom.model.AuthType
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentResponseAction
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.llms.custom.CustomRequest
+import cc.unitmesh.sketch.llms.custom.CustomSSEProcessor
+import cc.unitmesh.sketch.llms.custom.Message
+import cc.unitmesh.sketch.llms.custom.updateCustomFormat
+import cc.unitmesh.sketch.provider.devins.CustomAgentContext
+import cc.unitmesh.sketch.provider.devins.LanguageProcessor
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

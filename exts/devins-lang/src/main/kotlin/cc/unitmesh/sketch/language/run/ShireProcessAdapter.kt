@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.run
+package cc.unitmesh.sketch.language.run
 
-import cc.unitmesh.devti.language.run.runner.ShireConsoleView
-import cc.unitmesh.devti.language.status.DevInsRunListener
+import cc.unitmesh.sketch.language.run.runner.ShireConsoleView
+import cc.unitmesh.sketch.language.status.DevInsRunListener
 import com.intellij.execution.process.ProcessAdapter
 import com.intellij.execution.process.ProcessEvent
 import com.intellij.openapi.application.ApplicationManager

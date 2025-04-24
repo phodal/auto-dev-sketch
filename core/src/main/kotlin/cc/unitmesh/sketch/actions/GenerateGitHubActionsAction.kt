@@ -1,7 +1,7 @@
 package cc.unitmesh.sketch.actions
 
-import cc.unitmesh.sketch.AutoDevBundle
 import cc.unitmesh.sketch.custom.tasks.FileGenerateTask
+import cc.unitmesh.sketch.AutoDevBundle
 import cc.unitmesh.sketch.provider.BuildSystemProvider
 import cc.unitmesh.sketch.template.GENIUS_CICD
 import cc.unitmesh.sketch.template.TemplateRender

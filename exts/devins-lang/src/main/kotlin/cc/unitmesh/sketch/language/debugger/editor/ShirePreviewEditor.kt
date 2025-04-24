@@ -1,13 +1,13 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.language.run.runner.ShireRunner
-import cc.unitmesh.devti.language.run.runner.ShireRunnerContext
-import cc.unitmesh.devti.sketch.ui.code.CodeHighlightSketch
-import cc.unitmesh.devti.sketch.ui.code.EditorFragment
-import cc.unitmesh.devti.sketch.ui.code.EditorUtil
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.run.runner.ShireRunner
+import cc.unitmesh.sketch.language.run.runner.ShireRunnerContext
+import cc.unitmesh.sketch.sketch.ui.code.CodeHighlightSketch
+import cc.unitmesh.sketch.sketch.ui.code.EditorFragment
+import cc.unitmesh.sketch.sketch.ui.code.EditorUtil
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.icons.AllIcons
 import com.intellij.lang.Language
 import com.intellij.openapi.actionSystem.AnAction

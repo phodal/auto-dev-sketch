@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.DevInBundle
-import cc.unitmesh.devti.language.debugger.snapshot.UserCustomVariableSnapshot
+import cc.unitmesh.sketch.language.DevInBundle
+import cc.unitmesh.sketch.language.debugger.snapshot.UserCustomVariableSnapshot
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel

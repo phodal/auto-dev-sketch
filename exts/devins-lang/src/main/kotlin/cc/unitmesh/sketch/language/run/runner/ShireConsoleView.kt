@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.run.runner
+package cc.unitmesh.sketch.language.run.runner
 
-import cc.unitmesh.devti.language.console.DevInConsoleViewBase
-import cc.unitmesh.devti.language.run.DevInsConfiguration
-import cc.unitmesh.devti.language.run.ShireProcessHandler
+import cc.unitmesh.sketch.language.console.DevInConsoleViewBase
+import cc.unitmesh.sketch.language.run.DevInsConfiguration
+import cc.unitmesh.sketch.language.run.ShireProcessHandler
 import com.intellij.build.BuildView
 import com.intellij.build.DefaultBuildDescriptor
 import com.intellij.build.events.BuildEvent

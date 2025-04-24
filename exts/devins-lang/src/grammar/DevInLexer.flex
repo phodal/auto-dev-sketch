@@ -4,6 +4,8 @@ import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 import static cc.unitmesh.sketch.language.psi.DevInTypes.*;
 import com.intellij.psi.TokenType;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 %%
 

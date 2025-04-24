@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.startup.third
+package cc.unitmesh.sketch.language.startup.third
 
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.ActionToolbar

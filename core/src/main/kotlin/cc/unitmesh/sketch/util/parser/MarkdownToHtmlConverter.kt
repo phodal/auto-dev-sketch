@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.util.parser
+package cc.unitmesh.sketch.util.parser
 
 import org.intellij.markdown.IElementType
 import org.intellij.markdown.flavours.gfm.GFMFlavourDescriptor

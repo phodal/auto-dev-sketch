@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.actions.context
+package cc.unitmesh.sketch.language.actions.context
 
-import cc.unitmesh.devti.AutoDevIcons
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.DumbAwareAction
-import cc.unitmesh.devti.language.actions.base.validator.WhenConditionValidator
-import cc.unitmesh.devti.language.startup.DynamicDevInsActionConfig
+import cc.unitmesh.sketch.language.actions.base.validator.WhenConditionValidator
+import cc.unitmesh.sketch.language.startup.DynamicDevInsActionConfig
 
 class AutoDevContextMenuAction(private val config: DynamicDevInsActionConfig) :
     DumbAwareAction(config.name, config.hole?.description, AutoDevIcons.AI_COPILOT) {

@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.language.compiler.execute
+package cc.unitmesh.sketch.language.compiler.execute
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFunc
-import cc.unitmesh.devti.language.processor.JsonPathProcessor
+import cc.unitmesh.sketch.language.ast.action.PatternActionFunc
+import cc.unitmesh.sketch.language.processor.JsonPathProcessor
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import org.junit.Test
 

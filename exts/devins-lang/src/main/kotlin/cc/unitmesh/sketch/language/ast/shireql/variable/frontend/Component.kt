@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.ast.shireql.variable.frontend
+package cc.unitmesh.sketch.language.ast.shireql.variable.frontend
 
 import kotlinx.serialization.Serializable
 

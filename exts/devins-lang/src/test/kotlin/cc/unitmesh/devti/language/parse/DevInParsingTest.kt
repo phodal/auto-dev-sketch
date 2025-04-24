@@ -1,7 +1,7 @@
 <<<<<<<< HEAD:exts/devins-lang/src/test/kotlin/cc/unitmesh/sketch/language/DevInParsingTest.kt
 package cc.unitmesh.sketch.language
 ========
-package cc.unitmesh.devti.language.parse
+package cc.unitmesh.sketch.language.parse
 >>>>>>>> master:exts/devins-lang/src/test/kotlin/cc/unitmesh/devti/language/parse/DevInParsingTest.kt
 
 import cc.unitmesh.sketch.language.parser.DevInParserDefinition

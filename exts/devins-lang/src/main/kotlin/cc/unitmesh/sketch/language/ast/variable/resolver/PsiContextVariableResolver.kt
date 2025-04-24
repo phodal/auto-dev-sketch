@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.ast.variable.resolver
+package cc.unitmesh.sketch.language.ast.variable.resolver
 
-import cc.unitmesh.devti.devins.provider.psi.DefaultPsiContextVariableProvider
-import cc.unitmesh.devti.devins.variable.PsiContextVariable
-import cc.unitmesh.devti.devins.provider.PsiContextVariableProvider
+import cc.unitmesh.sketch.devins.provider.psi.DefaultPsiContextVariableProvider
+import cc.unitmesh.sketch.devins.variable.PsiContextVariable
+import cc.unitmesh.sketch.devins.provider.PsiContextVariableProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.psi.PsiManager
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
-import cc.unitmesh.devti.util.virtualFile
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.util.virtualFile
 
 /**
  * Include ToolchainVariableProvider and PsiContextVariableProvider

@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.gui
+package cc.unitmesh.sketch.gui
 
-import cc.unitmesh.devti.gui.PresentationUtil.fontMetrics
-import cc.unitmesh.devti.gui.PresentationUtil.getFont
-import cc.unitmesh.devti.gui.PresentationUtil.getThemeInfoProvider
+import cc.unitmesh.sketch.gui.PresentationUtil.fontMetrics
+import cc.unitmesh.sketch.gui.PresentationUtil.getFont
+import cc.unitmesh.sketch.gui.PresentationUtil.getThemeInfoProvider
 import com.intellij.codeInsight.codeVision.ui.model.RangeCodeVisionModel
 import com.intellij.codeInsight.codeVision.ui.renderers.painters.ICodeVisionEntryBasePainter
 import com.intellij.openapi.editor.Editor

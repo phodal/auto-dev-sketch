@@ -1,9 +1,9 @@
 package cc.unitmesh.httpclient
 
-import cc.unitmesh.devti.envior.ShireEnvReader
-import cc.unitmesh.devti.envior.ShireEnvVariableFiller
-import cc.unitmesh.devti.devins.provider.http.HttpHandler
-import cc.unitmesh.devti.devins.provider.http.HttpHandlerType
+import cc.unitmesh.sketch.envior.ShireEnvReader
+import cc.unitmesh.sketch.envior.ShireEnvVariableFiller
+import cc.unitmesh.sketch.devins.provider.http.HttpHandler
+import cc.unitmesh.sketch.devins.provider.http.HttpHandlerType
 import cc.unitmesh.httpclient.converter.CUrlConverter
 import com.intellij.execution.console.ConsoleViewWrapperBase
 import com.intellij.execution.ui.ConsoleViewContentType

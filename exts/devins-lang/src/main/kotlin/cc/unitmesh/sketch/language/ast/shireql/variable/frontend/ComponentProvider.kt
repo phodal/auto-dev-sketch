@@ -1,6 +1,6 @@
 package cc.unitmesh.shirecore.variable.frontend
 
-import cc.unitmesh.devti.language.ast.shireql.variable.frontend.Component
+import cc.unitmesh.sketch.language.ast.shireql.variable.frontend.Component
 
 interface ComponentProvider {
     fun getPages(): List<Component>

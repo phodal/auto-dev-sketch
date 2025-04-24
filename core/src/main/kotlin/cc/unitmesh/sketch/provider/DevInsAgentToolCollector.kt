@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.provider
+package cc.unitmesh.sketch.provider
 
-import cc.unitmesh.devti.agent.tool.AgentTool
+import cc.unitmesh.sketch.agent.tool.AgentTool
 import com.intellij.openapi.extensions.ExtensionPointName
 import com.intellij.openapi.project.Project
 

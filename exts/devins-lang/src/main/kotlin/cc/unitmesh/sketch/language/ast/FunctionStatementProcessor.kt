@@ -1,17 +1,17 @@
-package cc.unitmesh.devti.language.ast
+package cc.unitmesh.sketch.language.ast
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFunc
-import cc.unitmesh.devti.language.ast.action.PatternFuncProcessor
-import cc.unitmesh.devti.language.ast.shireql.ShireQLSchema
-import cc.unitmesh.devti.language.ast.shireql.ShireQLVariableBuilder
-import cc.unitmesh.devti.language.ast.shireql.VariableContainerManager
-import cc.unitmesh.devti.devins.provider.vcs.ShireGitCommit
+import cc.unitmesh.sketch.language.ast.action.PatternActionFunc
+import cc.unitmesh.sketch.language.ast.action.PatternFuncProcessor
+import cc.unitmesh.sketch.language.ast.shireql.ShireQLSchema
+import cc.unitmesh.sketch.language.ast.shireql.ShireQLVariableBuilder
+import cc.unitmesh.sketch.language.ast.shireql.VariableContainerManager
+import cc.unitmesh.sketch.devins.provider.vcs.ShireGitCommit
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.jayway.jsonpath.JsonPath
-import cc.unitmesh.devti.language.ast.shireql.ShireDateSchema
+import cc.unitmesh.sketch.language.ast.shireql.ShireDateSchema
 import kotlinx.coroutines.runBlocking
 
 /**

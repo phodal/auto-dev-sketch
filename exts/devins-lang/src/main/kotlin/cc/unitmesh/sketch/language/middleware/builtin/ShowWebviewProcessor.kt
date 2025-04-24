@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.middleware.builtin
+package cc.unitmesh.sketch.language.middleware.builtin
 
 import com.intellij.execution.ui.ConsoleView
 import com.intellij.ide.DataManager
@@ -12,14 +12,14 @@ import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.ui.components.JBTextArea
 import com.intellij.ui.dsl.builder.*
-import cc.unitmesh.devti.devins.post.PostProcessor
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.devins.post.PostProcessorType
-import cc.unitmesh.devti.language.middleware.builtin.ui.WebViewWindow
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.llms.cancelHandler
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.devins.post.PostProcessor
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.devins.post.PostProcessorType
+import cc.unitmesh.sketch.language.middleware.builtin.ui.WebViewWindow
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.llms.cancelHandler
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.parser.CodeFence
 import kotlinx.coroutines.flow.cancellable
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

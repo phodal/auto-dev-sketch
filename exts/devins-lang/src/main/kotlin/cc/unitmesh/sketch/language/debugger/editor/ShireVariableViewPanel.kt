@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.debugger.DebugValueVariable
-import cc.unitmesh.devti.devins.variable.Variable
-import cc.unitmesh.devti.language.debugger.snapshot.VariableSnapshotRecorder
+import cc.unitmesh.sketch.language.debugger.DebugValueVariable
+import cc.unitmesh.sketch.devins.variable.Variable
+import cc.unitmesh.sketch.language.debugger.snapshot.VariableSnapshotRecorder
 import com.intellij.openapi.project.Project
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel

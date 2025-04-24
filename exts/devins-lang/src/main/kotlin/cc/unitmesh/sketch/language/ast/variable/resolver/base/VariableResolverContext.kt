@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.ast.variable.resolver.base
+package cc.unitmesh.sketch.language.ast.variable.resolver.base
 
-import cc.unitmesh.devti.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.HobbitHole
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import cc.unitmesh.devti.language.ast.variable.VariableTable
+import cc.unitmesh.sketch.language.ast.variable.VariableTable
 
 data class VariableResolverContext(
     val myProject: Project,

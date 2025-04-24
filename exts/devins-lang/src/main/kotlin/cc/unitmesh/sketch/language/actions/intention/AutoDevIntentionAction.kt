@@ -1,16 +1,16 @@
-package cc.unitmesh.devti.language.actions.intention
+package cc.unitmesh.sketch.language.actions.intention
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
-import cc.unitmesh.devti.language.actions.base.validator.WhenConditionValidator
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.devins.ShireActionLocation
-import cc.unitmesh.devti.language.startup.DynamicShireActionService
+import cc.unitmesh.sketch.language.actions.base.validator.WhenConditionValidator
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.devins.ShireActionLocation
+import cc.unitmesh.sketch.language.startup.DynamicShireActionService
 import kotlin.collections.firstOrNull
 
 class AutoDevIntentionAction(private val hobbitHole: HobbitHole?, val file: PsiFile, private val event: AnActionEvent?) :

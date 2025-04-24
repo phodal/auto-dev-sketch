@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.debugger.editor
+package cc.unitmesh.sketch.language.debugger.editor
 
-import cc.unitmesh.devti.language.DevInBundle
+import cc.unitmesh.sketch.language.DevInBundle
 import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.actionSystem.*

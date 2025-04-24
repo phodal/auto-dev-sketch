@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.processor
+package cc.unitmesh.sketch.language.processor
 
-import cc.unitmesh.devti.agent.tool.browse.Browse
-import cc.unitmesh.devti.language.ast.action.PatternActionFuncDef
-import cc.unitmesh.devti.language.ast.action.PatternProcessor
+import cc.unitmesh.sketch.agent.tool.browse.Browse
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.language.ast.action.PatternProcessor
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 

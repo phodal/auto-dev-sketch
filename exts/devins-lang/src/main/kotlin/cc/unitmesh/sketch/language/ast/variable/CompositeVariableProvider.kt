@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.language.ast.variable
+package cc.unitmesh.sketch.language.ast.variable
 
-import cc.unitmesh.devti.devins.variable.ContextVariable
-import cc.unitmesh.devti.devins.variable.PsiContextVariable
-import cc.unitmesh.devti.devins.variable.SystemInfoVariable
-import cc.unitmesh.devti.devins.variable.ToolchainVariable
-import cc.unitmesh.devti.devins.variable.toolchain.DatabaseToolchainVariable
-import cc.unitmesh.devti.devins.variable.toolchain.VcsToolchainVariable
+import cc.unitmesh.sketch.devins.variable.ContextVariable
+import cc.unitmesh.sketch.devins.variable.PsiContextVariable
+import cc.unitmesh.sketch.devins.variable.SystemInfoVariable
+import cc.unitmesh.sketch.devins.variable.ToolchainVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.DatabaseToolchainVariable
+import cc.unitmesh.sketch.devins.variable.toolchain.VcsToolchainVariable
 
 data class VariableDisplay(
     val name: String,

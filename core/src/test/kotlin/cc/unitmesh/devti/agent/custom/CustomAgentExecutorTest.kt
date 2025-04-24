@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.agent.custom
+package cc.unitmesh.sketch.agent.custom
 
 import kotlin.test.Test
 import junit.framework.TestCase.assertEquals

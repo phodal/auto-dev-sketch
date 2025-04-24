@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.ast.variable.resolver
+package cc.unitmesh.sketch.language.ast.variable.resolver
 
-import cc.unitmesh.devti.devins.provider.ToolchainVariableProvider
-import cc.unitmesh.devti.devins.variable.ToolchainVariable
+import cc.unitmesh.sketch.devins.provider.ToolchainVariableProvider
+import cc.unitmesh.sketch.devins.variable.ToolchainVariable
 import com.intellij.openapi.diagnostic.logger
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
 
 /**
  * Include ToolchainVariableProvider and PsiContextVariableProvider

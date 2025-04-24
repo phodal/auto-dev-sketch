@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.compiler.streaming
+package cc.unitmesh.sketch.language.compiler.streaming
 
-import cc.unitmesh.devti.language.console.DevInConsoleViewBase
+import cc.unitmesh.sketch.language.console.DevInConsoleViewBase
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.extensions.ExtensionPointName
 import com.intellij.openapi.project.Project

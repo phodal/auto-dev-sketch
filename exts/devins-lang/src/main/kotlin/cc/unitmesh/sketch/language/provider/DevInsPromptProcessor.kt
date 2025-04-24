@@ -1,14 +1,14 @@
-package cc.unitmesh.devti.language.provider
+package cc.unitmesh.sketch.language.provider
 
-import cc.unitmesh.devti.AutoDevNotifications
-import cc.unitmesh.devti.command.dataprovider.BuiltinCommand
-import cc.unitmesh.devti.language.DevInLanguage
-import cc.unitmesh.devti.language.compiler.DevInsCompiler
-import cc.unitmesh.devti.language.psi.DevInFile
-import cc.unitmesh.devti.language.run.runner.ShireRunner
-import cc.unitmesh.devti.provider.devins.CustomAgentContext
-import cc.unitmesh.devti.provider.devins.LanguageProcessor
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.language.DevInLanguage
+import cc.unitmesh.sketch.language.compiler.DevInsCompiler
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.run.runner.ShireRunner
+import cc.unitmesh.sketch.provider.devins.CustomAgentContext
+import cc.unitmesh.sketch.provider.devins.LanguageProcessor
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor

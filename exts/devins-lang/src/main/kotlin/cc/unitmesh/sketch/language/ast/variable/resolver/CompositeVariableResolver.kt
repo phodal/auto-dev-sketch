@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.ast.variable.resolver
+package cc.unitmesh.sketch.language.ast.variable.resolver
 
 import com.intellij.openapi.application.ReadAction
 import com.intellij.psi.PsiElement
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
-import cc.unitmesh.devti.language.middleware.select.SelectElementStrategy
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.language.middleware.select.SelectElementStrategy
 
 class CompositeVariableResolver(private val context: VariableResolverContext) : VariableResolver {
     init {

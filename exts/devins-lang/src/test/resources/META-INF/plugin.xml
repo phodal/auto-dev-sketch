@@ -8,6 +8,6 @@
     </content>
 
     <extensions defaultExtensionNs="cc.unitmesh">
-        <shireSymbolProvider implementation="cc.unitmesh.devti.language.regression.DefaultShireSymbolProvider" />
+        <shireSymbolProvider implementation="cc.unitmesh.sketch.language.regression.DefaultShireSymbolProvider" />
     </extensions>
 </idea-plugin>

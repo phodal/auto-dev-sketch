@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.compiler.searcher
+package cc.unitmesh.sketch.language.compiler.searcher
 
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

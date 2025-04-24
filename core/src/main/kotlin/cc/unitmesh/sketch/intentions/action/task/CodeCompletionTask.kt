@@ -1,12 +1,12 @@
-package cc.unitmesh.devti.intentions.action.task
+package cc.unitmesh.sketch.intentions.action.task
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.inlay.chunks.SimilarChunksWithPaths
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.statusbar.AutoDevStatus
-import cc.unitmesh.devti.statusbar.AutoDevStatusService
-import cc.unitmesh.devti.util.InsertUtil
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.inlay.chunks.SimilarChunksWithPaths
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.statusbar.AutoDevStatus
+import cc.unitmesh.sketch.statusbar.AutoDevStatusService
+import cc.unitmesh.sketch.util.InsertUtil
 import com.intellij.lang.LanguageCommenters
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.command.WriteCommandAction

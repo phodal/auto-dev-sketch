@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.ast.shireql
+package cc.unitmesh.sketch.language.ast.shireql
 
 enum class ShireQLFromType(val typeName: String) {
     // PSI Query

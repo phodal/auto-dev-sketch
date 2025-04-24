@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.ast.variable
+package cc.unitmesh.sketch.language.ast.variable
 
-import cc.unitmesh.devti.custom.compile.VariableTemplateCompiler
-import cc.unitmesh.devti.custom.compile.VariableTemplateCompiler.Companion.defaultEditor
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.ast.variable.resolver.CompositeVariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.custom.compile.VariableTemplateCompiler
+import cc.unitmesh.sketch.custom.compile.VariableTemplateCompiler.Companion.defaultEditor
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.variable.resolver.CompositeVariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileDocumentManager

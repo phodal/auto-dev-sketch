@@ -1,11 +1,11 @@
-package cc.unitmesh.devti.language.compiler.streaming
+package cc.unitmesh.sketch.language.compiler.streaming
 
-import cc.unitmesh.devti.gui.chat.message.ChatRole
-import cc.unitmesh.devti.language.LLM_LOGGING
-import cc.unitmesh.devti.language.LLM_LOGGING_JSONL
-import cc.unitmesh.devti.language.ShireConstants
-import cc.unitmesh.devti.language.console.DevInConsoleViewBase
-import cc.unitmesh.devti.llms.custom.ChatMessage
+import cc.unitmesh.sketch.gui.chat.message.ChatRole
+import cc.unitmesh.sketch.language.LLM_LOGGING
+import cc.unitmesh.sketch.language.LLM_LOGGING_JSONL
+import cc.unitmesh.sketch.language.ShireConstants
+import cc.unitmesh.sketch.language.console.DevInConsoleViewBase
+import cc.unitmesh.sketch.llms.custom.ChatMessage
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.runInEdt

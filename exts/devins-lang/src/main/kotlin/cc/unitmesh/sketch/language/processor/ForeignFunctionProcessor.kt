@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.processor
+package cc.unitmesh.sketch.language.processor
 
-import cc.unitmesh.devti.language.ast.ForeignFunction
-import cc.unitmesh.devti.language.compiler.error.DEVINS_ERROR
-import cc.unitmesh.devti.provider.RunService
-import cc.unitmesh.devti.util.findFile
+import cc.unitmesh.sketch.language.ast.ForeignFunction
+import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.provider.RunService
+import cc.unitmesh.sketch.util.findFile
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project
 

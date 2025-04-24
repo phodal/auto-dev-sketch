@@ -1,13 +1,13 @@
-package cc.unitmesh.devti.language.ast.shireql
+package cc.unitmesh.sketch.language.ast.shireql
 
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.ast.VariableElement
-import cc.unitmesh.devti.language.ast.action.PatternActionFunc
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.ast.VariableElement
+import cc.unitmesh.sketch.language.ast.action.PatternActionFunc
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import cc.unitmesh.devti.devins.provider.vcs.ShireGitCommit
-import cc.unitmesh.devti.devins.provider.ShireQLDataProvider
-import cc.unitmesh.devti.devins.provider.ShireSymbolProvider
+import cc.unitmesh.sketch.devins.provider.vcs.ShireGitCommit
+import cc.unitmesh.sketch.devins.provider.ShireQLDataProvider
+import cc.unitmesh.sketch.devins.provider.ShireSymbolProvider
 
 class ShireQLVariableBuilder(val myProject: Project, hole: HobbitHole) {
     fun buildVariables(fromStmt: PatternActionFunc.From): Map<String, List<Any>> {

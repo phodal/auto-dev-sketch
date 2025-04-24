@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.ast
+package cc.unitmesh.sketch.language.ast
 
-import cc.unitmesh.devti.language.ast.action.PatternActionFunc
+import cc.unitmesh.sketch.language.ast.action.PatternActionFunc
 
 class ShirePsiQueryStatement(
     val from: List<VariableElement>,

@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.mcp.ui.model
+package cc.unitmesh.sketch.mcp.ui.model
 
 import cc.unitmesh.sketch.mcp.ui.model.ToolCall
 import org.assertj.core.api.Assertions.assertThat

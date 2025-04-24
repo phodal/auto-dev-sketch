@@ -1,10 +1,10 @@
-package cc.unitmesh.devti.language.task
+package cc.unitmesh.sketch.language.task
 
-import cc.unitmesh.devti.AutoDevBundle
-import cc.unitmesh.devti.llms.LlmFactory
-import cc.unitmesh.devti.llms.cancelHandler
-import cc.unitmesh.devti.util.AutoDevCoroutineScope
-import cc.unitmesh.devti.util.parser.CodeFence
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.llms.LlmFactory
+import cc.unitmesh.sketch.llms.cancelHandler
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+import cc.unitmesh.sketch.util.parser.CodeFence
 import com.intellij.openapi.util.TextRange
 
 import com.intellij.openapi.actionSystem.CustomShortcutSet

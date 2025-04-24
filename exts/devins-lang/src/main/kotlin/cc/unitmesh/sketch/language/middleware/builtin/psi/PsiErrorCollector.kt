@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.middleware.builtin.psi
+package cc.unitmesh.sketch.language.middleware.builtin.psi
 
-import cc.unitmesh.devti.provider.RunService
+import cc.unitmesh.sketch.provider.RunService
 import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
 import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
 import com.intellij.lang.annotation.HighlightSeverity

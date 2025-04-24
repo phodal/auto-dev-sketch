@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.parse
+package cc.unitmesh.sketch.language.parse
 
-import cc.unitmesh.devti.language.parser.DevInParserDefinition
+import cc.unitmesh.sketch.language.parser.DevInParserDefinition
 import com.intellij.testFramework.ParsingTestCase
 
 class ParsingRealWorldTest : ParsingTestCase("realworld", "devin", DevInParserDefinition()) {

@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.processor
+package cc.unitmesh.sketch.language.processor
 
-import cc.unitmesh.devti.devins.provider.PsiCapture
-import cc.unitmesh.devti.language.ast.action.PatternActionFuncDef
-import cc.unitmesh.devti.language.ast.action.PatternProcessor
-import cc.unitmesh.devti.language.utils.lookupFile
+import cc.unitmesh.sketch.devins.provider.PsiCapture
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.language.ast.action.PatternProcessor
+import cc.unitmesh.sketch.language.utils.lookupFile
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile

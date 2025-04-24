@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.index
+package cc.unitmesh.sketch.language.index
 
-import cc.unitmesh.devti.language.DevInFileType
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.psi.DevInFrontMatterKey
-import cc.unitmesh.devti.language.psi.DevInVisitor
+import cc.unitmesh.sketch.language.DevInFileType
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.psi.DevInFrontMatterKey
+import cc.unitmesh.sketch.language.psi.DevInVisitor
 import com.intellij.psi.PsiElement
 import com.intellij.util.indexing.*
 import com.intellij.util.io.DataExternalizer

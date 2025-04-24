@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.language.run.runner
+package cc.unitmesh.sketch.language.run.runner
 
-import cc.unitmesh.devti.devins.PostFunction
-import cc.unitmesh.devti.language.ast.HobbitHole
-import cc.unitmesh.devti.language.run.DevInsConfiguration
+import cc.unitmesh.sketch.devins.PostFunction
+import cc.unitmesh.sketch.language.ast.HobbitHole
+import cc.unitmesh.sketch.language.run.DevInsConfiguration
 import com.intellij.execution.process.ProcessHandler
 import com.intellij.execution.ui.ConsoleView
 import com.intellij.openapi.editor.Editor

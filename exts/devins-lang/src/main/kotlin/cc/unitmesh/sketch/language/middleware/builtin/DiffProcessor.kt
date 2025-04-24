@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.middleware.builtin
+package cc.unitmesh.sketch.language.middleware.builtin
 
 import com.intellij.diff.DiffContentFactoryEx
 import com.intellij.diff.DiffDialogHints
@@ -11,10 +11,10 @@ import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project
-import cc.unitmesh.devti.devins.post.PostProcessor
-import cc.unitmesh.devti.devins.post.PostProcessorContext
-import cc.unitmesh.devti.devins.post.PostProcessorType
-import cc.unitmesh.devti.language.utils.findFile
+import cc.unitmesh.sketch.devins.post.PostProcessor
+import cc.unitmesh.sketch.devins.post.PostProcessorContext
+import cc.unitmesh.sketch.devins.post.PostProcessorType
+import cc.unitmesh.sketch.language.utils.findFile
 
 class DiffProcessor : PostProcessor {
     override val processorName: String = PostProcessorType.Diff.handleName

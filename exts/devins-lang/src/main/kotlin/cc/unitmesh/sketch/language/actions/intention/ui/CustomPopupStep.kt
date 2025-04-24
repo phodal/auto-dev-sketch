@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.actions.intention.ui
+package cc.unitmesh.sketch.language.actions.intention.ui
 
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.openapi.editor.Editor

@@ -1,9 +1,9 @@
-package cc.unitmesh.devti.language.ast.variable.resolver
+package cc.unitmesh.sketch.language.ast.variable.resolver
 
-import cc.unitmesh.devti.language.ast.action.PatternActionProcessor
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolver
-import cc.unitmesh.devti.language.ast.variable.resolver.base.VariableResolverContext
-import cc.unitmesh.devti.language.debugger.snapshot.VariableSnapshotRecorder
+import cc.unitmesh.sketch.language.ast.action.PatternActionProcessor
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolver
+import cc.unitmesh.sketch.language.ast.variable.resolver.base.VariableResolverContext
+import cc.unitmesh.sketch.language.debugger.snapshot.VariableSnapshotRecorder
 
 class UserCustomVariableResolver(
     private val context: VariableResolverContext,

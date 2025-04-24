@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.processor.ui
+package cc.unitmesh.sketch.language.processor.ui
 
 import com.intellij.openapi.ui.popup.JBPopup
 import com.intellij.ui.dsl.builder.panel

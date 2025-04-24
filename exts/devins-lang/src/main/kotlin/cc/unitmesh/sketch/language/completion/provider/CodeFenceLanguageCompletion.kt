@@ -1,6 +1,6 @@
-package cc.unitmesh.devti.language.completion.provider
+package cc.unitmesh.sketch.language.completion.provider
 
-import cc.unitmesh.devti.language.markdown.CodeFenceLanguageAliases
+import cc.unitmesh.sketch.language.markdown.CodeFenceLanguageAliases
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.codeInsight.lookup.LookupElementBuilder

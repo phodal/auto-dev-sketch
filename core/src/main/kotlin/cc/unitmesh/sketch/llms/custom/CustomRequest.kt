@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.llms.custom
+package cc.unitmesh.sketch.llms.custom
 
 import com.intellij.openapi.diagnostic.logger
 import kotlinx.serialization.Serializable

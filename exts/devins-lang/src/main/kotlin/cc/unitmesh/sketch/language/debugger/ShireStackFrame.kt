@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.language.debugger
+package cc.unitmesh.sketch.language.debugger
 
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.Disposable
@@ -10,8 +10,8 @@ import com.intellij.xdebugger.XExpression
 import com.intellij.xdebugger.XSourcePosition
 import com.intellij.xdebugger.evaluation.XDebuggerEvaluator
 import com.intellij.xdebugger.frame.*
-import cc.unitmesh.devti.language.debugger.snapshot.UserCustomVariableSnapshot
-import cc.unitmesh.devti.language.debugger.snapshot.VariableSnapshotRecorder
+import cc.unitmesh.sketch.language.debugger.snapshot.UserCustomVariableSnapshot
+import cc.unitmesh.sketch.language.debugger.snapshot.VariableSnapshotRecorder
 import org.jetbrains.concurrency.Promise
 
 

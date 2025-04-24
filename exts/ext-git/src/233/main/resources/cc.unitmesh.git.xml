@@ -8,7 +8,7 @@
     <actions>
         <action id="autodev.Vcs.CommitMessage"
                 class="cc.unitmesh.git.actions.vcs.CommitMessageSuggestionAction"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
                 description="Ask AI generate commit message">
 
             <add-to-group group-id="Vcs.MessageActionGroup"/>
@@ -16,7 +16,7 @@
 
         <action id="autodev.Vcs.LLMChangelog"
                 class="cc.unitmesh.git.actions.vcs.ReleaseNoteSuggestionAction"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
                 text="Generate Release Note (AutoDev)"
                 description="Ask AI generate release note">
 
@@ -25,7 +25,7 @@
 
         <action id="autodev.Vcs.CodeReview"
                 class="cc.unitmesh.git.actions.vcs.CodeReviewAction"
-                icon="cc.unitmesh.devti.AutoDevIcons.AI_COPILOT"
+                icon="cc.unitmesh.sketch.AutoDevIcons.AI_COPILOT"
                 text="Code Review (AutoDev)"
                 description="Ask AI to review code">
 
