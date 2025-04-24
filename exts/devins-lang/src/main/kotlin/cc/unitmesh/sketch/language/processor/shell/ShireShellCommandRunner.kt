@@ -10,6 +10,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.ProjectScope
 import java.io.File
@@ -76,6 +77,11 @@ object ShireShellCommandRunner {
      * for example,the file also needs to be deleted when [create-process][OSProcessHandler.startProcess] fails.
      */
     private fun deleteFileOnTermination(commandLine: GeneralCommandLine, tempFile: File) {
-        OSProcessHandler.deleteFileOnTermination(commandLine, tempFile)  // is Internal API
+//        OSProcessHandler.deleteFileOnTermination(commandLine, tempFile)  // is Internal API
+        try {
+            FileUtil.delete(tempFile)
+        } catch (e: Exception) {
+            // ignore
+        }
     }
 }
