@@ -1,6 +1,12 @@
 package cc.unitmesh.sketch.language.completion
 
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.language.completion.lang.HobbitHoleKeyCompletion
+import cc.unitmesh.sketch.language.completion.lang.HobbitHoleValueCompletion
+import cc.unitmesh.sketch.language.completion.lang.PostProcessorCompletion
+import cc.unitmesh.sketch.language.completion.lang.VariableCompletionProvider
+import cc.unitmesh.sketch.language.completion.lang.WhenConditionCompletionProvider
+import cc.unitmesh.sketch.language.completion.lang.WhenConditionFunctionCompletionProvider
 import cc.unitmesh.sketch.language.completion.provider.*
 import cc.unitmesh.sketch.language.psi.DevInFrontMatterEntry
 import cc.unitmesh.sketch.language.psi.DevInTypes
@@ -26,15 +32,12 @@ class DevInCompletionContributor : CompletionContributor() {
         extend(CompletionType.BASIC, identifierAfter(DevInTypes.VARIABLE_START), AgentToolOverviewCompletion())
         extend(CompletionType.BASIC, identifierAfter(DevInTypes.COMMAND_START), BuiltinCommandCompletion())
 
-//        extend(CompletionType.BASIC, hobbitHoleKey(), HobbitHoleKeyCompletion())
-//        extend(CompletionType.BASIC, hobbitHolePattern(), HobbitHoleValueCompletion())
-//
-//        extend(CompletionType.BASIC, identifierAfter(DevInTypes.PIPE), PostProcessorCompletion())
-//
-//        extend(CompletionType.BASIC, whenConditionPattern(), WhenConditionCompletionProvider())
-//        extend(CompletionType.BASIC, whenConditionFuncPattern(), WhenConditionFunctionCompletionProvider())
+        extend(CompletionType.BASIC, hobbitHoleKey(), HobbitHoleKeyCompletion())
+        extend(CompletionType.BASIC, hobbitHolePattern(), HobbitHoleValueCompletion())
+        extend(CompletionType.BASIC, identifierAfter(DevInTypes.PIPE), PostProcessorCompletion())
+        extend(CompletionType.BASIC, whenConditionPattern(), WhenConditionCompletionProvider())
+        extend(CompletionType.BASIC, whenConditionFuncPattern(), WhenConditionFunctionCompletionProvider())
 
-        // command completion
         extend(
             CompletionType.BASIC,
             (valuePatterns(
