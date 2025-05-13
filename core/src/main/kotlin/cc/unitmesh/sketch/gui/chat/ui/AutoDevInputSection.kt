@@ -1,24 +1,25 @@
-package cc.unitmesh.sketch.gui.chat.ui
+package cc.unitmesh.devti.gui.chat.ui
 
-import cc.unitmesh.sketch.AutoDevBundle
-import cc.unitmesh.sketch.AutoDevIcons
-import cc.unitmesh.sketch.AutoDevNotifications
-import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.sketch.agent.custom.model.CustomAgentState
-import cc.unitmesh.sketch.completion.AutoDevInputLookupManagerListener
-import cc.unitmesh.sketch.gui.chat.ui.file.RelatedFileListCellRenderer
-import cc.unitmesh.sketch.gui.chat.ui.file.RelatedFileListViewModel
-import cc.unitmesh.sketch.gui.chat.ui.file.WorkspaceFilePanel
-import cc.unitmesh.sketch.gui.chat.ui.file.WorkspaceFileToolbar
-import cc.unitmesh.sketch.indexer.DomainDictService
-import cc.unitmesh.sketch.indexer.usage.PromptEnhancer
-import cc.unitmesh.sketch.llms.tokenizer.Tokenizer
-import cc.unitmesh.sketch.llms.tokenizer.TokenizerFactory
-import cc.unitmesh.sketch.provider.RelatedClassesProvider
-import cc.unitmesh.sketch.settings.AutoDevSettingsState
-import cc.unitmesh.sketch.settings.customize.customizeSetting
-import cc.unitmesh.sketch.util.AutoDevCoroutineScope
-import cc.unitmesh.sketch.util.parser.CodeFence
+import cc.unitmesh.devti.AutoDevBundle
+import cc.unitmesh.devti.AutoDevIcons
+import cc.unitmesh.devti.AutoDevNotifications
+import cc.unitmesh.devti.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.devti.agent.custom.model.CustomAgentState
+import cc.unitmesh.devti.completion.AutoDevInputLookupManagerListener
+import cc.unitmesh.devti.gui.AutoDevCoolBorder
+import cc.unitmesh.devti.gui.chat.ui.file.RelatedFileListCellRenderer
+import cc.unitmesh.devti.gui.chat.ui.file.RelatedFileListViewModel
+import cc.unitmesh.devti.gui.chat.ui.file.WorkspaceFilePanel
+import cc.unitmesh.devti.gui.chat.ui.file.WorkspaceFileToolbar
+import cc.unitmesh.devti.indexer.DomainDictService
+import cc.unitmesh.devti.indexer.usage.PromptEnhancer
+import cc.unitmesh.devti.llms.tokenizer.Tokenizer
+import cc.unitmesh.devti.llms.tokenizer.TokenizerFactory
+import cc.unitmesh.devti.provider.RelatedClassesProvider
+import cc.unitmesh.devti.settings.AutoDevSettingsState
+import cc.unitmesh.devti.settings.customize.customizeSetting
+import cc.unitmesh.devti.util.AutoDevCoroutineScope
+import cc.unitmesh.devti.util.parser.CodeFence
 import com.intellij.codeInsight.lookup.LookupManagerListener
 import com.intellij.ide.IdeTooltip
 import com.intellij.ide.IdeTooltipManager
@@ -45,7 +46,6 @@ import com.intellij.openapi.wm.IdeFocusManager
 import com.intellij.openapi.wm.impl.InternalDecorator
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiManager
-import cc.unitmesh.sketch.gui.AutoDevCoolBorder
 import com.intellij.ui.HintHint
 import com.intellij.ui.MutableCollectionComboBoxModel
 import com.intellij.ui.SimpleListCellRenderer
@@ -187,9 +187,9 @@ class AutoDevInputSection(private val project: Project, val disposable: Disposab
                 }
             }
             customAgent.selectedItem = defaultRag
-            
+
             // Add action listener to refresh agent list when dropdown is clicked
-            customAgent.addActionListener { 
+            customAgent.addActionListener {
                 if (customAgent.isPopupVisible) {
                     refreshAgentList()
                 }
@@ -373,20 +373,20 @@ class AutoDevInputSection(private val project: Project, val disposable: Disposab
         buttonPanel.isEnabled = true
     }
 
-    private fun loadAgents(): List<CustomAgentConfig> {
+    private fun loadAgents(): MutableList<CustomAgentConfig> {
         val rags = CustomAgentConfig.loadFromProject(project)
 
-        if (rags.isEmpty()) return listOf(defaultRag)
+        if (rags.isEmpty()) return mutableListOf(defaultRag)
 
-        return listOf(defaultRag) + rags
+        return (listOf(defaultRag) + rags).toMutableList()
     }
-    
+
     private fun refreshAgentList() {
         val currentSelection = customAgent.selectedItem
         val agents = loadAgents()
         val model = customAgent.model as MutableCollectionComboBoxModel<CustomAgentConfig>
         model.update(agents)
-        
+
         // Try to restore the previous selection
         if (currentSelection != null && agents.contains(currentSelection)) {
             customAgent.selectedItem = currentSelection
