@@ -1,6 +1,7 @@
 package cc.unitmesh.sketch.mcp.client
 
 import cc.unitmesh.sketch.settings.customize.customizeSetting
+import cc.unitmesh.sketch.mcp.ui.McpConfigService
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

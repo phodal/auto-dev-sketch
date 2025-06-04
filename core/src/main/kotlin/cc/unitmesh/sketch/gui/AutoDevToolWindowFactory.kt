@@ -6,6 +6,8 @@ import cc.unitmesh.sketch.gui.chat.ChatCodingService
 import cc.unitmesh.sketch.gui.chat.NormalChatCodingPanel
 import cc.unitmesh.sketch.gui.chat.message.ChatActionType
 import cc.unitmesh.sketch.inline.AutoDevInlineChatProvider
+import cc.unitmesh.sketch.llm2.GithubCopilotDetector
+import cc.unitmesh.sketch.llm2.GithubCopilotManager
 import cc.unitmesh.sketch.provider.observer.AgentObserver
 import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback
 import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.componentStateChanged
@@ -22,6 +24,10 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.openapi.wm.ToolWindowManager
 import com.intellij.ui.content.Content
 import com.intellij.ui.content.ContentFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 private const val NORMAL_CHAT = "AutoDev Chat"
 private const val SKETCH_TITLE = "Sketch"
@@ -64,6 +70,25 @@ class AutoDevToolWindowFactory : ToolWindowFactory, DumbAware {
     private fun initForIdea223(project: Project) {
         AutoDevInlineChatProvider.addListener(project)
         AgentObserver.register(project)
+        initializeGithubCopilotModelsForIdea223(project)
+    }
+
+    /**
+     * Initialize GitHub Copilot models for IDEA 223 compatibility
+     */
+    private fun initializeGithubCopilotModelsForIdea223(project: Project) {
+        // 使用协程在后台线程执行初始化
+        val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+        scope.launch {
+            if (ApplicationManager.getApplication().isUnitTestMode) return@launch
+
+            // 只有当用户已配置 GitHub Copilot 时才进行初始化
+            if (GithubCopilotDetector.isGithubCopilotConfigured()) {
+                // 获取服务实例并初始化
+                val manager = GithubCopilotManager.getInstance()
+                manager.initialize()
+            }
+        }
     }
 
     override fun init(toolWindow: ToolWindow) {

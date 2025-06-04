@@ -1,6 +1,7 @@
 package cc.unitmesh.sketch.util
 
 import com.intellij.openapi.application.ReadAction
+import com.intellij.openapi.application.ReadAction.*
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.diff.impl.patch.TextFilePatch
 import com.intellij.openapi.diff.impl.patch.apply.GenericPatchApplier
@@ -36,9 +37,14 @@ object PatchConverter {
     }
 
     fun createChange(project: Project, patch: TextFilePatch): Change {
-        val baseDir = File(project.basePath!!)
-        val beforePath = patch.beforeName
-        val afterPath = patch.afterName
+        val basePath = project.basePath
+        if (basePath == null) {
+            logger<PatchConverter>().warn("Project base path is null, using current directory")
+        }
+
+        val baseDir = File(basePath ?: System.getProperty("user.dir"))
+        val beforePath = patch.beforeName ?: ""
+        val afterPath = patch.afterName ?: ""
 
         val fileStatus = when {
             patch.isNewFile -> {
@@ -54,8 +60,10 @@ object PatchConverter {
             }
         }
 
-        val beforeFilePath = VcsUtil.getFilePath(getAbsolutePath(baseDir, beforePath), false)
-        val afterFilePath = VcsUtil.getFilePath(getAbsolutePath(baseDir, afterPath), false)
+        val before = getAbsolutePath(baseDir, beforePath)
+        val beforeFilePath = VcsUtil.getFilePath(before, false)
+        val after = getAbsolutePath(baseDir, afterPath)
+        val afterFilePath = VcsUtil.getFilePath(after, false)
 
         var beforeRevision: ContentRevision? = null
         if (fileStatus !== FileStatus.ADDED) {
@@ -85,9 +93,8 @@ object PatchConverter {
                         }
 
                         else -> {
-                            val localContent: String = loadLocalContent()
+                            val localContent: String = loadLocalContent(beforeFilePath) ?: ""
                             val appliedPatch = GenericPatchApplier.apply(localContent, patch.hunks)
-                            /// sometimes llm will return a wrong patch which the content is not correct
                             if (appliedPatch != null) {
                                 return appliedPatch.patchedText
                             }
@@ -96,21 +103,20 @@ object PatchConverter {
                         }
                     }
                 }
-
-                @Throws(VcsException::class)
-                private fun loadLocalContent(): String {
-                    return ReadAction.compute<String?, VcsException?>(ThrowableComputable {
-                        val file: VirtualFile? = beforeFilePath.virtualFile
-                        if (file == null) return@ThrowableComputable null
-                        val doc = FileDocumentManager.getInstance().getDocument(file)
-                        if (doc == null) return@ThrowableComputable null
-                        doc.text
-                    })
-                }
             }
         }
 
         return Change(beforeRevision, afterRevision, fileStatus)
     }
 
+    @Throws(VcsException::class)
+    private fun loadLocalContent(beforeFilePath: FilePath): String? {
+        return compute<String?, VcsException?>(ThrowableComputable {
+            val file: VirtualFile? = beforeFilePath.virtualFile
+            if (file == null) return@ThrowableComputable null
+            val doc = FileDocumentManager.getInstance().getDocument(file)
+            if (doc == null) return@ThrowableComputable null
+            doc.text
+        })
+    }
 }

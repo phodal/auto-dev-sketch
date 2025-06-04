@@ -9,7 +9,7 @@ import cc.unitmesh.sketch.fullWidthCell
 import cc.unitmesh.sketch.mcp.client.McpServicesTestDialog
 import cc.unitmesh.sketch.provider.local.JsonTextProvider
 import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.componentStateChanged
-import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.jBLabel
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.i18nLabel
 import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.placeholder
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.Disposable
@@ -28,7 +28,7 @@ class CustomizeConfigurable(val project: Project) : BoundConfigurable(AutoDevBun
 
     override fun createPanel(): DialogPanel = panel {
         row {
-            cell(jBLabel("settings.autodev.coder.customActions", 1))
+            cell(i18nLabel("settings.autodev.coder.customActions", 1))
 
             link(AutoDevBundle.message("custom.action"), {
                 BrowserUtil.browse("https://ide.unitmesh.cc/custom/action")
@@ -86,7 +86,7 @@ class CustomizeConfigurable(val project: Project) : BoundConfigurable(AutoDevBun
                 )
         }
         row {
-            cell(jBLabel("counit.mcp.services.placeholder", 1))
+            cell(i18nLabel("counit.mcp.services.placeholder", 1))
             link(AutoDevBundle.message("sketch.mcp.services.docs"), {
                 BrowserUtil.browse("https://ide.unitmesh.cc/mcp")
             })
