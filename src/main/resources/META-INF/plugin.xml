@@ -1,11 +1,8 @@
 <idea-plugin package="cc.unitmesh" xmlns:xi="http://www.w3.org/2001/XInclude" allow-bundled-update="true">
     <id>cc.unitmesh.sketch</id>
-    <name>AutoDev Sketch</name>
+    <name>AutoDev Sketch - Open Source Cursor-Like in IDEA with DeepSeek</name>
     <vendor>Phodal Huang</vendor>
-
-    <description><![CDATA[
-    🧙‍AutoDev: The AI-powered coding wizard（AI 驱动编程助手）with multilingual support 🌐, auto code generation 🏗️.
-    ]]></description>
+    <description>AutoDev Sketch is an open-source AI coding assistant integrated into JetBrains IntelliJ IDEA, designed to enhance developer productivity.</description>
 
     <change-notes><![CDATA[
         todo
