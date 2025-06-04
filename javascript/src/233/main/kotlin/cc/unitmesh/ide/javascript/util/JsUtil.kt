@@ -10,6 +10,16 @@ object JsUtil {
             runReadAction { JSTestRunnerManager.getInstance().findPackageDependentProducers(file) }
 
         val testRunConfigurationProducer = findPackageDependentProducers.firstOrNull()
-        return testRunConfigurationProducer?.configurationType?.displayName
+        return testRunConfigurationProducer?.let {
+            try {
+                val configurationTypeField = it.javaClass.getDeclaredMethod("getConfigurationType")
+                configurationTypeField.isAccessible = true
+                val configurationType = configurationTypeField.invoke(it)
+                configurationType?.javaClass?.getDeclaredMethod("getDisplayName")?.invoke(configurationType) as? String
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
     }
 }
