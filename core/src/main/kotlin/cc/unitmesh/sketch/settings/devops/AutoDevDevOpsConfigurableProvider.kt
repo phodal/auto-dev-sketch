@@ -1,6 +1,7 @@
 package cc.unitmesh.sketch.settings.devops
 
 import cc.unitmesh.sketch.AutoDevBundle
+import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.components.*
 import com.intellij.openapi.options.BoundConfigurable
 import com.intellij.openapi.options.Configurable
@@ -37,6 +38,11 @@ class DevOpsConfigurable(project: Project) : BoundConfigurable(AutoDevBundle.mes
                 }
                 row("GitHub Token:") {
                     githubTokenField = passwordField().component
+                    link("Create Token") {
+                        BrowserUtil.browse("https://github.com/settings/tokens/new?scopes=repo,workflow&description=AutoDev%20IDE%20Plugin")
+                    }
+
+                    comment("Note: Admin rights to repository are required to download detailed job logs. Basic monitoring works with read access.")
                 }
                 row("GitLab URL:") {
                     gitlabUrlField = textField().component

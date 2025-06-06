@@ -6,7 +6,6 @@ import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.sketch.ui.ExtensionLangSketch
 import cc.unitmesh.sketch.util.findFile
 import com.intellij.icons.AllIcons
-import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.command.UndoConfirmationPolicy
@@ -14,6 +13,7 @@ import com.intellij.openapi.command.undo.UndoManager
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.diff.impl.patch.PatchReader
 import com.intellij.openapi.diff.impl.patch.TextFilePatch
+import com.intellij.openapi.diff.impl.patch.UnifiedDiffWriter
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.fileEditor.FileEditorProvider
@@ -30,31 +30,57 @@ import com.intellij.ui.components.panels.VerticalLayout
 import com.intellij.util.containers.MultiMap
 import com.intellij.util.ui.JBUI
 import java.awt.BorderLayout
+import java.io.StringWriter
 import javax.swing.BoxLayout
 import javax.swing.JButton
 import javax.swing.JComponent
 import javax.swing.JPanel
 
-class DiffLangSketch(private val myProject: Project, private var patchContent: String) : ExtensionLangSketch {
+class DiffLangSketch : ExtensionLangSketch {
+    private val myProject: Project
+    private var patchContent: String
     private val mainPanel: JPanel = JPanel(VerticalLayout(2))
     private val myHeaderPanel: JPanel = JPanel(BorderLayout())
-    private val shelfExecutor = ApplyPatchDefaultExecutor(myProject)
-    private val myReader: PatchReader? = PatchReader(patchContent).also {
-        try {
-            it.parseAllPatches()
-        } catch (e: Exception) {
-            AutoDevNotifications.error(myProject, "Failed to parse patch: ${e.message}")
-            null
-        }
-    }
-    private val filePatches: MutableList<TextFilePatch> = try {
-        myReader?.textPatches
-    } catch (e: Exception) {
-        logger<DiffLangSketch>().warn("Failed to parse patch: ${e.message}")
-        mutableListOf()
-    } ?: mutableListOf()
+    private val shelfExecutor: ApplyPatchDefaultExecutor
+    private val myReader: PatchReader?
+    private val filePatches: MutableList<TextFilePatch>
 
-    init {
+    constructor(myProject: Project, patchContent: String) {
+        this.myProject = myProject
+        this.patchContent = patchContent
+        this.shelfExecutor = ApplyPatchDefaultExecutor(myProject)
+        this.myReader = PatchReader(patchContent).also {
+            try {
+                it.parseAllPatches()
+            } catch (e: Exception) {
+                AutoDevNotifications.error(myProject, "Failed to parse patch: ${e.message}")
+                null
+            }
+        }
+        this.filePatches = try {
+            myReader?.textPatches
+        } catch (e: Exception) {
+            logger<DiffLangSketch>().warn("Failed to parse patch: ${e.message}")
+            mutableListOf()
+        } ?: mutableListOf()
+
+        initializeUI()
+    }
+
+    constructor(myProject: Project, patch: TextFilePatch) {
+        this.myProject = myProject
+        val writer = StringWriter()
+        UnifiedDiffWriter.write(myProject, listOf(patch), writer, "\n", null)
+        this.patchContent = writer.toString()
+
+        this.shelfExecutor = ApplyPatchDefaultExecutor(myProject)
+        this.myReader = null
+        this.filePatches = mutableListOf(patch)
+
+        initializeUI()
+    }
+
+    private fun initializeUI() {
         if (filePatches.size > 1 || filePatches.any { it.beforeName == null }) {
             val header = createHeaderAction()
             myHeaderPanel.add(header, BorderLayout.EAST)
@@ -105,7 +131,6 @@ class DiffLangSketch(private val myProject: Project, private var patchContent: S
     private fun createDiffPanel(patch: TextFilePatch): SingleFileDiffSketch? {
         return when {
             patch.beforeName != null -> {
-                /// if before file is empty, should set new code empty, it should be new file
                 val originFile = myProject.findFile(patch.beforeName!!) ?: LightVirtualFile(patch.beforeName!!, "")
                 createSingleFileDiffSketch(originFile, patch)
             }
@@ -142,7 +167,7 @@ class DiffLangSketch(private val myProject: Project, private var patchContent: S
     }
 
     private fun tryGetEditor(): Editor? {
-        var defaultEditor = FileEditorManager.getInstance(myProject).selectedTextEditor ?: return null
+        val defaultEditor = FileEditorManager.getInstance(myProject).selectedTextEditor ?: return null
 
         val fileRegex = Regex("/patch:(.*)")
         val matchResult = fileRegex.find(patchContent)
@@ -184,7 +209,7 @@ class DiffLangSketch(private val myProject: Project, private var patchContent: S
         return panel
     }
 
-    private fun handleAcceptAction() {
+    fun handleAcceptAction() {
         PsiDocumentManager.getInstance(myProject).commitAllDocuments()
         val commandProcessor: CommandProcessor = CommandProcessor.getInstance()
 
@@ -224,7 +249,7 @@ class DiffLangSketch(private val myProject: Project, private var patchContent: S
             MyApplyPatchFromClipboardDialog(myProject, patchContent).show()
             return
         } else {
-            showSingleDiff(this@DiffLangSketch.myProject, this@DiffLangSketch.patchContent, this) {
+            showSingleDiff(this@DiffLangSketch.myProject, this@DiffLangSketch.patchContent) {
                 handleAcceptAction()
             }
         }
@@ -240,7 +265,7 @@ class DiffLangSketch(private val myProject: Project, private var patchContent: S
     override fun dispose() {}
 }
 
-fun showSingleDiff(project: Project, patchContent: String, disposable: Disposable, handleAccept: (() -> Unit)?) {
+fun showSingleDiff(project: Project, patchContent: String, handleAccept: (() -> Unit)?) {
     val editorProvider = FileEditorProvider.EP_FILE_EDITOR_PROVIDER.extensionList.firstOrNull {
         it.javaClass.simpleName == "DiffPatchFileEditorProvider" || it.javaClass.simpleName == "DiffEditorProvider"
     }

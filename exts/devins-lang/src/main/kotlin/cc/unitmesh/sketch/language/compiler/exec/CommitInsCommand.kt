@@ -3,6 +3,12 @@ package cc.unitmesh.sketch.language.compiler.exec
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.language.git.GitUtil
+import cc.unitmesh.sketch.sketch.AutoSketchMode
+import com.intellij.ide.DataManager
+import com.intellij.openapi.actionSystem.ActionManager
+import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vcs.changes.ChangeListManager
 import com.intellij.openapi.vcs.changes.LocalChangeList
@@ -10,11 +16,40 @@ import com.intellij.openapi.vcs.changes.LocalChangeList
 class CommitInsCommand(val myProject: Project, val commitMsg: String) : InsCommand {
     override val commandName: BuiltinCommand = BuiltinCommand.COMMIT
 
+    /**
+     * [com.intellij.openapi.vcs.changes.shelf.ShelveChangesAction] to trigger the action
+     *
+     * [com.intellij.openapi.vcs.changes.shelf.ShelveChangesCommitExecutor]
+     *
+     * [com.intellij.openapi.vcs.changes.shelf.ShelvedChangesViewManager] to manage the shelf changes
+     */
     override suspend fun execute(): String {
-        val changeListManager = ChangeListManager.getInstance(myProject)
-        val changeList: LocalChangeList = changeListManager.defaultChangeList
-        GitUtil.doCommit(myProject, changeList, commitMsg)
+        if (AutoSketchMode.getInstance(myProject).isEnable) {
+            invokeShelveChangesAction()
+            return "Commit by UI will depends by user selection"
+        } else {
+            val changeListManager = ChangeListManager.getInstance(myProject)
+            val changeList: LocalChangeList = changeListManager.defaultChangeList
+            GitUtil.doCommit(myProject, changeList, commitMsg)
+            return "Commited for $changeList"
+        }
+    }
 
-        return "Commited for $changeList"
+    private fun invokeShelveChangesAction() {
+        val actionManager = ActionManager.getInstance()
+        val shelveAction = actionManager.getAction("ChangesView.Shelve")
+
+        if (shelveAction != null) {
+            ApplicationManager.getApplication().invokeLater({
+                val dataContext = DataManager.getInstance().getDataContext()
+                val event = AnActionEvent.createFromAnAction(
+                    shelveAction,
+                    null,
+                    "",
+                    dataContext
+                )
+                shelveAction.actionPerformed(event)
+            }, ModalityState.NON_MODAL)
+        }
     }
 }

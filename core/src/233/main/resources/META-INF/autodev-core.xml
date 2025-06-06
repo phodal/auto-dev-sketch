@@ -3,6 +3,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends>Git4Idea</depends>
 
     <depends optional="true" config-file="json-contrib.xml">com.intellij.modules.json</depends>
     <depends optional="true" config-file="docker.xml">Docker</depends>
@@ -332,6 +333,8 @@
     <projectListeners>
         <listener class="cc.unitmesh.sketch.actions.rename.RenameLookupManagerListener"
                   topic="com.intellij.codeInsight.lookup.LookupManagerListener"/>
+        <listener class="cc.unitmesh.sketch.observer.PipelineStatusProcessor"
+                  topic="git4idea.push.GitPushListener"/>
     </projectListeners>
 
     <extensions defaultExtensionNs="cc.unitmesh">
@@ -524,8 +527,8 @@
         </action>
 
         <group id="autodev.statusBarPopup">
-            <reference ref="cc.unitmesh.sketch.QuickAssistant"/>
-            <reference ref="cc.unitmesh.sketch.EditSettings"/>
+            <reference id="cc.unitmesh.sketch.QuickAssistant"/>
+            <reference id="cc.unitmesh.sketch.EditSettings"/>
         </group>
 
         <group id="AutoDevPlanner.ToolWindow.TitleActions">

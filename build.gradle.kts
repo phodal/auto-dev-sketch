@@ -191,7 +191,7 @@ project(":") {
         projectName = basePluginArchiveName
         pluginConfiguration {
             id = "cc.unitmesh.sketch"
-            name = "AutoDev Sketch"
+            name = "AutoDev Sketch - Open Source Cursor-Like in IDEA with DeepSeek"
             version = prop("pluginVersion")
 
             ideaVersion {
@@ -443,7 +443,7 @@ project(":core") {
         implementation("org.commonmark:commonmark:0.21.0")
         implementation("org.commonmark:commonmark-ext-gfm-tables:0.21.0")
 
-        implementation("org.yaml:snakeyaml:2.2")
+        implementation("org.yaml:snakeyaml:2.4")
 
 //        implementation("com.nfeld.jsonpathkt:jsonpathkt:2.0.1")
         implementation("com.jayway.jsonpath:json-path:2.9.0")
@@ -470,6 +470,9 @@ project(":core") {
 
         // token count
         implementation("com.knuddels:jtokkit:1.1.0")
+
+        // YAML parsing for edit_file command
+        implementation("org.yaml:snakeyaml:2.2")
 
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     }
@@ -611,6 +614,11 @@ project(":exts:ext-git") {
 
         implementation(project(":core"))
         implementation(project(":exts:devins-lang"))
+
+        // kanban
+        implementation("org.kohsuke:github-api:1.326")
+        implementation("org.gitlab4j:gitlab4j-api:5.8.0")
+
         implementation("cc.unitmesh:git-commit-message:0.4.6") {
             excludeKotlinDeps()
         }
@@ -765,6 +773,37 @@ project(":exts:ext-openrewrite") {
         intellijPlatform {
             intellijIde(prop("ideaVersion"))
             intellijPlugins(ideaPlugins + prop("openWritePlugin"))
+        }
+
+        implementation(project(":core"))
+    }
+
+    sourceSets {
+        main {
+            resources.srcDirs("src/$platformVersion/main/resources")
+        }
+        test {
+            resources.srcDirs("src/$platformVersion/test/resources")
+        }
+    }
+    kotlin {
+        sourceSets {
+            main {
+                kotlin.srcDirs("src/$platformVersion/main/kotlin")
+            }
+            test {
+                kotlin.srcDirs("src/$platformVersion/test/kotlin")
+            }
+        }
+    }
+}
+
+
+project(":exts:ext-wechat") {
+    dependencies {
+        intellijPlatform {
+            intellijIde(prop("ideaVersion"))
+            intellijPlugins(ideaPlugins + prop("wechatPlugin"))
         }
 
         implementation(project(":core"))

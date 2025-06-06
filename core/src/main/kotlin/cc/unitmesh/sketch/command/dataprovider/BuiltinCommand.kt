@@ -22,7 +22,7 @@ enum class BuiltinCommand(
     FILE(
         "file", 
         "Read and retrieve file content from project using relative path. Essential for examining existing code, configurations, or documentation before modifications. Supports line ranges (L1-L10) and global filename search. Returns complete file content with line numbers for context understanding.",
-        AllIcons.Actions.Copy, 
+        AllIcons.FileTypes.Any_type,
         true, 
         true
     ),
@@ -54,6 +54,13 @@ enum class BuiltinCommand(
         "patch",
         "Apply precise code modifications using GNU unified diff format. Preferred for targeted changes to existing files while preserving surrounding code. Use when making multiple changes or complex modifications, prefer /write command for better reliability.",
         AllIcons.Vcs.Patch_file,
+        false,
+        enableInSketch = false
+    ),
+    EDIT_FILE(
+        "edit_file",
+        "Apply structured file edits using target_file, instructions, and code_edit parameters. Designed for precise code modifications with clear context markers. Use // ... existing code ... to represent unchanged sections. Ideal for targeted edits with explicit instructions.",
+        AllIcons.Actions.Edit,
         false
     ),
     RUN(

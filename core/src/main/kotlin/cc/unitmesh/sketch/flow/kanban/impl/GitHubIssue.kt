@@ -2,10 +2,16 @@ package cc.unitmesh.sketch.flow.kanban.impl
 
 import cc.unitmesh.sketch.flow.kanban.Kanban
 import cc.unitmesh.sketch.flow.model.SimpleStory
+import cc.unitmesh.sketch.settings.devops.devopsPromptsSettings
+import com.intellij.dvcs.repo.VcsRepositoryManager
+import com.intellij.openapi.project.Project
+import git4idea.repo.GitRepository
 import org.kohsuke.github.GitHub
 import org.kohsuke.github.GitHubBuilder
 import org.kohsuke.github.GHIssueState
+import org.kohsuke.github.GHRepository
 import java.time.Instant
+import kotlin.text.contains
 
 class GitHubIssue(var repoUrl: String, val token: String) : Kanban {
     private val gitHub: GitHub
@@ -45,7 +51,7 @@ class GitHubIssue(var repoUrl: String, val token: String) : Kanban {
 
         return SimpleStory(issue.number.toString(), issue.title, issue.body ?: "")
     }
-    
+
     /**
      * Get recent issue IDs (within last 24 hours)
      */
@@ -53,12 +59,83 @@ class GitHubIssue(var repoUrl: String, val token: String) : Kanban {
         return try {
             val repository = gitHub.getRepository(repoUrl)
             val yesterday = Instant.now().minusSeconds(24 * 60 * 60)
-            
+
             repository.getIssues(GHIssueState.ALL)
                 .filter { it.createdAt.toInstant().isAfter(yesterday) }
                 .map { it.number.toString() }
         } catch (e: Exception) {
             throw RuntimeException("Failed to fetch recent issues: ${e.message}", e)
+        }
+    }
+
+    companion object {
+        fun getGitHubRepository(project: Project, remoteUrl: String): GHRepository? {
+            val github = createGitHubConnection(project)
+            return try {
+                extractRepositoryPath(remoteUrl)?.let { repoPath ->
+                    github.getRepository(repoPath)
+                }
+            } catch (e: Exception) {
+                null
+            }
+        }
+
+        fun createGitHubConnection(project: Project): GitHub {
+            val token = project.devopsPromptsSettings.githubToken
+            return if (token.isEmpty()) {
+                GitHub.connectAnonymously()
+            } else {
+                GitHub.connectUsingOAuth(token)
+            }
+        }
+
+        private fun extractRepositoryPath(remoteUrl: String): String? {
+            val httpsPattern = Regex("https://github\\.com/([^/]+/[^/]+)(?:\\.git)?/?")
+            val sshPattern = Regex("git@github\\.com:([^/]+/[^/]+)(?:\\.git)?/?")
+
+            return httpsPattern.find(remoteUrl)?.groupValues?.get(1)
+                ?: sshPattern.find(remoteUrl)?.groupValues?.get(1)
+        }
+
+        fun parseGitHubRemoteUrl(repository: GitRepository): String? =
+            repository.remotes.firstOrNull { remote ->
+                remote.urls.any { it.contains("github.com") }
+            }?.urls?.firstOrNull { it.contains("github.com") }
+
+        fun parseGitHubRepository(project: Project): GHRepository? {
+            val repositoryManager: VcsRepositoryManager = VcsRepositoryManager.getInstance(project)
+            val repository = repositoryManager.getRepositoryForFile(project.baseDir)
+
+            if (repository == null) {
+                return null
+            }
+
+            if (repository !is GitRepository) {
+                return null
+            }
+
+            val remoteUrl = parseGitHubRemoteUrl(repository) ?: return null
+            return getGitHubRepository(project, remoteUrl)
+        }
+
+        fun isGitHubRepository(project: Project): Boolean {
+            val repositoryManager: VcsRepositoryManager = VcsRepositoryManager.getInstance(project)
+            val repository = repositoryManager.getRepositoryForFile(project.baseDir)
+
+            if (repository == null) {
+                return false
+            }
+
+            if (repository !is GitRepository) {
+                return false
+            }
+
+            val remoteUrl = parseGitHubRemoteUrl(repository) ?: return false
+            if (remoteUrl.contains("github.com")) {
+                return true
+            }
+
+            return false
         }
     }
 }
