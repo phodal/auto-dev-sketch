@@ -356,7 +356,7 @@ project(":") {
 
         publishPlugin {
             dependsOn("patchChangelog")
-            token.set(environment("PUBLISH_TOKEN"))
+            token.set("perm:cGhvZGFs.OTItMTEyNzY=.1MEVaCFeMY5Sd1Jacinq2xi66cExmw")
             channels.set(properties("pluginVersion").map {
                 listOf(it.split('-').getOrElse(1) { "default" }.split('.').first())
             })
