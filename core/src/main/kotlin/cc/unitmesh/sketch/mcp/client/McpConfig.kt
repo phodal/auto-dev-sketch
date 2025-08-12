@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.mcp.client
+package cc.unitmesh.sketch.mcp.client
 
 import cc.unitmesh.sketch.a2a.A2aServer
 import com.intellij.openapi.diagnostic.logger
