@@ -12,7 +12,6 @@ import cc.unitmesh.sketch.settings.coder.coderSetting
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 
 /**
  * Adapter that bridges the old LLMProvider interface with the new LLMProvider2 implementation.
@@ -22,20 +21,12 @@ class LLMProviderAdapter(
     private val project: Project,
     private val modelType: ModelType = ModelType.Default
 ) : LLMProvider {
-
     private val logger = logger<LLMProviderAdapter>()
     private val agentService = project.getService(AgentStateService::class.java)
 
-    // Internal message history to maintain compatibility with old interface
     private val messages: MutableList<Message> = mutableListOf()
-
-    // The underlying LLMProvider2 instance
-    private val provider2: LLMProvider2 by lazy {
-        createProvider2()
-    }
-
-    // Current session for LLMProvider2
     private var currentSession: ChatSession<Message> = ChatSession("adapter-session")
+    private var currentProvider: LLMProvider2? = null
 
     override val defaultTimeout: Long get() = 600
 
@@ -67,6 +58,7 @@ class LLMProviderAdapter(
         }
 
         val actualProvider = LLMProvider2.fromConfig(actualLlmConfig, project)
+        currentProvider = actualProvider
         if (!keepHistory || project.coderSetting.state.noChatHistory) {
             clearMessage()
             currentSession = ChatSession("adapter-session")
@@ -140,6 +132,17 @@ class LLMProviderAdapter(
     override fun clearMessage() {
         messages.clear()
         currentSession = ChatSession("adapter-session")
+    }
+
+    /**
+     * Cancels the current LLM request synchronously without waiting for completion.
+     * This is useful for immediately stopping streaming responses from the LLM.
+     */
+    fun cancelCurrentRequestSync() {
+        logger.info("Cancelling current LLM request synchronously")
+        currentProvider?.cancelCurrentRequestSync() ?: run {
+            logger.warn("No active LLM provider to cancel")
+        }
     }
 
     override fun getAllMessages(): List<Message> {

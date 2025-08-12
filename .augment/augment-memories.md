@@ -25,7 +25,7 @@
 # Testing
 - The DevInsCompiler class has existing tests that can be used to validate refactoring changes.
 - User prefers to generate comprehensive tests for the functionality.
-- For EditApplyTest, use the command ':core:test --tests "cc.unitmesh.devti.command.EditApplyTest"' to run the tests.
+- For EditApplyTest, use the command ':core:test --tests "cc.unitmesh.sketch.command.EditApplyTest"' to run the tests.
 
 # Performance
 - User prefers WorkspaceFileSearchPopup to use lazy loading with recently opened files prioritized first, rather than loading all files at once to prevent IDEA freezing.

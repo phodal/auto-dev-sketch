@@ -1,18 +1,21 @@
 package cc.unitmesh.sketch.mcp.client
 
+import cc.unitmesh.sketch.a2a.A2aServer
 import com.intellij.openapi.diagnostic.logger
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @Serializable
 data class McpConfig(
-    val mcpServers: Map<String, McpServer>
+    val mcpServers: Map<String, McpServer>,
+    val a2aServers: Map<String, A2aServer>
 )
 
 @Serializable
 data class McpServer(
-    val command: String,
-    val args: List<String>,
+    val command: String? = null,
+    val url: String? = null,
+    val args: List<String> = emptyList(),
     val disabled: Boolean? = null,
     val autoApprove: List<String>? = null,
     val env: Map<String, String>? = null,

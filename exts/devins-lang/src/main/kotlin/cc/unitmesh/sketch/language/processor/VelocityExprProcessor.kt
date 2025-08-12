@@ -6,6 +6,7 @@ import com.intellij.openapi.application.runReadAction
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import kotlinx.coroutines.runBlocking
+import java.util.LinkedList
 
 /**
  * Processor for Velocity expressions
@@ -77,7 +78,7 @@ class VelocityExprProcessor : DevInElementProcessor {
     private fun addVariable(psiElement: PsiElement?, context: CompilerContext) {
         if (psiElement == null) return
         
-        val queue = java.util.LinkedList<PsiElement>()
+        val queue = LinkedList<PsiElement>()
         queue.push(psiElement)
         
         val variableProcessor = VariableProcessor()

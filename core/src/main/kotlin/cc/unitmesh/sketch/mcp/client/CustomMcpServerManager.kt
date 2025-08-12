@@ -1,35 +1,46 @@
 package cc.unitmesh.sketch.mcp.client
 
 import cc.unitmesh.sketch.settings.customize.customizeSetting
-import cc.unitmesh.sketch.mcp.ui.McpConfigService
+import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.guessProjectDir
+import com.intellij.openapi.util.SystemInfo
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.sse.SSE
 import io.modelcontextprotocol.kotlin.sdk.Implementation
 import io.modelcontextprotocol.kotlin.sdk.Tool
 import io.modelcontextprotocol.kotlin.sdk.client.Client
 import io.modelcontextprotocol.kotlin.sdk.client.StdioClientTransport
+import io.modelcontextprotocol.kotlin.sdk.client.SseClientTransport
+import io.modelcontextprotocol.kotlin.sdk.client.StreamableHttpClientTransport
 import kotlinx.coroutines.runBlocking
 import kotlinx.io.asSink
 import kotlinx.io.asSource
 import kotlinx.io.buffered
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.jsonObject
+import java.io.BufferedReader
+import java.io.File
+import java.io.InputStreamReader
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.TimeUnit
-import com.intellij.openapi.util.SystemInfo
-import java.io.File
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import com.intellij.execution.configurations.GeneralCommandLine
-import com.intellij.openapi.project.guessProjectDir
+import kotlin.time.Duration.Companion.seconds
 
 @Service(Service.Level.PROJECT)
 class CustomMcpServerManager(val project: Project) {
     val cached = mutableMapOf<String, Map<String, List<Tool>>>()
     val toolClientMap = mutableMapOf<Tool, Client>()
+
+    val httpClient = HttpClient(CIO) {
+        install(SSE) {
+            reconnectionTime = 30.seconds
+        }
+    }
 
     suspend fun collectServerInfos(): Map<String, List<Tool>> {
         val mcpServerConfig = project.customizeSetting.mcpServerConfig
@@ -59,23 +70,35 @@ class CustomMcpServerManager(val project: Project) {
     }
 
     suspend fun collectServerInfo(serverKey: String, serverConfig: McpServer): List<Tool> {
-        val resolvedCommand = resolveCommand(serverConfig.command)
-        logger<CustomMcpServerManager>().info("Found MCP command for $serverKey: $resolvedCommand")
         val client = Client(clientInfo = Implementation(name = serverKey, version = "1.0.0"))
 
-        val cmd = GeneralCommandLine(resolvedCommand)
-        cmd.addParameters(*serverConfig.args.toTypedArray())
+        val transport = when {
+            serverConfig.url != null -> {
+//                StreamableHttpClientTransport(httpClient, serverConfig.url)
+                SseClientTransport(httpClient, serverConfig.url)
+            }
+            serverConfig.command != null -> {
+                val resolvedCommand = resolveCommand(serverConfig.command)
+                logger<CustomMcpServerManager>().info("Using stdio transport for $serverKey: $resolvedCommand")
 
-        cmd.workDirectory = File(project.guessProjectDir()!!.path)
+                val cmd = GeneralCommandLine(resolvedCommand)
+                cmd.addParameters(*serverConfig.args.toTypedArray())
+                cmd.workDirectory = File(project.guessProjectDir()!!.path)
 
-        serverConfig.env?.forEach { (key, value) ->
-            cmd.environment[key] = value
+                serverConfig.env?.forEach { (key, value) ->
+                    cmd.environment[key] = value
+                }
+
+                val process = cmd.createProcess()
+                val input = process.inputStream.asSource().buffered()
+                val output = process.outputStream.asSink().buffered()
+                StdioClientTransport(input, output)
+            }
+            else -> {
+                logger<CustomMcpServerManager>().warn("Server $serverKey has neither command nor url configured, skipping")
+                return emptyList()
+            }
         }
-
-        val process = cmd.createProcess()
-        val input = process.inputStream.asSource().buffered()
-        val output = process.outputStream.asSink().buffered()
-        val transport = StdioClientTransport(input, output)
 
         return try {
             client.connect(transport)
@@ -85,7 +108,7 @@ class CustomMcpServerManager(val project: Project) {
             }
             listTools?.tools ?: emptyList()
         } catch (e: Exception) {
-            logger<CustomMcpServerManager>().warn("Failed to list tools from $serverKey: $e")
+            logger<CustomMcpServerManager>().error("Failed to list tools from $serverKey: $e")
             emptyList()
         }
     }

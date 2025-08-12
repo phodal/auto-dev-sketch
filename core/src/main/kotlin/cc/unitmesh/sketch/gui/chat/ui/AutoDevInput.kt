@@ -14,6 +14,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.EditorModificationUtil
 import com.intellij.openapi.editor.actions.EnterAction
 import com.intellij.openapi.editor.actions.IncrementalFindAction
+import com.intellij.codeInsight.lookup.LookupManagerListener
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.editor.event.DocumentListener
 import com.intellij.openapi.editor.ex.EditorEx
@@ -45,6 +46,7 @@ class AutoDevInput(
     private val listeners: List<DocumentListener>,
     val disposable: Disposable?,
     val inputSection: AutoDevInputSection,
+    val showAgent: Boolean = true
 ) : EditorTextField(project, FileTypes.PLAIN_TEXT), Disposable {
     private var editorListeners: EventDispatcher<AutoDevInputListener> = inputSection.editorListeners
     
@@ -53,6 +55,8 @@ class AutoDevInput(
         editorListeners.multicaster.onSubmit(inputSection, AutoDevInputTrigger.Key)
     }
     
+    private val enterShortcutSet = CustomShortcutSet(KeyboardShortcut(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), null))
+
     private val newlineAction = DumbAwareAction.create {
         val editor = editor ?: return@create
         insertNewLine(editor)
@@ -82,7 +86,11 @@ class AutoDevInput(
     init {
         AutoInputService.getInstance(project).registerAutoDevInput(this)
         isOneLineMode = false
-        placeholder("chat.panel.initial.text", this)
+        if (showAgent) {
+            placeholder("chat.panel.initial.text", this)
+        } else {
+            placeholder("chat.panel.initial.text.noAgent", this)
+        }
         setFontInheritedFromLAF(true)
         addSettingsProvider {
             it.putUserData(IncrementalFindAction.SEARCH_DISABLED, true)
@@ -94,10 +102,7 @@ class AutoDevInput(
 
         background = EditorColorsManager.getInstance().globalScheme.defaultBackground
 
-        submitAction.registerCustomShortcutSet(
-            CustomShortcutSet(KeyboardShortcut(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), null)), 
-            this
-        )
+        registerEnterShortcut()
         
         newlineAction.registerCustomShortcutSet(
             CustomShortcutSet(
@@ -110,6 +115,27 @@ class AutoDevInput(
         listeners.forEach { listener ->
             document.addDocumentListener(listener)
         }
+
+        // 监听补全弹窗状态，动态注册/注销 Enter 键
+        project.messageBus.connect(disposable ?: this).subscribe(LookupManagerListener.TOPIC, object : LookupManagerListener {
+            override fun activeLookupChanged(oldLookup: com.intellij.codeInsight.lookup.Lookup?, newLookup: com.intellij.codeInsight.lookup.Lookup?) {
+                if (newLookup != null) {
+                    // 有补全弹窗时，注销 Enter 键快捷键
+                    unregisterEnterShortcut()
+                } else {
+                    // 没有补全弹窗时，注册 Enter 键快捷键
+                    registerEnterShortcut()
+                }
+            }
+        })
+    }
+
+    private fun registerEnterShortcut() {
+        submitAction.registerCustomShortcutSet(enterShortcutSet, this)
+    }
+
+    private fun unregisterEnterShortcut() {
+        submitAction.unregisterCustomShortcutSet(this)
     }
 
     override fun onEditorAdded(editor: Editor) {

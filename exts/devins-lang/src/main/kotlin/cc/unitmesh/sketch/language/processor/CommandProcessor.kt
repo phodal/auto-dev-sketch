@@ -3,6 +3,7 @@ package cc.unitmesh.sketch.language.compiler.processor
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.language.processor.InsCommandFactory
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed
 import com.intellij.openapi.application.runReadAction

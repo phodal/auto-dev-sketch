@@ -108,6 +108,12 @@ configure(subprojects - project(":exts")) {
         targetCompatibility = VERSION_17
     }
 
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
+
     tasks {
         prepareSandbox { enabled = false }
     }
@@ -207,11 +213,11 @@ project(":") {
         pluginVerification {
             freeArgs = listOf("-mute", "TemplateWordInPluginId,ForbiddenPluginIdPrefix")
             ides {
-                ide(IntellijIdeaUltimate, "2024.2")
+                ide(IntellijIdeaUltimate, "2024.1")
                 select {
                     types = listOf(IntellijIdeaUltimate)
-                    sinceBuild = "242"
-                    untilBuild = "242"
+                    sinceBuild = "241"
+                    untilBuild = "241"
                 }
             }
         }
@@ -415,7 +421,12 @@ project(":core") {
         implementation("org.jetbrains.xodus:xodus-entity-store:2.0.1")
         implementation("org.jetbrains.xodus:xodus-vfs:2.0.1")
 
-        implementation("io.modelcontextprotocol:kotlin-sdk:0.5.0")
+        implementation("io.modelcontextprotocol:kotlin-sdk:0.6.0")
+        /// # Ktor
+        implementation("io.ktor:ktor-client-cio:3.2.3")
+        implementation("io.ktor:ktor-server-sse:3.2.3")
+
+        implementation("io.github.a2asdk:a2a-java-sdk-client:0.2.5")
 
         implementation("io.reactivex.rxjava3:rxjava:3.1.10")
 
@@ -473,6 +484,9 @@ project(":core") {
 
         // YAML parsing for edit_file command
         implementation("org.yaml:snakeyaml:2.2")
+
+        // gitignore parsing library for fallback engine
+        implementation("nl.basjes.gitignore:gitignore-reader:1.6.0")
 
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     }

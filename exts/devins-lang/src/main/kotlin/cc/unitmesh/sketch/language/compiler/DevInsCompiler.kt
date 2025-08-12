@@ -4,6 +4,7 @@ import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.command.dataprovider.CustomCommand
 import cc.unitmesh.sketch.language.ast.variable.VariableTable
 import cc.unitmesh.sketch.language.compiler.processor.*
+import cc.unitmesh.sketch.language.processor.InsCommandFactory
 import cc.unitmesh.sketch.language.psi.DevInFile
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed

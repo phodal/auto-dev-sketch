@@ -4,6 +4,7 @@ import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.language.compiler.exec.file.runInEdtAsync
 import cc.unitmesh.sketch.sketch.AutoSketchMode
 import cc.unitmesh.sketch.sketch.ui.patch.readText
 import cc.unitmesh.sketch.sketch.ui.patch.writeText

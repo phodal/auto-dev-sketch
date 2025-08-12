@@ -1,8 +1,61 @@
-# [](https://github.com/unit-mesh/auto-dev/compare/v2.2.1...v) (2025-06-06)
+# [](https://github.com/unit-mesh/auto-dev/compare/v2.2.3...v) (2025-08-11)
 
 ## [Unreleased]
 
-## [2.2.1] - 2025-06-06
+## [2.2.3](https://github.com/unit-mesh/auto-dev/compare/v2.2.2...v[2.2.3]) (2025-08-11)
+
+### Bug Fixes
+
+* Fix compilation errors and ensure build passes ([b83366e](https://github.com/unit-mesh/auto-dev/commit/b83366e6721ed61fc494b9741081f4869efdaf30))
+* remove conflicting copy method from ProcessInfo data class ([7fdc971](https://github.com/unit-mesh/auto-dev/commit/7fdc971a37ef6cc25eed3d3c42d8f96c2c9b4ac3))
+* Remove SSE references from tests and documentation ([cf02298](https://github.com/unit-mesh/auto-dev/commit/cf022984cb6512d9d4becfe79e320ec93bc7455e))
+* resolve test failures in gitignore engine ([5a07067](https://github.com/unit-mesh/auto-dev/commit/5a0706766c67971fc82d0cfbc31a23218f674b4d))
+
+### Features
+
+* Add MCP SSE (Server-Sent Events) transport support ([21364b1](https://github.com/unit-mesh/auto-dev/commit/21364b1c871494c8a54a96100fca0867cb718bf2))
+* Add MCP streamable HTTP transport support ([1238032](https://github.com/unit-mesh/auto-dev/commit/1238032f6fcb5ead54f482c0a00567f79004475d)), closes [#429](https://github.com/unit-mesh/auto-dev/issues/429)
+* implement high-performance dual-engine gitignore parser ([962da13](https://github.com/unit-mesh/auto-dev/commit/962da13aafa2b4f1015e0d9c58f1a63d9c83c202)), closes [#432](https://github.com/unit-mesh/auto-dev/issues/432)
+* implement Process Management Tool integration ([#430](https://github.com/unit-mesh/auto-dev/issues/430)) ([499511e](https://github.com/unit-mesh/auto-dev/commit/499511e3bfc6cf112f3a27a4dc6bb7c1d73497bf))
+* implement SSE transport support and enhance error logging ([c7a8c4d](https://github.com/unit-mesh/auto-dev/commit/c7a8c4de7690fb4c5504597a5ded6fe108610d19))
+* switch to CIO engine for HTTP client and add SSE support ([0aa7c64](https://github.com/unit-mesh/auto-dev/commit/0aa7c64e1827f596b32fbf48709dfaa460174541))
+
+## [2.2.2](https://github.com/unit-mesh/auto-dev/compare/v2.2.1...v[2.2.2]) (2025-06-21)
+
+### Bug Fixes
+
+* **AutoDevInput:** correct placeholder logic for agent display ([eb5a89d](https://github.com/unit-mesh/auto-dev/commit/eb5a89d7ba62aeec3ddd3605f4bde12a1f2b7ad2))
+* **command:** 改进代码编辑内容提取的引号处理 ([b2e994e](https://github.com/unit-mesh/auto-dev/commit/b2e994ea26029b283024e71b3e0083d35affa77a))
+* **devti:** 移除 GitHub Actions 生成器冗余注释 ([21de880](https://github.com/unit-mesh/auto-dev/commit/21de8800b08fdcd829e44c089bd9ed6419b5d0e7))
+* **editor:** normalize line endings in code display and closed [#423](https://github.com/unit-mesh/auto-dev/issues/423) ([714eec8](https://github.com/unit-mesh/auto-dev/commit/714eec838f3b20f8098fae1681e851266dc2aab3))
+* **editor:** 添加语法高亮器设置的异常处理 [#423](https://github.com/unit-mesh/auto-dev/issues/423) ([9eb197e](https://github.com/unit-mesh/auto-dev/commit/9eb197ed96e5b0e7db92dc54b758d19143b94e48))
+* fix issue ([8fb0f84](https://github.com/unit-mesh/auto-dev/commit/8fb0f84c9ba1e6e690a9b277f567d0cdebb8fea6))
+* **input:** 优化Enter键处理避免与代码补全冲突 ([eda9725](https://github.com/unit-mesh/auto-dev/commit/eda9725076f261aad5519346fc73b096fa9d43e3))
+* **llm2:** 改进 SSE EventSource 管理机制 ([1bcc0fd](https://github.com/unit-mesh/auto-dev/commit/1bcc0fd3c38139e8e9c0a68765a188386e9dfc07))
+* **llm:** improve error handling for response parsing and closed [#424](https://github.com/unit-mesh/auto-dev/issues/424) ([37235ae](https://github.com/unit-mesh/auto-dev/commit/37235ae43cbcc6f01dd821fbd917c8a8c12c8d46))
+* **llm:** 清理GitHub Copilot初始化的多余日志和注释 ([dce7b0f](https://github.com/unit-mesh/auto-dev/commit/dce7b0f2ce33344e4e62b01c53fb3ff52750bab0)), closes [#422](https://github.com/unit-mesh/auto-dev/issues/422)
+* **sketch:** 修复代码修改指引格式并添加重构建议 ([1809764](https://github.com/unit-mesh/auto-dev/commit/1809764ec4d17d7acb57f780ffde07eccad87e0a))
+* **template:** 优化代码生成模板的上下文描述 ([e27fe9f](https://github.com/unit-mesh/auto-dev/commit/e27fe9f48c7423d27b6ab19c382880cdcc65526e))
+
+### Features
+
+* **ci:** 添加GitHub Actions自动化Issue分析工作流 ([39476cf](https://github.com/unit-mesh/auto-dev/commit/39476cf47dc9b0564b2d82702a78d5b1a4ad518e))
+* **command:** add robust EditRequest parser ([cd67e56](https://github.com/unit-mesh/auto-dev/commit/cd67e56d0d282ce8007f0cce6d15885eafee8d2d))
+* **command:** 添加高级格式编辑请求解析支持 ([23ed06d](https://github.com/unit-mesh/auto-dev/commit/23ed06d089425c42ce55b447982248ee219fc232))
+* **git:** 为GitHub问题添加缓存机制 ([15eed7d](https://github.com/unit-mesh/auto-dev/commit/15eed7d47bb7bd293e98e9d605b9126341c107f0)), closes [#410](https://github.com/unit-mesh/auto-dev/issues/410)
+* **git:** 优化GitHub问题选择弹窗的变量管理 ([8584bc7](https://github.com/unit-mesh/auto-dev/commit/8584bc71a93cfeea229d09a44b03720a7d7b9453))
+* **llm:** add synchronous cancellation for LLM requests [#412](https://github.com/unit-mesh/auto-dev/issues/412) ([0bf03d6](https://github.com/unit-mesh/auto-dev/commit/0bf03d6d35e38e2e07179787012ee445fbcca7c1))
+* **mcp:** 添加 McpParam 注解支持工具参数描述 ([e92def7](https://github.com/unit-mesh/auto-dev/commit/e92def75ab2e671820aa881bf84528cfa83fb867))
+* **observer:** 增强流水线状态日志记录详细信息 ([0de0658](https://github.com/unit-mesh/auto-dev/commit/0de0658a0b3f2a467bb3552745f773c51743b40a))
+* **ripgrep:** enhance search instructions with regex examples and usage tips [#413](https://github.com/unit-mesh/auto-dev/issues/413) ([1b86dc8](https://github.com/unit-mesh/auto-dev/commit/1b86dc8fae48dbea15881d84ff3fc3d0a9e3ce6e))
+* **settings:** 优化GitHub模型加载和占位符替换机制 ([746e960](https://github.com/unit-mesh/auto-dev/commit/746e9609b12e9f6cc5a1f59d9b58d359239b6299))
+* **settings:** 刷新后保持用户选择的LLM模型配置 ([71c4306](https://github.com/unit-mesh/auto-dev/commit/71c4306e13ce27177136451b1944a8c675b3300d))
+* **sketch:** 优化Sketch模式下文件写入行为 ([f72bac6](https://github.com/unit-mesh/auto-dev/commit/f72bac6d0099aa34f841e021cf083b1a7e6de813))
+* **sketch:** 移除模板中冗余示例优化工具调用说明 ([88592f7](https://github.com/unit-mesh/auto-dev/commit/88592f7643d23d68185e175f70056f06d7f74dc3))
+* **template:** 增强工具调用指南的说明和格式化规范 $420 ([4bc33c4](https://github.com/unit-mesh/auto-dev/commit/4bc33c48561a3c2c76f076aaaecac6e986e280f5))
+* **ui:** add conditional placeholder for agent display and fixed [#414](https://github.com/unit-mesh/auto-dev/issues/414) ([84b308e](https://github.com/unit-mesh/auto-dev/commit/84b308ebe7f86c528766e2a62ebd7e53bf04eb42))
+
+## [2.2.1](https://github.com/unit-mesh/auto-dev/compare/v2.2.0...v[2.2.1]) (2025-06-06)
 
 ### Bug Fixes
 
@@ -1717,15 +1770,19 @@
 
 ### Features
 
+* add basic for context ([5e6af8e](https://github.com/unit-mesh/auto-dev/commit/5e6af8ee5974c27244c2ee70d8e63b669daa2b9d))
+* add basic rust for template ([d892646](https://github.com/unit-mesh/auto-dev/commit/d8926462594b8c66ed8c848d59cb9c4a109eb50f))
 * add csharp mod ([0a49b52](https://github.com/unit-mesh/auto-dev/commit/0a49b52a1fe6a5c1bc6d0a6a8e40c23d1e036014))
 * add csharp module ([e5bad15](https://github.com/unit-mesh/auto-dev/commit/e5bad154d612a18f1372de15ca4574d40b75acd8))
 * add custom action to prompt ([d3ce0ed](https://github.com/unit-mesh/auto-dev/commit/d3ce0ed8bfef4d7498ac22e684094e26e41e6647))
 * add match rule of regex ([58dca56](https://github.com/unit-mesh/auto-dev/commit/58dca56246b151811a2aea422e61285ef15e7134))
 * add run rider ([4968c33](https://github.com/unit-mesh/auto-dev/commit/4968c3389aeebd41a8251c343c2f5f1f40654f97))
 * add token length config to [#19](https://github.com/unit-mesh/auto-dev/issues/19) ([ba83c80](https://github.com/unit-mesh/auto-dev/commit/ba83c8010a27fbd486e941b1b55907d196581ca3))
+* **biz:** add chat with biz ([6723920](https://github.com/unit-mesh/auto-dev/commit/6723920fcb9cc5adb724a6d429efd0ed53c54abd))
 * **biz:** make explain biz works ([6068a35](https://github.com/unit-mesh/auto-dev/commit/6068a357416f637c7934b2298ffd9b1322e6e7fd))
 * **biz:** reorg code ([e72683b](https://github.com/unit-mesh/auto-dev/commit/e72683b58711d0261f8a5263d99188e8f03499bd))
 * **biz:** update for context ([3f5b10a](https://github.com/unit-mesh/auto-dev/commit/3f5b10a4f0888b869821f478b28daa48abb7af3d))
+* **clion:** try with oc ([4593cb8](https://github.com/unit-mesh/auto-dev/commit/4593cb88b2fa1467b55620438c17fa0b84763c13))
 * **co:** add basic api parse ([75e095d](https://github.com/unit-mesh/auto-dev/commit/75e095d271bd73fa9d759f5d5db37cce0e2ee242))
 * **co:** add chapi for scan scanner ([cdeff14](https://github.com/unit-mesh/auto-dev/commit/cdeff14eb40a470f9629c14bc2c2d6c492af1b7f))
 * **co:** init basic actions ([d9b0d08](https://github.com/unit-mesh/auto-dev/commit/d9b0d082441ec8f70dde3c75a66b434cf7cbf487))
@@ -1737,54 +1794,42 @@
 * **custom:** make custom prompt works ([71393df](https://github.com/unit-mesh/auto-dev/commit/71393df6c94111f95dd64392737931c1829954e4))
 * make api works ([3bd2387](https://github.com/unit-mesh/auto-dev/commit/3bd2387d3824889d21dafe07c1afc2554063acc3))
 * make azure works with stream ([962b599](https://github.com/unit-mesh/auto-dev/commit/962b599e91e078d866398a0ebe487b64d862a948))
+* make clion runnable ([71df852](https://github.com/unit-mesh/auto-dev/commit/71df852c80844a3b3df09521c26c3f371bb5de7c))
 * make custom server works with stream ([a7a9c1c](https://github.com/unit-mesh/auto-dev/commit/a7a9c1c418684105f8bbd198ac4b07fee346a67c))
 * **python:** add to add collect ([b67933f](https://github.com/unit-mesh/auto-dev/commit/b67933f81f24b7dd082a4e33f37589f5c37d2b56))
+* **rust:** try to talk with biz in biz ([d138da7](https://github.com/unit-mesh/auto-dev/commit/d138da73d7b2e21fdfbf08466031e27b1404865e))
+* try to use refs ([ce3c671](https://github.com/unit-mesh/auto-dev/commit/ce3c67186ce50f847e968455d14e4ec4f3bcea70))
 * try with new api ([6a94505](https://github.com/unit-mesh/auto-dev/commit/6a945052ed89c43bc0ca337cf29467db3d7d1b8e))
+* update for explain biz logic ([95049b5](https://github.com/unit-mesh/auto-dev/commit/95049b5ebe4b71093e6256fdaa65efe266a54900))
 
 ### Bug Fixes
 
 * **azure:** fix crash issues ([8d2581d](https://github.com/unit-mesh/auto-dev/commit/8d2581d377381e075cffa8546456f4c96a6f956f))
-* disable for veww ([8bb2063](https://github.com/unit-mesh/auto-dev/commit/8bb20630ad5c8fa266a37bf56e20e5ddbb8f5f4e))
-* disable for welcome board ([7ab469b](https://github.com/unit-mesh/auto-dev/commit/7ab469b0c617adcffceb329c75ff8b9105687024))
-* fix exception issues ([2fa1976](https://github.com/unit-mesh/auto-dev/commit/2fa19766cabeca08f087c485c58ea886f4a83e49))
-* fix format issues ([f83b70f](https://github.com/unit-mesh/auto-dev/commit/f83b70fc3fc7c9771dfd022860b3f5cb858c28dc))
-* fix lost element issue ([3dd043e](https://github.com/unit-mesh/auto-dev/commit/3dd043e334db3e6595fef97a5fad12ffdb953ee2))
-* fix null issue [#19](https://github.com/unit-mesh/auto-dev/issues/19) [#14](https://github.com/unit-mesh/auto-dev/issues/14) ([1fe63fe](https://github.com/unit-mesh/auto-dev/commit/1fe63fe94364e9c434ad661bf6e228174adba7cf))
-* fix tests ([ee67cde](https://github.com/unit-mesh/auto-dev/commit/ee67cde53356947d5c46e4e6833db8a5043ebd2e))
-* fix width issue ([b94ccc0](https://github.com/unit-mesh/auto-dev/commit/b94ccc0ca443737d54fe31b5b1bcb389d1c1e02a))
-* remove dpilicate code ([1a89ed0](https://github.com/unit-mesh/auto-dev/commit/1a89ed03fb4dd22678f25f6f3c66122de1204f66))
-* settings not change but show modified ([e3e327d](https://github.com/unit-mesh/auto-dev/commit/e3e327d6b92008de73312106ae2cefdd769aa698))
-* try add csharp framework context ([d2e7bfe](https://github.com/unit-mesh/auto-dev/commit/d2e7bfe7423a6824903b5690e591458c5c878563))
-
-## [1.0.2](https://github.com/unit-mesh/auto-dev/compare/v[1.0.2]-beta.1...v[1.0.2]) (2023-08-07)
-
-### Bug Fixes
-
 * clen deps ([0625702](https://github.com/unit-mesh/auto-dev/commit/062570212a849c292aff0c72d3d2972d023fdc88))
 * deplay get display text message time ([46a24e8](https://github.com/unit-mesh/auto-dev/commit/46a24e8ae4b16636937e8917c3c43ab8f29ef1da))
+* disable for veww ([8bb2063](https://github.com/unit-mesh/auto-dev/commit/8bb20630ad5c8fa266a37bf56e20e5ddbb8f5f4e))
+* disable for welcome board ([7ab469b](https://github.com/unit-mesh/auto-dev/commit/7ab469b0c617adcffceb329c75ff8b9105687024))
 * fix a read issue before other ([5142ec2](https://github.com/unit-mesh/auto-dev/commit/5142ec2cb2ca3ed562baa122ec1b930ddd1d4081))
 * fix change sessions ([3ce2a57](https://github.com/unit-mesh/auto-dev/commit/3ce2a575b2a5c01b99808e44038e8cf358aa7ca2))
 * fix examples for commits ([469624a](https://github.com/unit-mesh/auto-dev/commit/469624af173055b25a2ad079d80d91f68b5e5038))
+* fix exception issues ([2fa1976](https://github.com/unit-mesh/auto-dev/commit/2fa19766cabeca08f087c485c58ea886f4a83e49))
 * fix format ([0e61d89](https://github.com/unit-mesh/auto-dev/commit/0e61d8998175576fc0b21dd640bad90062bbbff6))
+* fix format issues ([f83b70f](https://github.com/unit-mesh/auto-dev/commit/f83b70fc3fc7c9771dfd022860b3f5cb858c28dc))
 * fix internal api issues ([16449c2](https://github.com/unit-mesh/auto-dev/commit/16449c290cbd4b591ec0c766937be0ad7f663297))
+* fix lost element issue ([3dd043e](https://github.com/unit-mesh/auto-dev/commit/3dd043e334db3e6595fef97a5fad12ffdb953ee2))
+* fix null issue [#19](https://github.com/unit-mesh/auto-dev/issues/19) [#14](https://github.com/unit-mesh/auto-dev/issues/14) ([1fe63fe](https://github.com/unit-mesh/auto-dev/commit/1fe63fe94364e9c434ad661bf6e228174adba7cf))
 * fix processor issue ([a8fc892](https://github.com/unit-mesh/auto-dev/commit/a8fc892daf26bef9d22ee609ea1be829410d613c))
 * fix read issues ([a318041](https://github.com/unit-mesh/auto-dev/commit/a31804159bd88999294ab3d9a1c5712e95c23f9e))
 * fix request prompt issue ([08036ac](https://github.com/unit-mesh/auto-dev/commit/08036ac7396c88672a3d672848ace10033b59f2e))
 * fix simliar chunk issue ([6b79923](https://github.com/unit-mesh/auto-dev/commit/6b799231dbbaf3fd0a28d8c2dafce775c1478328))
+* fix tests ([ee67cde](https://github.com/unit-mesh/auto-dev/commit/ee67cde53356947d5c46e4e6833db8a5043ebd2e))
 * fix tests ([de6bb26](https://github.com/unit-mesh/auto-dev/commit/de6bb26c845fa26249bf72c2ab7257e603d90ce9))
 * fix typos ([109db5e](https://github.com/unit-mesh/auto-dev/commit/109db5e5573c9fd6b45fc2e31c94c293399e10a4))
+* fix width issue ([b94ccc0](https://github.com/unit-mesh/auto-dev/commit/b94ccc0ca443737d54fe31b5b1bcb389d1c1e02a))
+* remove dpilicate code ([1a89ed0](https://github.com/unit-mesh/auto-dev/commit/1a89ed03fb4dd22678f25f6f3c66122de1204f66))
+* settings not change but show modified ([e3e327d](https://github.com/unit-mesh/auto-dev/commit/e3e327d6b92008de73312106ae2cefdd769aa698))
+* try add csharp framework context ([d2e7bfe](https://github.com/unit-mesh/auto-dev/commit/d2e7bfe7423a6824903b5690e591458c5c878563))
 * try to resolve index issues ([25b2275](https://github.com/unit-mesh/auto-dev/commit/25b2275a4c0d3a7099aafd35aeb24dd15f03664a))
-
-### Features
-
-* add basic for context ([5e6af8e](https://github.com/unit-mesh/auto-dev/commit/5e6af8ee5974c27244c2ee70d8e63b669daa2b9d))
-* add basic rust for template ([d892646](https://github.com/unit-mesh/auto-dev/commit/d8926462594b8c66ed8c848d59cb9c4a109eb50f))
-* **biz:** add chat with biz ([6723920](https://github.com/unit-mesh/auto-dev/commit/6723920fcb9cc5adb724a6d429efd0ed53c54abd))
-* **clion:** try with oc ([4593cb8](https://github.com/unit-mesh/auto-dev/commit/4593cb88b2fa1467b55620438c17fa0b84763c13))
-* make clion runnable ([71df852](https://github.com/unit-mesh/auto-dev/commit/71df852c80844a3b3df09521c26c3f371bb5de7c))
-* **rust:** try to talk with biz in biz ([d138da7](https://github.com/unit-mesh/auto-dev/commit/d138da73d7b2e21fdfbf08466031e27b1404865e))
-* try to use refs ([ce3c671](https://github.com/unit-mesh/auto-dev/commit/ce3c67186ce50f847e968455d14e4ec4f3bcea70))
-* update for explain biz logic ([95049b5](https://github.com/unit-mesh/auto-dev/commit/95049b5ebe4b71093e6256fdaa65efe266a54900))
 
 ## [1.0.2-beta.1](https://github.com/unit-mesh/auto-dev/compare/[1.0.2-beta.1]...v[1.0.2-beta.1]) (2023-08-05)
 
@@ -2243,7 +2288,9 @@
 * update for configure ([1eb22b8](https://github.com/unit-mesh/auto-dev/commit/1eb22b8a0dfb9aa6a379aa6fb05dd93bf07c05af))
 * use single binding ([9092752](https://github.com/unit-mesh/auto-dev/commit/9092752a4a79ff64d062e089137f427a83db3988))
 
-[Unreleased]: https://github.com/unit-mesh/auto-dev/compare/v2.2.1...HEAD
+[Unreleased]: https://github.com/unit-mesh/auto-dev/compare/v2.2.3...HEAD
+[2.2.3]: https://github.com/unit-mesh/auto-dev/compare/v2.2.2...v2.2.3
+[2.2.2]: https://github.com/unit-mesh/auto-dev/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/unit-mesh/auto-dev/compare/v2.1.3...v2.2.1
 [2.1.3]: https://github.com/unit-mesh/auto-dev/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/unit-mesh/auto-dev/compare/v2.1.1...v2.1.2
@@ -2299,8 +2346,7 @@
 [1.1.4]: https://github.com/unit-mesh/auto-dev/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/unit-mesh/auto-dev/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/unit-mesh/auto-dev/compare/v1.1.1...v1.1.2
-[1.1.1]: https://github.com/unit-mesh/auto-dev/compare/v1.0.2...v1.1.1
-[1.0.2]: https://github.com/unit-mesh/auto-dev/compare/v1.0.2-beta.1...v1.0.2
+[1.1.1]: https://github.com/unit-mesh/auto-dev/compare/v1.0.2-beta.1...v1.1.1
 [1.0.2-beta.1]: https://github.com/unit-mesh/auto-dev/compare/v1.0.1...v1.0.2-beta.1
 [1.0.1]: https://github.com/unit-mesh/auto-dev/compare/v0.7.3...v1.0.1
 [0.7.3]: https://github.com/unit-mesh/auto-dev/compare/v0.6.1...v0.7.3

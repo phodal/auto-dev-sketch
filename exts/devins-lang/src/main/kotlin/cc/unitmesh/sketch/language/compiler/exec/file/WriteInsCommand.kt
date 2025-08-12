@@ -1,4 +1,4 @@
-package cc.unitmesh.sketch.language.compiler.exec
+package cc.unitmesh.sketch.language.compiler.exec.file
 
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
@@ -17,6 +17,7 @@ import com.intellij.openapi.util.CheckedDisposable
 import com.intellij.openapi.util.Disposer
 import com.intellij.openapi.vfs.VirtualFile
 import kotlin.text.isNotEmpty
+import cc.unitmesh.sketch.sketch.AutoSketchMode
 
 class WriteInsCommand(val myProject: Project, val argument: String, val content: String, val used: DevInUsed) :
     InsCommand {
@@ -37,7 +38,9 @@ class WriteInsCommand(val myProject: Project, val argument: String, val content:
         val virtualFile = runReadAction { myProject.lookupFile(filepath) }!!
         runInEdt {
             virtualFile.writeText(content)
-            FileEditorManager.getInstance(myProject).openFile(virtualFile, true)
+            if (!AutoSketchMode.getInstance(myProject).isEnable) {
+                FileEditorManager.getInstance(myProject).openFile(virtualFile, true)
+            }
         }
 
         return "Writing to file: $argument"

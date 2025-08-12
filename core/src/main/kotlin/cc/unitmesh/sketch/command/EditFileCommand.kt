@@ -14,13 +14,11 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.diff.impl.patch.TextFilePatch
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.yaml.snakeyaml.LoaderOptions
-import org.yaml.snakeyaml.Yaml
-import org.yaml.snakeyaml.constructor.SafeConstructor
 import java.util.concurrent.CompletableFuture
 
 class EditFileCommand(private val project: Project) {
     private val editApply = EditApply()
+    private val parser = EditRequestParser()
 
     fun executeEdit(editRequest: EditRequest): EditResult {
         val projectDir = project.guessProjectDir() ?: return EditResult.error("Project directory not found")
@@ -70,61 +68,7 @@ class EditFileCommand(private val project: Project) {
     }
 
     fun parseEditRequest(content: String): EditRequest? {
-        return try {
-            parseAsYaml(content) ?: parseAsLegacyFormat(content)
-        } catch (e: Exception) {
-            parseAsLegacyFormat(content)
-        }
-    }
-
-    private fun parseAsYaml(content: String): EditRequest? {
-        return try {
-            val yaml = Yaml(SafeConstructor(LoaderOptions()))
-            val data = yaml.load<Map<String, Any>>(content) ?: return null
-
-            val targetFile = data["target_file"] as? String ?: return null
-            val instructions = data["instructions"] as? String ?: ""
-            val codeEdit = data["code_edit"] as? String ?: return null
-
-            EditRequest(
-                targetFile = targetFile,
-                instructions = instructions,
-                codeEdit = codeEdit
-            )
-        } catch (e: Exception) {
-            null
-        }
-    }
-
-    private fun parseAsLegacyFormat(content: String): EditRequest? {
-        return try {
-            val targetFileRegex = """target_file["\s]*[:=]["\s]*["']([^"']+)["']""".toRegex()
-            val instructionsRegex =
-                """instructions["\s]*[:=]["\s]*["']([^"']*?)["']""".toRegex(RegexOption.DOT_MATCHES_ALL)
-
-            val codeEditPattern = """code_edit["\s]*[:=]["\s]*["'](.*?)["']""".toRegex(RegexOption.DOT_MATCHES_ALL)
-
-            val targetFileMatch = targetFileRegex.find(content)
-            val instructionsMatch = instructionsRegex.find(content)
-            val codeEditMatch = codeEditPattern.find(content)
-
-            if (targetFileMatch != null && codeEditMatch != null) {
-                val codeEditContent = codeEditMatch.groupValues[1]
-                    .replace("\\n", "\n")  // Handle escaped newlines
-                    .replace("\\\"", "\"") // Handle escaped quotes
-                    .replace("\\'", "'")   // Handle escaped single quotes
-
-                EditRequest(
-                    targetFile = targetFileMatch.groupValues[1],
-                    instructions = instructionsMatch?.groupValues?.get(1) ?: "",
-                    codeEdit = codeEditContent
-                )
-            } else {
-                null
-            }
-        } catch (e: Exception) {
-            null
-        }
+        return parser.parse(content)
     }
 }
 

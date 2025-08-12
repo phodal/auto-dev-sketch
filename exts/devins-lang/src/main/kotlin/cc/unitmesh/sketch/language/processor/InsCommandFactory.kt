@@ -1,10 +1,18 @@
-package cc.unitmesh.sketch.language.compiler.processor
+package cc.unitmesh.sketch.language.processor
 
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand.Companion.toolchainProviderName
 import cc.unitmesh.sketch.language.compiler.exec.*
+import cc.unitmesh.sketch.language.compiler.exec.file.FileInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.process.KillProcessInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.process.LaunchProcessInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.process.ListProcessesInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.process.ReadProcessOutputInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.process.WriteProcessInputInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.file.*
+import cc.unitmesh.sketch.language.compiler.processor.CompilerContext
 import cc.unitmesh.sketch.language.parser.CodeBlockElement
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed
@@ -127,6 +135,28 @@ class InsCommandFactory {
         BuiltinCommand.OPEN -> {
             context.result.isLocalCommand = true
             OpenInsCommand(context.project, prop)
+        }
+        BuiltinCommand.LAUNCH_PROCESS -> {
+            context.result.isLocalCommand = true
+            val shireCode: String? = lookupNextCode(used)?.codeText()
+            LaunchProcessInsCommand(context.project, prop, shireCode)
+        }
+        BuiltinCommand.LIST_PROCESSES -> {
+            context.result.isLocalCommand = true
+            ListProcessesInsCommand(context.project, prop)
+        }
+        BuiltinCommand.KILL_PROCESS -> {
+            context.result.isLocalCommand = true
+            KillProcessInsCommand(context.project, prop)
+        }
+        BuiltinCommand.READ_PROCESS_OUTPUT -> {
+            context.result.isLocalCommand = true
+            ReadProcessOutputInsCommand(context.project, prop)
+        }
+        BuiltinCommand.WRITE_PROCESS_INPUT -> {
+            context.result.isLocalCommand = true
+            val shireCode: String? = lookupNextCode(used)?.codeText()
+            WriteProcessInputInsCommand(context.project, prop, shireCode)
         }
         BuiltinCommand.TOOLCHAIN_COMMAND -> {
             context.result.isLocalCommand = true
