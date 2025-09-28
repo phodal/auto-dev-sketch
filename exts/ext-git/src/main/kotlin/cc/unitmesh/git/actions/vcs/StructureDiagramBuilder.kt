@@ -1,10 +1,10 @@
 package cc.unitmesh.git.actions.vcs
 
-import cc.unitmesh.devti.context.ClassContext
-import cc.unitmesh.devti.context.ClassContextProvider
-import cc.unitmesh.devti.context.FileContextProvider
-import cc.unitmesh.devti.context.MethodContextProvider
-import cc.unitmesh.devti.context.VariableContextProvider
+import cc.unitmesh.sketch.context.ClassContext
+import cc.unitmesh.sketch.context.ClassContextProvider
+import cc.unitmesh.sketch.context.FileContextProvider
+import cc.unitmesh.sketch.context.MethodContextProvider
+import cc.unitmesh.sketch.context.VariableContextProvider
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.openapi.project.Project

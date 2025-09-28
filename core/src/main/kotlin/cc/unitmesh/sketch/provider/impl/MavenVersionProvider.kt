@@ -1,8 +1,8 @@
-package cc.unitmesh.devti.provider.impl
+package cc.unitmesh.sketch.provider.impl
 
-import cc.unitmesh.devti.provider.LibraryVersionProvider
-import cc.unitmesh.devti.provider.VersionRequest
-import cc.unitmesh.devti.provider.VersionResult
+import cc.unitmesh.sketch.provider.LibraryVersionProvider
+import cc.unitmesh.sketch.provider.VersionRequest
+import cc.unitmesh.sketch.provider.VersionResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json

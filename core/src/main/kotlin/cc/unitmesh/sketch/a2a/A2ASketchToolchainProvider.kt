@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.a2a
+package cc.unitmesh.sketch.a2a
 
-import cc.unitmesh.devti.agent.tool.AgentTool
-import cc.unitmesh.devti.sketch.SketchToolchainProvider
+import cc.unitmesh.sketch.agent.tool.AgentTool
+import cc.unitmesh.sketch.sketch.SketchToolchainProvider
 import com.intellij.openapi.project.Project
 import io.a2a.spec.AgentCard
 

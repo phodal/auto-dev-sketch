@@ -1,7 +1,7 @@
-package cc.unitmesh.devti.a2a
+package cc.unitmesh.sketch.a2a
 
-import cc.unitmesh.devti.mcp.client.McpServer
-import cc.unitmesh.devti.settings.customize.customizeSetting
+import cc.unitmesh.sketch.mcp.client.McpServer
+import cc.unitmesh.sketch.settings.customize.customizeSetting
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 import io.a2a.spec.AgentCard

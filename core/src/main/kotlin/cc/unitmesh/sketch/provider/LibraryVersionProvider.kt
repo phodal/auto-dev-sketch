@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.provider
+package cc.unitmesh.sketch.provider
 
 import com.intellij.openapi.extensions.ExtensionPointName
 import com.intellij.serviceContainer.LazyExtensionInstance

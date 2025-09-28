@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.sketch
 
+import cc.unitmesh.sketch.a2a.A2ASketchToolchainProvider
 import cc.unitmesh.sketch.agent.tool.search.RipgrepSearcher
 import cc.unitmesh.sketch.gui.chat.message.ChatActionType
 import cc.unitmesh.sketch.gui.chat.ui.relativePath
@@ -123,7 +124,7 @@ data class SketchRunContext(
 
             // Get A2A tools
             val a2aTools = try {
-                cc.unitmesh.devti.a2a.A2ASketchToolchainProvider.collectA2ATools(project)
+                A2ASketchToolchainProvider.collectA2ATools(project)
             } catch (e: Exception) {
                 emptyList()
             }
