@@ -10,52 +10,52 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
 import io.a2a.spec.AgentCard
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import javax.swing.*
+import javax.swing.JPanel
+import javax.swing.SwingConstants
+import javax.swing.SwingUtilities
 
 class A2AAgentListPanel(
     private val project: Project
 ) : JPanel(BorderLayout()) {
     private val a2aClientConsumer = A2AClientConsumer()
-    private val mcpServerManager = CustomMcpServerManager.instance(project)
     private val textGray = JBColor(0x6B7280, 0x9DA0A8)
 
-    // Helper methods to safely access AgentCard properties using reflection
     private fun getAgentName(agent: AgentCard): String = try {
-        getFieldValue(agent, "name") as? String ?: ""
+        agent.name() ?: ""
     } catch (e: Exception) {
         ""
     }
 
     private fun getAgentDescription(agent: AgentCard): String? = try {
-        getFieldValue(agent, "description") as? String
+        agent.description()
     } catch (e: Exception) {
         null
     }
 
     private fun getProviderName(agent: AgentCard): String? = try {
-        val provider = getFieldValue(agent, "provider")
-        if (provider != null) {
-            getFieldValue(provider, "name") as? String
-        } else {
-            null
-        }
+        val provider = agent.provider()
+        provider?.organization()
     } catch (e: Exception) {
         null
     }
 
     private fun getFieldValue(obj: Any, fieldName: String): Any? = try {
+        // For backward compatibility with reflection-based access
         val field = obj.javaClass.getDeclaredField(fieldName)
         field.isAccessible = true
         field.get(obj)
     } catch (e: Exception) {
         null
     }
-    
+
     private var loadingJob: Job? = null
     private val serverLoadingStatus = mutableMapOf<String, Boolean>()
     private val serverPanels = mutableMapOf<String, JPanel>()
@@ -125,7 +125,7 @@ class A2AAgentListPanel(
                         }
                     }
                 }
-                
+
                 jobs.forEach { it.join() }
                 onAgentsLoaded(allA2AAgents)
             } catch (e: Exception) {

@@ -71,6 +71,16 @@ enum class BuiltinCommand(
         true,
         enableInSketch = false
     ),
+
+    LIBRARY_VERSION_FETCH(
+        "library-version-fetch",
+        "Fetch latest version of npmjs, maven or other libraries.",
+        AllIcons.Nodes.PpLib,
+        true,
+        true,
+        enableInSketch = false
+    ),
+
     SHELL(
         "shell",
         "Execute shell commands in project environment using ProcessBuilder. Use for system operations, build scripts, environment setup, or external tool execution. Commands run in project directory context. Returns stdout, stderr, and exit codes. Handle with security considerations.",
@@ -210,6 +220,14 @@ enum class BuiltinCommand(
         true,
         true,
         enableInSketch = false
+    ),
+    A2A(
+        "a2a",
+        "Send message to A2A (Agent-to-Agent) protocol agents. Use for delegating tasks to specialized AI agents that support A2A protocol. Specify agent name and message content. Returns agent response for further processing or analysis.",
+        AutoDevIcons.A2A,
+        true,
+        true,
+        enableInSketch = true
     ),
     ;
 

@@ -274,6 +274,7 @@ project(":") {
             pluginModule(implementation(project(":exts:ext-endpoints")))
             pluginModule(implementation(project(":exts:ext-plantuml")))
             pluginModule(implementation(project(":exts:ext-container")))
+            pluginModule(implementation(project(":exts:ext-diagram")))
             pluginModule(implementation(project(":exts:devins-lang")))
 
             testFramework(TestFrameworkType.Bundled)
@@ -298,6 +299,7 @@ project(":") {
         implementation(project(":exts:ext-plantuml"))
         implementation(project(":exts:ext-endpoints"))
         implementation(project(":exts:ext-container"))
+        implementation(project(":exts:ext-diagram"))
         implementation(project(":exts:devins-lang"))
 
         kover(project(":core"))
@@ -421,12 +423,17 @@ project(":core") {
         implementation("org.jetbrains.xodus:xodus-entity-store:2.0.1")
         implementation("org.jetbrains.xodus:xodus-vfs:2.0.1")
 
-        implementation("io.modelcontextprotocol:kotlin-sdk:0.6.0")
+        implementation("io.modelcontextprotocol:kotlin-sdk:0.7.2")
         /// # Ktor
         implementation("io.ktor:ktor-client-cio:3.2.3")
         implementation("io.ktor:ktor-server-sse:3.2.3")
 
-        implementation("io.github.a2asdk:a2a-java-sdk-client:0.2.5")
+        implementation("io.github.a2asdk:a2a-java-sdk-client:0.3.0.Beta1")
+        // A2A transport dependencies - JSON-RPC is included by default but we need to configure it
+        // Add gRPC transport if needed in the future
+        // implementation("io.github.a2asdk:a2a-java-sdk-client-transport-grpc:0.3.0.Beta1")
+        // Add REST transport if needed in the future
+        // implementation("io.github.a2asdk:a2a-java-sdk-client-transport-rest:0.3.0.Beta1")
 
         implementation("io.reactivex.rxjava3:rxjava:3.1.10")
 
@@ -840,6 +847,24 @@ project(":exts:ext-wechat") {
                 kotlin.srcDirs("src/$platformVersion/test/kotlin")
             }
         }
+    }
+}
+
+project(":exts:ext-diagram") {
+    dependencies {
+        intellijPlatform {
+            intellijIde(prop("ideaVersion"))
+            intellijPlugins("com.intellij.diagram")
+        }
+
+        implementation(project(":core"))
+
+        // Graphviz DOT parser library
+        implementation("guru.nidi:graphviz-java:0.18.1")
+
+        // Test dependencies
+        testImplementation(kotlin("test"))
+        testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     }
 }
 

@@ -139,6 +139,10 @@
                         interface="cc.unitmesh.sketch.provider.BuildSystemProvider"
                         dynamic="true"/>
 
+        <extensionPoint qualifiedName="cc.unitmesh.libraryVersionProvider"
+                        interface="cc.unitmesh.sketch.provider.LibraryVersionProvider"
+                        dynamic="true"/>
+
         <extensionPoint qualifiedName="cc.unitmesh.customPromptProvider"
                         beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
             <with attribute="implementationClass" implements="cc.unitmesh.sketch.provider.CustomPromptProvider"/>
@@ -365,6 +369,10 @@
         <agentObserver implementation="cc.unitmesh.sketch.observer.TestAgentObserver" />
         <agentObserver implementation="cc.unitmesh.sketch.observer.BuiltTaskAgentObserver" />
 <!--        <agentObserver implementation="cc.unitmesh.sketch.observer.AddDependencyAgentObserver" />-->
+
+        <!-- Library Version Providers -->
+        <libraryVersionProvider implementation="cc.unitmesh.sketch.provider.impl.NpmVersionProvider"/>
+        <libraryVersionProvider implementation="cc.unitmesh.sketch.provider.impl.MavenVersionProvider"/>
     </extensions>
 
     <actions>

@@ -37,6 +37,11 @@ class InsCommandFactory {
         originCmdName: String,
         context: CompilerContext
     ): InsCommand = when (commandNode) {
+        BuiltinCommand.LIBRARY_VERSION_FETCH -> {
+            context.result.isLocalCommand = true
+            val shireCode: String? = lookupNextCode(used)?.codeText()
+            LibraryVersionFetchInsCommand(context.project, prop, shireCode ?: "")
+        }
         BuiltinCommand.FILE -> FileInsCommand(context.project, prop)
         BuiltinCommand.REV -> RevInsCommand(context.project, prop)
         BuiltinCommand.SYMBOL -> {
@@ -157,6 +162,11 @@ class InsCommandFactory {
             context.result.isLocalCommand = true
             val shireCode: String? = lookupNextCode(used)?.codeText()
             WriteProcessInputInsCommand(context.project, prop, shireCode)
+        }
+        BuiltinCommand.A2A -> {
+            context.result.isLocalCommand = true
+            val shireCode: String? = lookupNextCode(used)?.codeText()
+            A2AInsCommand(context.project, prop, shireCode ?: "")
         }
         BuiltinCommand.TOOLCHAIN_COMMAND -> {
             context.result.isLocalCommand = true
