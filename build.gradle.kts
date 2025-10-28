@@ -259,7 +259,7 @@ project(":") {
             pluginModule(implementation(project(":core")))
             pluginModule(implementation(project(":java")))
             pluginModule(implementation(project(":kotlin")))
-            pluginModule(implementation(project(":pycharm")))
+//            pluginModule(implementation(project(":pycharm")))
             pluginModule(implementation(project(":javascript")))
             pluginModule(implementation(project(":goland")))
             pluginModule(implementation(project(":rust")))
@@ -284,7 +284,7 @@ project(":") {
         implementation(project(":core"))
         implementation(project(":java"))
         implementation(project(":kotlin"))
-        implementation(project(":pycharm"))
+//        implementation(project(":pycharm"))
         implementation(project(":javascript"))
         implementation(project(":goland"))
         implementation(project(":rust"))
@@ -307,7 +307,7 @@ project(":") {
         kover(project(":java"))
         kover(project(":javascript"))
         kover(project(":kotlin"))
-        kover(project(":pycharm"))
+//        kover(project(":pycharm"))
         kover(project(":rust"))
 
         kover(project(":exts:ext-database"))
@@ -508,16 +508,16 @@ project(":core") {
     }
 }
 
-project(":pycharm") {
-    dependencies {
-        intellijPlatform {
-            intellijIde(prop("ideaVersion"))
-            intellijPlugins(ideaPlugins + pycharmPlugins + prop("jupyterPlugin"))
-        }
-
-        implementation(project(":core"))
-    }
-}
+//project(":pycharm") {
+//    dependencies {
+//        intellijPlatform {
+//            intellijIde(prop("ideaVersion"))
+//            intellijPlugins(ideaPlugins + pycharmPlugins + prop("jupyterPlugin"))
+//        }
+//
+//        implementation(project(":core"))
+//    }
+//}
 
 
 project(":java") {
