@@ -49,9 +49,10 @@ class CUrlHttpHandler : HttpHandler {
 
                 val enVariables: List<Set<String>> = ShireEnvReader.fetchEnvironmentVariables(envName, scope)
                 filledShell = ShireEnvVariableFiller.fillVariables(content, enVariables, envObject, processVariables)
-                restClientRequest = CurlParser().parseToRestClientRequest(filledShell)
+//                restClientRequest = CurlParser().parseToRestClientRequest(filledShell)
 
-                CUrlConverter.convert(restClientRequest!!)
+//                CUrlConverter.convert(restClientRequest!!)
+                null
             }
         }.get()
 

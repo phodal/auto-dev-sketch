@@ -48,47 +48,43 @@ class SpecKitTemplateCompiler(
             return true
         }
     }
-    
+
     /**
      * Compile the template with variable substitution.
      *
      * @return The compiled template string with all variables resolved
      */
     fun compile(): String {
-        // 1. Parse frontmatter and content
         val (frontmatter, content) = SkillFrontmatter.parse(template)
-        
-        // 2. Set basic variables
+
         velocityContext.put("ARGUMENTS", arguments)
-        
+
         // 3. Load and resolve variables from frontmatter
         frontmatter?.variables?.forEach { (key, value) ->
             val resolvedValue = resolveVariable(key, value)
             velocityContext.put(key, resolvedValue)
         }
-        
-        // 4. Add project-related variables
+
         addProjectVariables()
-        
-        // 5. Use Velocity to compile the template
-        return compileWithVelocity(content)
+
+        return templateCompile(content)
     }
-    
+
     /**
      * Resolve a variable value. If the value looks like a file path, load the file content.
      * Otherwise, return the value as-is.
      */
     private fun resolveVariable(key: String, value: Any): Any {
         val valueStr = value.toString()
-        
+
         // Check if this looks like a file path
         if (valueStr.contains("/") || valueStr.endsWith(".md") || valueStr.endsWith(".txt")) {
             return loadFileContent(valueStr) ?: valueStr
         }
-        
+
         return value
     }
-    
+
     /**
      * Load content from a file path. Supports both absolute and relative paths.
      * Returns null if the file doesn't exist or can't be read.
@@ -96,26 +92,26 @@ class SpecKitTemplateCompiler(
     private fun loadFileContent(filePath: String): String? {
         try {
             val projectPath = project.basePath ?: return null
-            
+
             // Try as absolute path first
             var path = Path.of(filePath)
             if (!path.exists()) {
                 // Try as relative path from project root
                 path = Path.of(projectPath, filePath)
             }
-            
+
             if (!path.exists()) {
                 logger.warn("File not found: $filePath")
                 return null
             }
-            
+
             return path.readText()
         } catch (e: Exception) {
             logger.warn("Failed to load file: $filePath", e)
             return null
         }
     }
-    
+
     /**
      * Add project-related variables to the context
      */
@@ -125,42 +121,9 @@ class SpecKitTemplateCompiler(
             velocityContext.put("PROJECT_NAME", project.name)
         }
     }
-    
-    /**
-     * Compile the template using Velocity engine.
-     * Falls back to simple string replacement in test mode or if Velocity fails.
-     */
-    private fun compileWithVelocity(content: String): String {
-        // In test mode, use simple replacement to avoid Velocity initialization issues
-        if (!shouldUseVelocity()) {
-            return simpleReplace(content)
-        }
 
-        val oldContextClassLoader = Thread.currentThread().contextClassLoader
-        Thread.currentThread().contextClassLoader = SpecKitTemplateCompiler::class.java.classLoader
-
-        val sw = StringWriter()
-        try {
-            Velocity.evaluate(velocityContext, sw, "#SpecKitTemplateCompiler", content)
-        } catch (e: Exception) {
-            logger.warn("Failed to compile SpecKit template with Velocity, using simple replacement", e)
-            // Fallback to simple replacement if Velocity fails
-            return simpleReplace(content)
-        } finally {
-            Thread.currentThread().contextClassLoader = oldContextClassLoader
-        }
-
-        return sw.toString().trim()
-    }
-
-    /**
-     * Simple string replacement fallback when Velocity is not available.
-     * Replaces $VARIABLE_NAME with values from the context.
-     */
-    private fun simpleReplace(content: String): String {
+    private fun templateCompile(content: String): String {
         var result = content
-
-        // Replace all variables in the context
         velocityContext.keys.forEach { key ->
             val value = velocityContext.get(key.toString())
             if (value != null) {
@@ -170,17 +133,11 @@ class SpecKitTemplateCompiler(
 
         return result.trim()
     }
-    
-    /**
-     * Add a custom variable to the context
-     */
+
     fun putVariable(key: String, value: Any) {
         velocityContext.put(key, value)
     }
-    
-    /**
-     * Add multiple custom variables to the context
-     */
+
     fun putAllVariables(variables: Map<String, Any>) {
         variables.forEach { (key, value) ->
             velocityContext.put(key, value)
