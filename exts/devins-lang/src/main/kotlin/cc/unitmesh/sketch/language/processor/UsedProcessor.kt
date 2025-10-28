@@ -1,15 +1,5 @@
 package cc.unitmesh.sketch.language.compiler.processor
 
-<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/processor/UsedProcessor.kt
-import cc.unitmesh.sketch.AutoDevNotifications
-import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-import cc.unitmesh.sketch.command.dataprovider.CustomCommand
-import cc.unitmesh.sketch.language.compiler.DevInsCompiler
-import cc.unitmesh.sketch.language.psi.DevInFile
-import cc.unitmesh.sketch.language.psi.DevInTypes
-import cc.unitmesh.sketch.language.psi.DevInUsed
-=======
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
@@ -20,7 +10,6 @@ import cc.unitmesh.sketch.language.compiler.DevInsCompiler
 import cc.unitmesh.sketch.language.psi.DevInFile
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed
->>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/processor/UsedProcessor.kt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType

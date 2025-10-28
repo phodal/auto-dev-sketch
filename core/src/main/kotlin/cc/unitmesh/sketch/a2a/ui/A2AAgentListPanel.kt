@@ -1,15 +1,8 @@
 package cc.unitmesh.sketch.a2a.ui
 
-<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/a2a/ui/A2AAgentListPanel.kt
-import cc.unitmesh.sketch.a2a.A2AClientConsumer
-import cc.unitmesh.sketch.a2a.A2aServer
-import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
-import cc.unitmesh.sketch.mcp.client.McpServer
-=======
 import cc.unitmesh.sketch.a2a.A2AClientConsumer
 import cc.unitmesh.sketch.agent.extention.A2aServer
 import cc.unitmesh.sketch.agent.extention.McpServer
->>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/a2a/ui/A2AAgentListPanel.kt
 import com.intellij.openapi.project.Project
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel

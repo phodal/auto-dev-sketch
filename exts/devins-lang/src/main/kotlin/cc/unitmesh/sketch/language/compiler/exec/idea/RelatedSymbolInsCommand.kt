@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/RelatedSymbolInsCommand.kt
-package cc.unitmesh.sketch.language.compiler.exec
-========
 package cc.unitmesh.sketch.language.compiler.exec.idea
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/idea/RelatedSymbolInsCommand.kt
 
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand

@@ -1,13 +1,3 @@
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/LibraryVersionFetchInsCommand.kt
-package cc.unitmesh.sketch.language.compiler.exec
-
-import cc.unitmesh.sketch.provider.LibraryVersionProvider
-import cc.unitmesh.sketch.provider.VersionRequest
-import cc.unitmesh.sketch.command.InsCommand
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
-import cc.unitmesh.sketch.provider.BuildSystemProvider
-========
 package cc.unitmesh.sketch.language.compiler.exec.idea
 
 import cc.unitmesh.sketch.command.InsCommand
@@ -17,7 +7,6 @@ import cc.unitmesh.sketch.provider.BuildSystemProvider
 import cc.unitmesh.sketch.provider.LibraryVersionProvider
 import cc.unitmesh.sketch.provider.VersionRequest
 import cc.unitmesh.sketch.provider.VersionResult
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/idea/LibraryVersionFetchInsCommand.kt
 import com.intellij.openapi.project.Project
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.SerializationException
@@ -51,11 +40,7 @@ class LibraryVersionFetchInsCommand(val myProject: Project, val prop: String, va
         return autoDetectAndFetch(request.name)
     }
 
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/LibraryVersionFetchInsCommand.kt
-    private fun formatResult(result: cc.unitmesh.sketch.provider.VersionResult): String {
-========
     private fun formatResult(result: VersionResult): String {
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/idea/LibraryVersionFetchInsCommand.kt
         return if (result.success) {
             result.version!!
         } else {

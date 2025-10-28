@@ -291,7 +291,7 @@ class QuickLLMSetupDialog(
                 )
 
                 // Create provider and test
-                val provider = cc.unitmesh.devti.llm2.LLMProvider2.invoke(
+                val provider = cc.unitmesh.sketch.llm2.LLMProvider2.invoke(
                     requestUrl = testConfig.url,
                     authorizationKey = testConfig.auth.token,
                     responseResolver = testConfig.getResponseFormatByStream(),
@@ -299,7 +299,7 @@ class QuickLLMSetupDialog(
                 )
 
                 val response = provider.request(
-                    cc.unitmesh.devti.llms.custom.Message("user", "Hello, this is a test message."),
+                    cc.unitmesh.sketch.llms.custom.Message("user", "Hello, this is a test message."),
                     stream = testConfig.customRequest.stream
                 )
 

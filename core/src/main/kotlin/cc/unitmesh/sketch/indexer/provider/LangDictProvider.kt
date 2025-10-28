@@ -23,9 +23,9 @@ interface LangDictProvider {
         // Default implementation: return Level 1 only (filenames)
         val names = collectFileNames(project, maxTokenLength)
         val semanticNames = names.map {
-            cc.unitmesh.devti.indexer.model.SemanticName(
+            cc.unitmesh.sketch.indexer.model.SemanticName(
                 name = it,
-                type = cc.unitmesh.devti.indexer.model.ElementType.FILE,
+                type = cc.unitmesh.sketch.indexer.model.ElementType.FILE,
                 tokens = 1,
                 source = it
             )
@@ -47,8 +47,8 @@ interface LangDictProvider {
          * Collect all semantic names from all language providers
          */
         suspend fun allSemantic(project: Project, maxTokenLength: Int): DomainDictionary {
-            val allLevel1 = mutableListOf<cc.unitmesh.devti.indexer.model.SemanticName>()
-            val allLevel2 = mutableListOf<cc.unitmesh.devti.indexer.model.SemanticName>()
+            val allLevel1 = mutableListOf<cc.unitmesh.sketch.indexer.model.SemanticName>()
+            val allLevel2 = mutableListOf<cc.unitmesh.sketch.indexer.model.SemanticName>()
 
             for (provider in EP_NAME.extensions) {
                 try {

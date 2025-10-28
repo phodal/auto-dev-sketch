@@ -1,25 +1,5 @@
 package cc.unitmesh.sketch.language.processor
 
-<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/processor/InsCommandFactory.kt
-import cc.unitmesh.sketch.AutoDevNotifications
-import cc.unitmesh.sketch.command.InsCommand
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand.Companion.toolchainProviderName
-import cc.unitmesh.sketch.language.compiler.exec.*
-import cc.unitmesh.sketch.language.compiler.exec.file.FileInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.KillProcessInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.LaunchProcessInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.ListProcessesInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.ReadProcessOutputInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.WriteProcessInputInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.*
-import cc.unitmesh.sketch.language.compiler.processor.CompilerContext
-import cc.unitmesh.sketch.language.parser.CodeBlockElement
-import cc.unitmesh.sketch.language.psi.DevInTypes
-import cc.unitmesh.sketch.language.psi.DevInUsed
-import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
-import cc.unitmesh.sketch.util.parser.CodeFence
-=======
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
@@ -49,12 +29,12 @@ import cc.unitmesh.sketch.language.compiler.exec.process.ReadProcessOutputInsCom
 import cc.unitmesh.sketch.language.compiler.exec.process.WriteProcessInputInsCommand
 import cc.unitmesh.sketch.language.compiler.exec.vcs.CommitInsCommand
 import cc.unitmesh.sketch.language.compiler.exec.vcs.RevInsCommand
+import cc.unitmesh.sketch.language.compiler.processor.CompilerContext
 import cc.unitmesh.sketch.language.parser.CodeBlockElement
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed
 import cc.unitmesh.sketch.provider.toolchain.ToolchainFunctionProvider
 import cc.unitmesh.sketch.util.parser.CodeFence
->>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/processor/InsCommandFactory.kt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.psi.PsiElement

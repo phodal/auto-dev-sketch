@@ -1,17 +1,5 @@
 package cc.unitmesh.sketch.language.compiler.exec.file
 
-<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/file/FileInsCommand.kt
-import cc.unitmesh.sketch.AutoDevNotifications
-import cc.unitmesh.sketch.command.InsCommand
-import cc.unitmesh.sketch.command.InsCommandListener
-import cc.unitmesh.sketch.command.InsCommandStatus
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-import cc.unitmesh.sketch.language.compiler.model.LineInfo
-import cc.unitmesh.sketch.language.utils.findFile
-import cc.unitmesh.sketch.language.utils.lookupFile
-import cc.unitmesh.sketch.sketch.ui.patch.readText
-import cc.unitmesh.sketch.util.relativePath
-=======
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.InsCommandListener
@@ -23,7 +11,6 @@ import cc.unitmesh.sketch.language.utils.lookupFile
 import cc.unitmesh.sketch.sketch.ui.patch.readText
 import cc.unitmesh.sketch.util.relativePath
 import com.intellij.openapi.application.runReadAction
->>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/file/FileInsCommand.kt
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiManager

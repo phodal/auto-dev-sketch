@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/RevInsCommand.kt
-package cc.unitmesh.sketch.language.compiler.exec
-========
 package cc.unitmesh.sketch.language.compiler.exec.vcs
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/vcs/RevInsCommand.kt
 
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand

@@ -1,10 +1,6 @@
 package cc.unitmesh.sketch.prompting.diff;
 
-<<<<<<< HEAD:core/src/test/kotlin/cc/unitmesh/sketch/prompting/diff/DiffSimplifierTest.kt
-import cc.unitmesh.sketch.vcs.DiffSimplifier
-=======
 import cc.unitmesh.sketch.vcs.context.DiffFormatter
->>>>>>> master:core/src/test/kotlin/cc/unitmesh/devti/prompting/diff/DiffSimplifierTest.kt
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -137,13 +133,8 @@ diff --git a/src/main/java/cc/unitmesh/untitled/demo/controller/BlogCategoryCont
 +++ b/src/main/java/cc/unitmesh/untitled/demo/controller/BlogCategoryController.java	(revision 768efa678ecb9c044aea7c5c4873ed218357773b)
 @@ -6,7 +6,5 @@
  public class BlogCategoryController {
-<<<<<<< HEAD:core/src/test/kotlin/cc/unitmesh/sketch/prompting/diff/DiffSimplifierTest.kt
-     // sketch://story/github/1
- 
-=======
      // devti://story/github/1
 
->>>>>>> master:core/src/test/kotlin/cc/unitmesh/devti/prompting/diff/DiffSimplifierTest.kt
 -    //    银行账户管理
 -
      // Close a bank account

@@ -1,15 +1,11 @@
 package cc.unitmesh.idea.indexer.provider
 
-<<<<<<< HEAD
-import cc.unitmesh.sketch.indexer.provider.LangDictProvider
-=======
 import cc.unitmesh.sketch.indexer.model.ElementType
 import cc.unitmesh.sketch.indexer.model.SemanticName
 import cc.unitmesh.sketch.indexer.naming.CamelCaseSplitter
 import cc.unitmesh.sketch.indexer.naming.LanguageSuffixRules
 import cc.unitmesh.sketch.indexer.scoring.FileWeightCalculator
 import cc.unitmesh.idea.indexer.naming.JavaNamingRules
->>>>>>> master
 import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project

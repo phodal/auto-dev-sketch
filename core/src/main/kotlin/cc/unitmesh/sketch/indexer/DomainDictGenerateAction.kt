@@ -1,23 +1,5 @@
 package cc.unitmesh.sketch.indexer
 
-<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/indexer/DomainDictGenerateAction.kt
-import cc.unitmesh.sketch.indexer.provider.LangDictProvider
-import cc.unitmesh.sketch.llms.LlmFactory
-import cc.unitmesh.sketch.settings.coder.coderSetting
-import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.presentationText
-import cc.unitmesh.sketch.statusbar.AutoDevStatus
-import cc.unitmesh.sketch.statusbar.AutoDevStatusService
-import cc.unitmesh.sketch.template.GENIUS_CODE
-import cc.unitmesh.sketch.template.TemplateRender
-import cc.unitmesh.sketch.template.context.TemplateContext
-import cc.unitmesh.sketch.util.AutoDevCoroutineScope
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.project.guessProjectDir
-import kotlinx.coroutines.launch
-import cc.unitmesh.sketch.AutoDevIcons
-import cc.unitmesh.sketch.indexer.usage.PromptEnhancer
-=======
 import cc.unitmesh.sketch.AutoDevIcons
 import cc.unitmesh.sketch.indexer.provider.LangDictProvider
 import cc.unitmesh.sketch.indexer.usage.PromptEnhancer
@@ -33,7 +15,6 @@ import cc.unitmesh.sketch.template.context.TemplateContext
 import cc.unitmesh.sketch.util.AutoDevCoroutineScope
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
->>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/indexer/DomainDictGenerateAction.kt
 import com.intellij.openapi.actionSystem.Presentation
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.logger
@@ -46,16 +27,6 @@ import kotlinx.coroutines.flow.cancellable
 import kotlinx.coroutines.launch
 import kotlin.io.path.createDirectories
 import kotlin.io.path.exists
-<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/indexer/DomainDictGenerateAction.kt
-import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.command.WriteCommandAction
-import com.intellij.openapi.fileEditor.FileEditorManager
-import com.intellij.openapi.fileEditor.FileEditor
-import com.intellij.openapi.editor.ScrollType
-import com.intellij.openapi.vfs.LocalFileSystem
-import javax.swing.Icon
-=======
->>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/indexer/DomainDictGenerateAction.kt
 
 class DomainDictGenerateAction : AnAction() {
     init {
@@ -167,7 +138,7 @@ class DomainDictGenerateAction : AnAction() {
         return prompt
     }
 
-    private fun updatePresentation(presentation: Presentation, icon: Icon, enabled: Boolean) {
+    private fun updatePresentation(presentation: Presentation, icon: javax.swing.Icon, enabled: Boolean) {
         presentation.icon = icon
         presentation.isEnabled = enabled
     }

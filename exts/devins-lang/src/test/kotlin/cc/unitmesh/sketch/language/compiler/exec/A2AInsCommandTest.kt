@@ -1,12 +1,7 @@
 package cc.unitmesh.sketch.language.compiler.exec
 
-<<<<<<< HEAD:exts/devins-lang/src/test/kotlin/cc/unitmesh/sketch/language/compiler/exec/A2AInsCommandTest.kt
-import cc.unitmesh.sketch.a2a.A2ARequest
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-=======
 import cc.unitmesh.sketch.a2a.AgentRequest
 import cc.unitmesh.sketch.language.compiler.exec.agents.A2AInsCommand
->>>>>>> master:exts/devins-lang/src/test/kotlin/cc/unitmesh/devti/language/compiler/exec/A2AInsCommandTest.kt
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json.Default.decodeFromString

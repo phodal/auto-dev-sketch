@@ -1,15 +1,5 @@
 package cc.unitmesh.sketch.settings
 
-<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/settings/SimplifiedLLMSettingComponent.kt
-import cc.unitmesh.sketch.llm2.GithubCopilotManager
-import cc.unitmesh.sketch.settings.locale.HUMAN_LANGUAGES
-import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback
-import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.i18nLabel
-import cc.unitmesh.sketch.settings.model.LLMModelManager
-import cc.unitmesh.sketch.settings.ui.DeleteButtonEditor
-import cc.unitmesh.sketch.settings.ui.DeleteButtonRenderer
-import cc.unitmesh.sketch.settings.ui.ModelItem
-=======
 import cc.unitmesh.sketch.llm2.GithubCopilotManager
 import cc.unitmesh.sketch.settings.dialog.QuickLLMSetupDialog
 import cc.unitmesh.sketch.settings.locale.HUMAN_LANGUAGES
@@ -19,7 +9,6 @@ import cc.unitmesh.sketch.settings.model.LLMModelManager
 import cc.unitmesh.sketch.settings.ui.DeleteButtonEditor
 import cc.unitmesh.sketch.settings.ui.DeleteButtonRenderer
 import cc.unitmesh.sketch.settings.ui.ModelItem
->>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/settings/SimplifiedLLMSettingComponent.kt
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.ComboBox

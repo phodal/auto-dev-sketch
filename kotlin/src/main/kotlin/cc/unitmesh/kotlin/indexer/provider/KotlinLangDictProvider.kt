@@ -1,8 +1,5 @@
 package cc.unitmesh.kotlin.indexer.provider
 
-<<<<<<< HEAD
-import cc.unitmesh.sketch.indexer.provider.LangDictProvider
-=======
 import cc.unitmesh.sketch.indexer.model.DomainDictionary
 import cc.unitmesh.sketch.indexer.model.ElementType
 import cc.unitmesh.sketch.indexer.model.SemanticName
@@ -11,7 +8,6 @@ import cc.unitmesh.sketch.indexer.provider.LangDictProvider
 import cc.unitmesh.sketch.indexer.scoring.FileWeightCalculator
 import cc.unitmesh.sketch.vcs.context.TokenCounter
 import cc.unitmesh.kotlin.indexer.naming.KotlinNamingRules
->>>>>>> master
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiManager

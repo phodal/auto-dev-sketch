@@ -1,11 +1,7 @@
 package cc.unitmesh.sketch.vcs
 
-<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/vcs/DiffSimplifier.kt
-import cc.unitmesh.sketch.AutoDevNotifications
-=======
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.vcs.context.*
->>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/vcs/DiffSimplifier.kt
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.diff.impl.patch.IdeaTextPatchBuilder

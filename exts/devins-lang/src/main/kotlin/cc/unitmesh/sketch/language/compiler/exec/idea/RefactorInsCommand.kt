@@ -1,11 +1,3 @@
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/RefactorInsCommand.kt
-package cc.unitmesh.sketch.language.compiler.exec
-
-import cc.unitmesh.sketch.command.InsCommand
-import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
-import cc.unitmesh.sketch.command.dataprovider.BuiltinRefactorCommand
-import cc.unitmesh.sketch.language.psi.DevInFile
-========
 package cc.unitmesh.sketch.language.compiler.exec.idea
 
 import cc.unitmesh.sketch.command.InsCommand
@@ -13,7 +5,6 @@ import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinRefactorCommand
 import cc.unitmesh.sketch.language.psi.DevInFile
 import cc.unitmesh.sketch.provider.RefactoringTool
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/idea/RefactorInsCommand.kt
 import com.intellij.lang.Language
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.fileEditor.FileDocumentManager
@@ -77,11 +68,7 @@ class RefactorInsCommand(val myProject: Project, private val argument: String, p
         }
 
         val language = currentEditFile?.language ?: Language.findLanguageByID("JAVA") ?: return "Language not found"
-<<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/compiler/exec/RefactorInsCommand.kt
-        val refactoringTool = cc.unitmesh.sketch.provider.RefactoringTool.forLanguage(language)
-========
         val refactoringTool = RefactoringTool.forLanguage(language)
->>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/exec/idea/RefactorInsCommand.kt
             ?: return "Refactoring tool not found for Java"
 
         val command = BuiltinRefactorCommand.fromString(argument) ?: return "Unknown refactor command: $argument"
