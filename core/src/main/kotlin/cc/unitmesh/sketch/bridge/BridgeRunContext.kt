@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.bridge
 
+<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/bridge/BridgeRunContext.kt
 import cc.unitmesh.sketch.agent.tool.search.RipgrepSearcher
 import cc.unitmesh.sketch.gui.chat.message.ChatActionType
 import cc.unitmesh.sketch.gui.chat.ui.relativePath
@@ -10,6 +11,19 @@ import cc.unitmesh.sketch.provider.context.ChatCreationContext
 import cc.unitmesh.sketch.provider.context.ChatOrigin
 import cc.unitmesh.sketch.sketch.run.ShellUtil
 import cc.unitmesh.sketch.template.context.TemplateContext
+=======
+import cc.unitmesh.sketch.agent.tool.search.RipgrepSearcher
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.gui.chat.ui.relativePath
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatOrigin
+import cc.unitmesh.sketch.sketch.rule.ProjectAgentsMD
+import cc.unitmesh.sketch.sketch.run.ShellUtil
+import cc.unitmesh.sketch.template.context.TemplateContext
+>>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/bridge/BridgeRunContext.kt
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
@@ -44,6 +58,7 @@ data class BridgeRunContext(
     val frameworkContext: String = "",
     val buildTool: String = "",
     val searchTool: String = "localSearch",
+    val agentsMD: String = "",
 ) : TemplateContext {
     companion object {
         suspend fun create(project: Project, myEditor: Editor?, input: String): BridgeRunContext {
@@ -70,6 +85,10 @@ data class BridgeRunContext(
 
             val otherFiles = FileEditorManager.getInstance(project).openFiles.filter { it != currentFile }
 
+            // Load AGENTS.md content if available
+            val projectAgentsMD = ProjectAgentsMD(project)
+            val agentsMD = projectAgentsMD.getAgentsMDContent() ?: ""
+
             return BridgeRunContext(
                 currentFile = currentFile?.relativePath(project),
                 currentElement = currentElement,
@@ -83,7 +102,8 @@ data class BridgeRunContext(
                     return@runBlocking ChatContextProvider.collectChatContextList(project, creationContext)
                 }.joinToString(",", transform = ChatContextItem::text),
                 buildTool = buildTool,
-                searchTool = lookupSearchTool()
+                searchTool = lookupSearchTool(),
+                agentsMD = agentsMD
             )
         }
     }

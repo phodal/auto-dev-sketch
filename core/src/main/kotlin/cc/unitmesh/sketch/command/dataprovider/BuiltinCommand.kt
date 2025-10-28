@@ -229,6 +229,30 @@ enum class BuiltinCommand(
         true,
         enableInSketch = true
     ),
+    AGENTS(
+        "agents",
+        "List all available AI agents or invoke a specific agent. Without parameters, displays all available agents including A2A agents and DevIns agents. With agent name parameter, invokes the specified agent for task execution.",
+        AutoDevIcons.CLOUD_AGENT,
+        true,
+        false,
+        enableInSketch = true
+    ),
+    SPECKIT(
+        "speckit",
+        "Execute GitHub Spec-Kit commands for Spec-Driven Development. Supports subcommands like /speckit.clarify, /speckit.specify, /speckit.plan, /speckit.tasks, /speckit.implement, etc. Loads prompts from .github/prompts/ directory and executes spec-driven workflows.",
+        AutoDevIcons.IDEA,
+        true,
+        true,
+        enableInSketch = true
+    ),
+    CLAUDE_SKILL(
+        "skill",
+        "Execute Claude Skills for specialized agent capabilities. Skills are organized folders of instructions, scripts, and resources that agents can discover and load dynamically. Supports subcommands like /skill.pdf, /skill.algorithmic-art, etc. Loads skills from project directories containing SKILL.md files or ~/.claude/skills/ directory.",
+        AutoDevIcons.IDEA,
+        true,
+        true,
+        enableInSketch = true
+    ),
     ;
 
     companion object {

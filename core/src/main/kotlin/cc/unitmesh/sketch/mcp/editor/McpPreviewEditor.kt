@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.mcp.editor
 
+<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/mcp/editor/McpPreviewEditor.kt
 import cc.unitmesh.sketch.AutoDevIcons
 import cc.unitmesh.sketch.AutoDevBundle
 import cc.unitmesh.sketch.AutoDevNotifications
@@ -13,6 +14,20 @@ import cc.unitmesh.sketch.mcp.ui.model.McpChatConfig
 import cc.unitmesh.sketch.mcp.ui.McpChatConfigDialog
 import cc.unitmesh.sketch.sketch.ui.patch.readText
 import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+=======
+import cc.unitmesh.sketch.AutoDevIcons
+import cc.unitmesh.sketch.AutoDevBundle
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.a2a.ui.A2AAgentListPanel
+import cc.unitmesh.sketch.llm2.model.LlmConfig
+import cc.unitmesh.sketch.llms.custom.CustomLLMProvider
+import cc.unitmesh.sketch.mcp.ui.McpToolListPanel
+import cc.unitmesh.sketch.mcp.ui.McpChatResultPanel
+import cc.unitmesh.sketch.mcp.ui.model.McpChatConfig
+import cc.unitmesh.sketch.mcp.ui.McpChatConfigDialog
+import cc.unitmesh.sketch.sketch.ui.patch.readText
+import cc.unitmesh.sketch.util.AutoDevCoroutineScope
+>>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/mcp/editor/McpPreviewEditor.kt
 import com.intellij.openapi.actionSystem.Presentation
 import com.intellij.openapi.actionSystem.impl.ActionButton
 import com.intellij.openapi.application.runReadAction

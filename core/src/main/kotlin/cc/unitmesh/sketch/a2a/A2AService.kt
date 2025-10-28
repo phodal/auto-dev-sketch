@@ -1,6 +1,7 @@
 package cc.unitmesh.sketch.a2a
 
-import cc.unitmesh.sketch.mcp.client.McpServer
+import cc.unitmesh.sketch.agent.extention.A2aServer
+import cc.unitmesh.sketch.agent.extention.McpServer
 import cc.unitmesh.sketch.settings.customize.customizeSetting
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project

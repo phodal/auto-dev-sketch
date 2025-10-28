@@ -1,9 +1,15 @@
 package cc.unitmesh.sketch.a2a.ui
 
+<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/a2a/ui/A2AAgentListPanel.kt
 import cc.unitmesh.sketch.a2a.A2AClientConsumer
 import cc.unitmesh.sketch.a2a.A2aServer
 import cc.unitmesh.sketch.mcp.client.CustomMcpServerManager
 import cc.unitmesh.sketch.mcp.client.McpServer
+=======
+import cc.unitmesh.sketch.a2a.A2AClientConsumer
+import cc.unitmesh.sketch.agent.extention.A2aServer
+import cc.unitmesh.sketch.agent.extention.McpServer
+>>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/a2a/ui/A2AAgentListPanel.kt
 import com.intellij.openapi.project.Project
 import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBLabel
@@ -13,6 +19,7 @@ import io.a2a.spec.AgentCard
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import java.awt.BorderLayout
 import java.awt.FlowLayout
@@ -22,39 +29,13 @@ import javax.swing.JPanel
 import javax.swing.SwingConstants
 import javax.swing.SwingUtilities
 
-class A2AAgentListPanel(
-    private val project: Project
-) : JPanel(BorderLayout()) {
+class A2AAgentListPanel(private val project: Project) : JPanel(BorderLayout()) {
     private val a2aClientConsumer = A2AClientConsumer()
     private val textGray = JBColor(0x6B7280, 0x9DA0A8)
 
-    private fun getAgentName(agent: AgentCard): String = try {
-        agent.name() ?: ""
-    } catch (e: Exception) {
-        ""
-    }
-
-    private fun getAgentDescription(agent: AgentCard): String? = try {
-        agent.description()
-    } catch (e: Exception) {
-        null
-    }
-
-    private fun getProviderName(agent: AgentCard): String? = try {
-        val provider = agent.provider()
-        provider?.organization()
-    } catch (e: Exception) {
-        null
-    }
-
-    private fun getFieldValue(obj: Any, fieldName: String): Any? = try {
-        // For backward compatibility with reflection-based access
-        val field = obj.javaClass.getDeclaredField(fieldName)
-        field.isAccessible = true
-        field.get(obj)
-    } catch (e: Exception) {
-        null
-    }
+    private fun getAgentName(agent: AgentCard): String = agent.name()
+    private fun getAgentDescription(agent: AgentCard): String? = agent.description()
+    private fun getProviderName(agent: AgentCard): String? = agent.provider()?.organization()
 
     private var loadingJob: Job? = null
     private val serverLoadingStatus = mutableMapOf<String, Boolean>()
@@ -126,7 +107,7 @@ class A2AAgentListPanel(
                     }
                 }
 
-                jobs.forEach { it.join() }
+                jobs.joinAll()
                 onAgentsLoaded(allA2AAgents)
             } catch (e: Exception) {
                 SwingUtilities.invokeLater {
@@ -145,8 +126,8 @@ class A2AAgentListPanel(
             allA2AAgents.forEach { (serverUrl, agents) ->
                 val filtered = agents.filter { agent ->
                     getAgentName(agent).contains(searchText, ignoreCase = true) ||
-                    getAgentDescription(agent)?.contains(searchText, ignoreCase = true) == true ||
-                    getProviderName(agent)?.contains(searchText, ignoreCase = true) == true
+                            getAgentDescription(agent)?.contains(searchText, ignoreCase = true) == true ||
+                            getProviderName(agent)?.contains(searchText, ignoreCase = true) == true
                 }
                 if (filtered.isNotEmpty()) {
                     currentFilteredAgents[serverUrl] = filtered

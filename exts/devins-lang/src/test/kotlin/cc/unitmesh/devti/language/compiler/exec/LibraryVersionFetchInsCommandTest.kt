@@ -1,5 +1,6 @@
-package cc.unitmesh.devti.language.compiler.exec
+package cc.unitmesh.sketch.language.compiler.exec
 
+import cc.unitmesh.sketch.language.compiler.exec.idea.LibraryVersionFetchInsCommand
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import kotlinx.coroutines.runBlocking
 

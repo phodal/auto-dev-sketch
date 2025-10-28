@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.a2a
 
+import cc.unitmesh.sketch.agent.extention.A2aServer
 import com.intellij.openapi.diagnostic.logger
 import io.a2a.A2A
 import io.a2a.client.*
@@ -10,7 +11,6 @@ import io.a2a.client.transport.jsonrpc.JSONRPCTransportConfig
 import io.a2a.spec.AgentCard
 import io.a2a.spec.Message
 import io.a2a.spec.TextPart
-import kotlinx.serialization.Serializable
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 import java.util.function.BiConsumer
@@ -136,7 +136,3 @@ class A2AClientConsumer {
     }
 }
 
-@Serializable
-data class A2aServer(
-    val url: String
-) {}

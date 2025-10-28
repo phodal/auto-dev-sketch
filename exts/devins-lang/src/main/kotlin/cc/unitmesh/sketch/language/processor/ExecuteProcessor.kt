@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.language.processor
 
+<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/processor/ExecuteProcessor.kt
 import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
 import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
 import cc.unitmesh.sketch.language.ast.action.PatternProcessor
@@ -9,6 +10,17 @@ import cc.unitmesh.sketch.language.utils.lookupFile
 import cc.unitmesh.sketch.provider.RunService
 import cc.unitmesh.sketch.language.startup.ShireActionStartupActivity
 import cc.unitmesh.sketch.util.workerThread
+=======
+import cc.unitmesh.sketch.language.actions.DevInsRunFileAction
+import cc.unitmesh.sketch.language.ast.action.PatternActionFuncDef
+import cc.unitmesh.sketch.language.ast.action.PatternProcessor
+import cc.unitmesh.sketch.language.compiler.error.DEVINS_ERROR
+import cc.unitmesh.sketch.language.compiler.exec.idea.RunInsCommand
+import cc.unitmesh.sketch.language.utils.lookupFile
+import cc.unitmesh.sketch.provider.RunService
+import cc.unitmesh.sketch.language.startup.ShireActionStartupActivity
+import cc.unitmesh.sketch.util.workerThread
+>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/processor/ExecuteProcessor.kt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project

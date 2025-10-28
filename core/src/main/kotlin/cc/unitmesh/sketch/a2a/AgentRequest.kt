@@ -1,4 +1,4 @@
-package cc.unitmesh.devti.a2a
+package cc.unitmesh.sketch.a2a
 
 import kotlinx.serialization.Serializable
 
@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
  * Request for A2A agent communication
  */
 @Serializable
-data class A2ARequest(
+data class AgentRequest(
     val agent: String,
     val message: String
 )

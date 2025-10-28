@@ -33,17 +33,13 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
     private val job = SupervisorJob()
     private val isLoading = AtomicBoolean(false)
 
-    // Track server panels and their expansion state
     private val serverPanels = mutableMapOf<String, ServerPanel>()
     private val expandedServers = mutableSetOf<String>()
 
     init {
         title = AutoDevBundle.message("sketch.mcp.testMcp")
 
-        // Setup content panel with vertical BoxLayout
         contentPanel.layout = BoxLayout(contentPanel, BoxLayout.Y_AXIS)
-
-        // Setup search functionality
         setupSearch()
 
         init()
@@ -160,7 +156,6 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
                 }
             }
 
-            // Revalidate and repaint the main content panel
             this@McpServicesTestDialog.contentPanel.revalidate()
             this@McpServicesTestDialog.contentPanel.repaint()
         }
@@ -186,7 +181,8 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
                 val description = tableModel.getValueAt(i, 1)?.toString() ?: ""
 
                 if (toolName.lowercase().contains(searchText) ||
-                    description.lowercase().contains(searchText)) {
+                    description.lowercase().contains(searchText)
+                ) {
                     anyToolMatches = true
                     break
                 }
@@ -226,17 +222,14 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
     override fun createCenterPanel(): JComponent {
         val mainPanel = JPanel(BorderLayout())
 
-        // Add search field at the top
         val searchPanel = JPanel(BorderLayout())
         searchPanel.border = JBUI.Borders.emptyBottom(8)
         searchPanel.add(searchField, BorderLayout.CENTER)
 
-        // Add scroll pane for content
         val scrollPane = JBScrollPane(contentPanel)
         scrollPane.border = JBUI.Borders.empty()
         scrollPane.preferredSize = Dimension(800, 400)
 
-        // Add components to loading panel
         loadingPanel.add(searchPanel, BorderLayout.NORTH)
         loadingPanel.add(scrollPane, BorderLayout.CENTER)
 
@@ -268,7 +261,6 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
                 loadingPanel.stopLoading()
                 isLoading.set(false)
             } catch (e: Exception) {
-                // Clear existing panels
                 contentPanel.removeAll()
                 serverPanels.clear()
 
@@ -292,9 +284,7 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
     }
 
     private fun updateServerPanels(serverInfos: Map<String, List<Tool>>) {
-        // Run on UI thread
         SwingUtilities.invokeLater {
-            // Clear existing panels
             contentPanel.removeAll()
             serverPanels.clear()
 
@@ -310,14 +300,12 @@ class McpServicesTestDialog(private val project: Project) : DialogWrapper(projec
                 return@invokeLater
             }
 
-            // Create panel for each server
             serverInfos.forEach { (server, tools) ->
                 val serverPanel = ServerPanel(server, tools)
                 serverPanels[server] = serverPanel
                 contentPanel.add(serverPanel.panel)
             }
 
-            // Revalidate and repaint
             contentPanel.revalidate()
             contentPanel.repaint()
         }

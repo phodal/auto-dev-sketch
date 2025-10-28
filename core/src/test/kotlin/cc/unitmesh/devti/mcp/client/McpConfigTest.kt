@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.mcp.client
 
+import cc.unitmesh.sketch.agent.extention.McpServer
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull

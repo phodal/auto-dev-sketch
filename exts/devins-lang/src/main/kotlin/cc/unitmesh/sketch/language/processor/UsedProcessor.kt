@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.language.compiler.processor
 
+<<<<<<< HEAD:exts/devins-lang/src/main/kotlin/cc/unitmesh/sketch/language/processor/UsedProcessor.kt
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
@@ -8,6 +9,18 @@ import cc.unitmesh.sketch.language.compiler.DevInsCompiler
 import cc.unitmesh.sketch.language.psi.DevInFile
 import cc.unitmesh.sketch.language.psi.DevInTypes
 import cc.unitmesh.sketch.language.psi.DevInUsed
+=======
+import cc.unitmesh.sketch.AutoDevNotifications
+import cc.unitmesh.sketch.agent.custom.model.CustomAgentConfig
+import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
+import cc.unitmesh.sketch.command.dataprovider.ClaudeSkillCommand
+import cc.unitmesh.sketch.command.dataprovider.CustomCommand
+import cc.unitmesh.sketch.command.dataprovider.SpecKitCommand
+import cc.unitmesh.sketch.language.compiler.DevInsCompiler
+import cc.unitmesh.sketch.language.psi.DevInFile
+import cc.unitmesh.sketch.language.psi.DevInTypes
+import cc.unitmesh.sketch.language.psi.DevInUsed
+>>>>>>> master:exts/devins-lang/src/main/kotlin/cc/unitmesh/devti/language/compiler/processor/UsedProcessor.kt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
@@ -55,10 +68,24 @@ class UsedProcessor(
     ): ProcessResult {
         val originCmdName = id?.text ?: ""
         val command = BuiltinCommand.fromString(originCmdName)
-        
+
         if (command == null) {
-            AutoDevNotifications.notify(context.project, "Cannot find command: $originCmdName")
-            
+            // Try spec kit
+            SpecKitCommand.fromFullName(context.project, originCmdName)?.let { cmd ->
+                cmd.executeWithCompiler(context.project, used.text).let {
+                    context.appendOutput(it)
+                }
+                return ProcessResult(success = true)
+            }
+
+            // Try Claude Skills
+            ClaudeSkillCommand.fromFullName(context.project, originCmdName)?.let { cmd ->
+                cmd.executeWithCompiler(context.project, used.text).let {
+                    context.appendOutput(it)
+                }
+                return ProcessResult(success = true)
+            }
+
             // Try custom command
             CustomCommand.fromString(context.project, originCmdName)?.let { cmd ->
                 DevInFile.fromString(context.project, cmd.content).let { file ->
@@ -67,9 +94,11 @@ class UsedProcessor(
                         context.setError(it.hasError)
                     }
                 }
+
                 return ProcessResult(success = true)
             }
-            
+
+            AutoDevNotifications.notify(context.project, "Cannot find command: $originCmdName")
             context.appendOutput(usedText)
             context.logger.warn("Unknown command: $originCmdName")
             context.setError(true)

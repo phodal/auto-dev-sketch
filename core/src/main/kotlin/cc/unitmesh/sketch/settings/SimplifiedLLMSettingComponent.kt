@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.settings
 
+<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/settings/SimplifiedLLMSettingComponent.kt
 import cc.unitmesh.sketch.llm2.GithubCopilotManager
 import cc.unitmesh.sketch.settings.locale.HUMAN_LANGUAGES
 import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback
@@ -8,6 +9,17 @@ import cc.unitmesh.sketch.settings.model.LLMModelManager
 import cc.unitmesh.sketch.settings.ui.DeleteButtonEditor
 import cc.unitmesh.sketch.settings.ui.DeleteButtonRenderer
 import cc.unitmesh.sketch.settings.ui.ModelItem
+=======
+import cc.unitmesh.sketch.llm2.GithubCopilotManager
+import cc.unitmesh.sketch.settings.dialog.QuickLLMSetupDialog
+import cc.unitmesh.sketch.settings.locale.HUMAN_LANGUAGES
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback
+import cc.unitmesh.sketch.settings.locale.LanguageChangedCallback.i18nLabel
+import cc.unitmesh.sketch.settings.model.LLMModelManager
+import cc.unitmesh.sketch.settings.ui.DeleteButtonEditor
+import cc.unitmesh.sketch.settings.ui.DeleteButtonRenderer
+import cc.unitmesh.sketch.settings.ui.ModelItem
+>>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/settings/SimplifiedLLMSettingComponent.kt
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.ComboBox
@@ -197,8 +209,12 @@ class SimplifiedLLMSettingComponent(private val settings: AutoDevSettingsState) 
         )
 
         // Create add LLM button
-        val addLLMButton = JButton("Add New LLM")
+        val addLLMButton = JButton("Add Customs LLM")
         addLLMButton.addActionListener { modelManager.createNewLLM() }
+
+        // Create quick setup button
+        val quickSetupButton = JButton("Quick LLM Setup")
+        quickSetupButton.addActionListener { showQuickSetupDialog() }
 
         // Create refresh button for GitHub Copilot models
         val refreshButton = JButton("Refresh GitHub Copilot Models")
@@ -216,6 +232,7 @@ class SimplifiedLLMSettingComponent(private val settings: AutoDevSettingsState) 
 
         // Create button panel
         val buttonPanel = JPanel()
+        buttonPanel.add(quickSetupButton)
         buttonPanel.add(addLLMButton)
         buttonPanel.add(refreshButton)
 
@@ -314,5 +331,25 @@ class SimplifiedLLMSettingComponent(private val settings: AutoDevSettingsState) 
                 addSeparator()
             }
         }
+    }
+
+    /**
+     * Show quick setup dialog with predefined LLM configurations
+     */
+    private fun showQuickSetupDialog() {
+        val quickSetupDialog = QuickLLMSetupDialog(project, settings) {
+            // Refresh the UI after adding new LLM
+            modelManager.updateAllDropdowns(
+                defaultModelDropdown,
+                planLLMDropdown,
+                actLLMDropdown,
+                completionLLMDropdown,
+                embeddingLLMDropdown,
+                fastApplyLLMDropdown
+            )
+            modelManager.updateLLMTable(llmTableModel)
+            markAsModified()
+        }
+        quickSetupDialog.show()
     }
 }

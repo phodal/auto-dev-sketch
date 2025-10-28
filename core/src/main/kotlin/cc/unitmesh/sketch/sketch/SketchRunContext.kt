@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.sketch
 
+<<<<<<< HEAD:core/src/main/kotlin/cc/unitmesh/sketch/sketch/SketchRunContext.kt
 import cc.unitmesh.sketch.a2a.A2ASketchToolchainProvider
 import cc.unitmesh.sketch.agent.tool.search.RipgrepSearcher
 import cc.unitmesh.sketch.gui.chat.message.ChatActionType
@@ -13,6 +14,21 @@ import cc.unitmesh.sketch.provider.context.ChatOrigin
 import cc.unitmesh.sketch.sketch.rule.ProjectRule
 import cc.unitmesh.sketch.sketch.run.ShellUtil
 import cc.unitmesh.sketch.template.context.TemplateContext
+=======
+import cc.unitmesh.sketch.agent.tool.search.RipgrepSearcher
+import cc.unitmesh.sketch.gui.chat.message.ChatActionType
+import cc.unitmesh.sketch.gui.chat.ui.relativePath
+import cc.unitmesh.sketch.mcp.ui.McpConfigService
+import cc.unitmesh.sketch.provider.BuildSystemProvider
+import cc.unitmesh.sketch.provider.context.ChatContextItem
+import cc.unitmesh.sketch.provider.context.ChatContextProvider
+import cc.unitmesh.sketch.provider.context.ChatCreationContext
+import cc.unitmesh.sketch.provider.context.ChatOrigin
+import cc.unitmesh.sketch.sketch.rule.ProjectAgentsMD
+import cc.unitmesh.sketch.sketch.rule.ProjectRule
+import cc.unitmesh.sketch.sketch.run.ShellUtil
+import cc.unitmesh.sketch.template.context.TemplateContext
+>>>>>>> master:core/src/main/kotlin/cc/unitmesh/devti/sketch/SketchRunContext.kt
 import com.intellij.openapi.application.runInEdt
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.logger
@@ -48,6 +64,7 @@ data class SketchRunContext(
     val searchTool: String = "localSearch",
     val rule: String = "",
     val moduleInfo: String = "",
+    val agentsMD: String = "",
 ) : TemplateContext {
     companion object {
         suspend fun create(project: Project, myEditor: Editor?, input: String): SketchRunContext {
@@ -93,6 +110,10 @@ data class SketchRunContext(
 
             val moduleInfo = moduleContext(project)
 
+            // Load AGENTS.md content if available
+            val projectAgentsMD = ProjectAgentsMD(project)
+            val agentsMD = projectAgentsMD.getAgentsMDContent() ?: ""
+
             return SketchRunContext(
                 currentFile = currentFile?.relativePath(project),
                 currentElement = currentElement,
@@ -108,6 +129,7 @@ data class SketchRunContext(
                 searchTool = lookupSearchTool(),
                 rule = rule,
                 moduleInfo = moduleInfo,
+                agentsMD = agentsMD,
             )
         }
 

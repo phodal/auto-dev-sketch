@@ -156,6 +156,7 @@ configure(subprojects - project(":exts")) {
 //        compileOnly(kotlin("stdlib-jdk8"))
 //        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+        implementation("com.knuddels:jtokkit:1.1.0")
 
         testOutput(sourceSets.test.get().output.classesDirs)
 
@@ -871,6 +872,7 @@ project(":exts:ext-diagram") {
 project(":exts:devins-lang") {
     apply {
         plugin("org.jetbrains.grammarkit")
+        plugin("org.jetbrains.kotlin.plugin.serialization")
     }
 
     dependencies {
@@ -882,6 +884,7 @@ project(":exts:devins-lang") {
         }
 
         implementation("com.jayway.jsonpath:json-path:2.9.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
         implementation(project(":core"))
     }
 
