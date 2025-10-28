@@ -1,5 +1,6 @@
 package cc.unitmesh.sketch.language.processor
 
+import CommitInsCommand
 import cc.unitmesh.sketch.AutoDevNotifications
 import cc.unitmesh.sketch.command.InsCommand
 import cc.unitmesh.sketch.command.dataprovider.BuiltinCommand
@@ -8,26 +9,10 @@ import cc.unitmesh.sketch.language.compiler.exec.*
 import cc.unitmesh.sketch.language.compiler.exec.agents.A2AInsCommand
 import cc.unitmesh.sketch.language.compiler.exec.agents.AgentsInsCommand
 import cc.unitmesh.sketch.language.compiler.exec.claudeskill.ClaudeSkillInsCommand
+import cc.unitmesh.sketch.language.compiler.exec.file.*
+import cc.unitmesh.sketch.language.compiler.exec.idea.*
+import cc.unitmesh.sketch.language.compiler.exec.process.*
 import cc.unitmesh.sketch.language.compiler.exec.speckit.SpecKitInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.DirInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.EditFileInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.FileInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.OpenInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.file.WriteInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.DatabaseInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.LibraryVersionFetchInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.RefactorInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.RelatedSymbolInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.RunInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.StructureInCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.SymbolInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.idea.UsageInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.KillProcessInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.LaunchProcessInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.ListProcessesInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.ReadProcessOutputInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.process.WriteProcessInputInsCommand
-import cc.unitmesh.sketch.language.compiler.exec.vcs.CommitInsCommand
 import cc.unitmesh.sketch.language.compiler.exec.vcs.RevInsCommand
 import cc.unitmesh.sketch.language.compiler.processor.CompilerContext
 import cc.unitmesh.sketch.language.parser.CodeBlockElement
