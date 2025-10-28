@@ -1,6 +1,7 @@
 package cc.unitmesh.sketch.command.dataprovider
 
 import cc.unitmesh.sketch.AutoDevIcons
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.Project
 import java.nio.file.Path
 import javax.swing.Icon
