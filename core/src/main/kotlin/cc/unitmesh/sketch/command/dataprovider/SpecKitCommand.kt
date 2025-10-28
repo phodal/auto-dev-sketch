@@ -21,38 +21,14 @@ data class SpecKitCommand(
     val template: String,
     val icon: Icon = AutoDevIcons.IDEA
 ) {
-    val fullCommandName: String
-        get() = "speckit.$subcommand"
+    val fullCommandName: String get() = "speckit.$subcommand"
 
-    /**
-     * Execute the command by replacing $ARGUMENTS placeholder with actual arguments.
-     *
-     * @deprecated Use executeWithCompiler instead for proper variable resolution
-     */
-    @Deprecated("Use executeWithCompiler for proper frontmatter and variable support")
-    fun execute(arguments: String): String {
-        return template.replace("\$ARGUMENTS", arguments)
-    }
 
-    /**
-     * Execute the command using SpecKitTemplateCompiler for proper variable resolution.
-     * This method:
-     * 1. Parses frontmatter to extract variable definitions
-     * 2. Resolves variables (e.g., loading file contents)
-     * 3. Uses Velocity template engine for compilation
-     *
-     * @param project The current project
-     * @param arguments User-provided arguments
-     * @return Compiled template with all variables resolved
-     */
-    fun executeWithCompiler(project: Project, arguments: String): String {
-        val compiler = SpecKitTemplateCompiler(project, template, arguments)
+    fun executeWithCompiler(project: Project, command: String, input: String): String {
+        val compiler = SpecKitTemplateCompiler(project, template, command, input)
         return compiler.compile()
     }
 
-    /**
-     * Convert to CustomCommand for compatibility with existing DevIns infrastructure
-     */
     fun toCustomCommand(): CustomCommand {
         return CustomCommand(
             commandName = fullCommandName,
@@ -66,9 +42,6 @@ data class SpecKitCommand(
         private const val SPECKIT_PREFIX = "speckit."
         private const val PROMPT_SUFFIX = ".prompt.md"
 
-        /**
-         * Load all SpecKit commands from .github/prompts/ directory
-         */
         fun all(project: Project): List<SpecKitCommand> {
             val projectPath = project.basePath ?: return emptyList()
             val promptsDir = Path.of(projectPath, PROMPTS_DIR)
@@ -82,7 +55,6 @@ data class SpecKitCommand(
                     .mapNotNull { promptFile ->
                         try {
                             val fileName = promptFile.fileName.toString()
-                            // Extract subcommand from "speckit.clarify.prompt.md" -> "clarify"
                             val subcommand = fileName
                                 .removePrefix(SPECKIT_PREFIX)
                                 .removeSuffix(PROMPT_SUFFIX)
@@ -106,9 +78,6 @@ data class SpecKitCommand(
             }
         }
 
-        /**
-         * Find a specific SpecKit command by subcommand name
-         */
         fun fromSubcommand(project: Project, subcommand: String): SpecKitCommand? {
             return all(project).find { it.subcommand == subcommand }
         }
@@ -117,36 +86,13 @@ data class SpecKitCommand(
             return all(project).find { it.fullCommandName == commandName }
         }
 
-        /**
-         * Extract description from prompt template.
-         * Looks for the first paragraph or heading in the markdown file.
-         */
+
         private fun extractDescription(template: String, subcommand: String): String {
-            val lines = template.lines()
-            
-            // Try to find first heading or paragraph
-            for (line in lines) {
-                val trimmed = line.trim()
-                if (trimmed.isEmpty() || trimmed.startsWith("---")) continue
-                
-                // Extract from markdown heading
-                if (trimmed.startsWith("#")) {
-                    return trimmed.removePrefix("#").trim()
-                }
-                
-                // Use first non-empty line as description
-                if (trimmed.isNotEmpty()) {
-                    return trimmed.take(100) // Limit to 100 chars
-                }
+            SkillFrontmatter.parse(template).let { (frontmatter, _) ->
+                return frontmatter?.description ?: "SpecKit: $subcommand"
             }
-            
-            // Fallback to formatted subcommand name
-            return "Spec-Kit ${subcommand.replaceFirstChar { it.uppercase() }}"
         }
 
-        /**
-         * Check if SpecKit is available in the project
-         */
         fun isAvailable(project: Project): Boolean {
             val projectPath = project.basePath ?: return false
             val promptsDir = Path.of(projectPath, PROMPTS_DIR)

@@ -44,13 +44,11 @@ class SpecKitInsCommand(
     }
 
     override suspend fun execute(): String? {
-        // Parse subcommand from prop (e.g., "speckit.clarify" -> "clarify")
         val subcommand = parseSubcommand(prop)
         if (subcommand.isEmpty()) {
             return "$DEVINS_ERROR Invalid speckit command format. Use /speckit.<subcommand> <arguments>"
         }
 
-        // Load the SpecKit command
         val specKitCommand = SpecKitCommand.fromSubcommand(project, subcommand)
         if (specKitCommand == null) {
             val availableCommands = SpecKitCommand.all(project)
@@ -60,8 +58,7 @@ class SpecKitInsCommand(
         }
 
         try {
-            // Execute the command with the new compiler for proper variable resolution
-            val result = specKitCommand.executeWithCompiler(project, arguments)
+            val result = specKitCommand.executeWithCompiler(project, arguments, prop)
 
             // Refresh VFS to ensure file changes are visible
             VirtualFileManager.getInstance().refreshWithoutFileWatcher(false)
@@ -83,17 +80,14 @@ class SpecKitInsCommand(
     private fun parseSubcommand(prop: String): String {
         val trimmed = prop.trim()
         
-        // Handle "speckit.clarify" format
         if (trimmed.startsWith("speckit.")) {
             return trimmed.removePrefix("speckit.")
         }
         
-        // Handle ".clarify" format
         if (trimmed.startsWith(".")) {
             return trimmed.removePrefix(".")
         }
         
-        // Handle "clarify" format directly
         return trimmed
     }
 }
