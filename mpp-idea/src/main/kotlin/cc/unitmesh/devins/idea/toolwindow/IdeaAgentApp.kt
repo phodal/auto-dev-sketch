@@ -203,6 +203,11 @@ private fun MessageBubble(role: JewelRenderer.MessageRole, content: String) {
     }
 }
 
+/**
+ * Renders a tool-call bubble showing the tool's status, name, optional truncated parameters, and optional truncated output.
+ *
+ * @param item Timeline item containing the tool name, parameters, optional output, and success status.
+ */
 @Composable
 private fun ToolCallBubble(item: JewelRenderer.TimelineItem.ToolCallItem) {
     Row(
@@ -266,6 +271,11 @@ private fun ToolCallBubble(item: JewelRenderer.TimelineItem.ToolCallItem) {
     }
 }
 
+/**
+ * Displays an inline error bubble with a leading "❌" icon and the provided error message.
+ *
+ * @param message The error message text to display inside the bubble.
+ */
 @Composable
 private fun ErrorBubble(message: String) {
     Row(
@@ -288,6 +298,14 @@ private fun ErrorBubble(message: String) {
     }
 }
 
+/**
+ * Renders a centered pill-style completion indicator for a task with success/failure styling.
+ *
+ * Displays an emoji icon (✅ for success, ❌ for failure), the task message, and the iteration count inside
+ * a padded box whose background color is green or red (with reduced alpha) depending on `item.success`.
+ *
+ * @param item Timeline item containing the completion `message`, `success` flag, and `iterations` count.
+ */
 @Composable
 private fun TaskCompleteBubble(item: JewelRenderer.TimelineItem.TaskCompleteItem) {
     Row(
@@ -470,4 +488,3 @@ private fun ChatInputArea(
         }
     }
 }
-
