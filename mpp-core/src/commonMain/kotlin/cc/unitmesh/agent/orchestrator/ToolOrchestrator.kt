@@ -686,23 +686,34 @@ class ToolOrchestrator(
             ?: return ToolResult.Error("action parameter is required")
         val planMarkdown = params["planMarkdown"] as? String ?: ""
 
-        // Handle taskIndex and stepIndex - can be Number or String
-        val taskIndex = when (val v = params["taskIndex"]) {
+        // Handle taskIndex and stepIndex - can be Number or String, null if not provided
+        val taskIndex: Int? = when (val v = params["taskIndex"]) {
             is Number -> v.toInt()
-            is String -> v.toIntOrNull() ?: 0
-            else -> 0
+            is String -> v.toIntOrNull()
+            else -> null
         }
-        val stepIndex = when (val v = params["stepIndex"]) {
+        val stepIndex: Int? = when (val v = params["stepIndex"]) {
             is Number -> v.toInt()
-            is String -> v.toIntOrNull() ?: 0
-            else -> 0
+            is String -> v.toIntOrNull()
+            else -> null
+        }
+
+        // Validate indices for actions that require them
+        val actionUpper = action.uppercase()
+        if (actionUpper == "COMPLETE_STEP" || actionUpper == "FAIL_STEP") {
+            if (taskIndex == null || taskIndex <= 0) {
+                return ToolResult.Error("taskIndex must be a positive integer for $actionUpper action")
+            }
+            if (stepIndex == null || stepIndex <= 0) {
+                return ToolResult.Error("stepIndex must be a positive integer for $actionUpper action")
+            }
         }
 
         val planParams = cc.unitmesh.agent.tool.impl.PlanManagementParams(
             action = action,
             planMarkdown = planMarkdown,
-            taskIndex = taskIndex,
-            stepIndex = stepIndex
+            taskIndex = taskIndex ?: 0,
+            stepIndex = stepIndex ?: 0
         )
 
         val invocation = planTool.createInvocation(planParams)

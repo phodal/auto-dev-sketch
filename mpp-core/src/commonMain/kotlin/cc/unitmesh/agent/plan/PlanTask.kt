@@ -146,10 +146,17 @@ data class PlanTask(
             return Triple(index, title, TaskStatus.fromMarker(marker))
         }
         
+        // Use atomic-like counter with synchronized access for thread safety
         private var idCounter = 0L
-        
+        private val idLock = Any()
+
+        /**
+         * Generate a globally unique task ID.
+         * Thread-safe implementation using synchronized block.
+         */
         fun generateId(): String {
-            return "task_${++idCounter}_${kotlinx.datetime.Clock.System.now().toEpochMilliseconds()}"
+            val counter = synchronized(idLock) { ++idCounter }
+            return "task_${counter}_${kotlinx.datetime.Clock.System.now().toEpochMilliseconds()}"
         }
     }
 }

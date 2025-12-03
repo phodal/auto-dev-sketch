@@ -198,12 +198,20 @@ private fun PlanTaskCard(task: PlanTask, onStepClick: ((taskId: String, stepId: 
 
 @Composable
 private fun PlanStepItem(step: PlanStep, onClick: (() -> Unit)?) {
-    val infiniteTransition = rememberInfiniteTransition()
-    val angle by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 360f,
-        animationSpec = infiniteRepeatable(animation = tween(2000, easing = LinearEasing), repeatMode = RepeatMode.Restart)
-    )
+    // Only create infinite animation when step is IN_PROGRESS to avoid unnecessary CPU/GPU usage
+    val angle = if (step.status == TaskStatus.IN_PROGRESS) {
+        val infiniteTransition = rememberInfiniteTransition(label = "stepRotation")
+        val animatedAngle by infiniteTransition.animateFloat(
+            initialValue = 0f,
+            targetValue = 360f,
+            animationSpec = infiniteRepeatable(animation = tween(2000, easing = LinearEasing), repeatMode = RepeatMode.Restart),
+            label = "rotationAngle"
+        )
+        animatedAngle
+    } else {
+        0f
+    }
+
     Row(
         modifier = Modifier.fillMaxWidth()
             .then(if (onClick != null) Modifier.clickable { onClick() } else Modifier)

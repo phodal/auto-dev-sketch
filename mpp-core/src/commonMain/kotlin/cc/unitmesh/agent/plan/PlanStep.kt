@@ -76,8 +76,9 @@ data class PlanStep(
     }
     
     companion object {
-        private val STEP_PATTERN = Regex("^\\s*-\\s*\\[\\s*([xX!*✓]?)\\s*]\\s*(.*)")
-        
+        // Use ASCII markers only for WASM compatibility (no UTF-8 checkmark)
+        private val STEP_PATTERN = Regex("^\\s*-\\s*\\[\\s*([xXvV!*Bb]?)\\s*]\\s*(.*)")
+
         /**
          * Parse a step from markdown text
          */
@@ -86,7 +87,7 @@ data class PlanStep(
             val marker = match.groupValues[1]
             val description = match.groupValues[2].trim()
             val codeFileLinks = CodeFileLink.extractFromText(description)
-            
+
             return PlanStep(
                 id = id,
                 description = description,
@@ -94,14 +95,14 @@ data class PlanStep(
                 codeFileLinks = codeFileLinks
             )
         }
-        
+
         /**
          * Create a step from plain text (without status marker)
          */
         fun fromText(text: String, id: String = generateId()): PlanStep {
             val cleanText = text.trim().removePrefix("-").trim()
             val codeFileLinks = CodeFileLink.extractFromText(cleanText)
-            
+
             return PlanStep(
                 id = id,
                 description = cleanText,
@@ -109,13 +110,20 @@ data class PlanStep(
                 codeFileLinks = codeFileLinks
             )
         }
-        
+
+        // Use atomic-like counter with synchronized access for thread safety
         private var idCounter = 0L
-        
-        private fun generateId(): String {
-            return "step_${++idCounter}_${currentTimeMillis()}"
+        private val idLock = Any()
+
+        /**
+         * Generate a globally unique step ID.
+         * Thread-safe implementation using synchronized block.
+         */
+        fun generateId(): String {
+            val counter = synchronized(idLock) { ++idCounter }
+            return "step_${counter}_${currentTimeMillis()}"
         }
-        
+
         // Platform-agnostic time function
         private fun currentTimeMillis(): Long {
             return kotlinx.datetime.Clock.System.now().toEpochMilliseconds()

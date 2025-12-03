@@ -14,16 +14,18 @@ import kotlinx.coroutines.flow.asStateFlow
  * in the agent system.
  */
 class PlanStateService {
-    
+
     private val _currentPlan = MutableStateFlow<AgentPlan?>(null)
-    
+
     /**
      * Observable state of the current plan.
      * Use this for reactive UI updates.
      */
     val currentPlan: StateFlow<AgentPlan?> = _currentPlan.asStateFlow()
-    
+
+    // Use synchronized list for thread safety
     private val listeners = mutableListOf<PlanUpdateListener>()
+    private val listenersLock = Any()
     
     /**
      * Get the current plan (non-reactive).
@@ -64,6 +66,8 @@ class PlanStateService {
         if (plan != null) {
             plan.tasks.clear()
             plan.tasks.addAll(tasks)
+            // Force StateFlow emission by reassigning the value
+            _currentPlan.value = plan
             notifyPlanUpdated(plan)
         } else {
             createPlan(tasks)
@@ -84,9 +88,11 @@ class PlanStateService {
     fun addTask(task: PlanTask) {
         val plan = _currentPlan.value ?: createPlan(emptyList())
         plan.addTask(task)
+        // Force StateFlow emission by reassigning the value
+        _currentPlan.value = plan
         notifyPlanUpdated(plan)
     }
-    
+
     /**
      * Update a task's status.
      */
@@ -94,18 +100,22 @@ class PlanStateService {
         val plan = _currentPlan.value ?: return
         val task = plan.getTask(taskId) ?: return
         task.updateStatus(status)
+        // Force StateFlow emission by reassigning the value
+        _currentPlan.value = plan
         notifyTaskUpdated(task)
     }
-    
+
     /**
      * Complete a step within a task.
      */
     fun completeStep(taskId: String, stepId: String) {
         val plan = _currentPlan.value ?: return
         plan.completeStep(taskId, stepId)
+        // Force StateFlow emission by reassigning the value
+        _currentPlan.value = plan
         notifyStepCompleted(taskId, stepId)
     }
-    
+
     /**
      * Update a step's status.
      */
@@ -113,6 +123,8 @@ class PlanStateService {
         val plan = _currentPlan.value ?: return
         val task = plan.getTask(taskId) ?: return
         task.updateStepStatus(stepId, status)
+        // Force StateFlow emission by reassigning the value
+        _currentPlan.value = plan
         notifyTaskUpdated(task)
     }
     
@@ -128,35 +140,44 @@ class PlanStateService {
      * Add a listener for plan updates.
      */
     fun addListener(listener: PlanUpdateListener) {
-        listeners.add(listener)
+        synchronized(listenersLock) {
+            listeners.add(listener)
+        }
     }
-    
+
     /**
      * Remove a listener.
      */
     fun removeListener(listener: PlanUpdateListener) {
-        listeners.remove(listener)
+        synchronized(listenersLock) {
+            listeners.remove(listener)
+        }
     }
-    
-    // Notification methods
+
+    // Notification methods - copy list before iterating for thread safety
     private fun notifyPlanCreated(plan: AgentPlan) {
-        listeners.forEach { it.onPlanCreated(plan) }
+        val listenersCopy = synchronized(listenersLock) { listeners.toList() }
+        listenersCopy.forEach { it.onPlanCreated(plan) }
     }
-    
+
     private fun notifyPlanUpdated(plan: AgentPlan) {
-        listeners.forEach { it.onPlanUpdated(plan) }
+        val listenersCopy = synchronized(listenersLock) { listeners.toList() }
+        listenersCopy.forEach { it.onPlanUpdated(plan) }
     }
-    
+
     private fun notifyTaskUpdated(task: PlanTask) {
-        listeners.forEach { it.onTaskUpdated(task) }
+        val listenersCopy = synchronized(listenersLock) { listeners.toList() }
+        listenersCopy.forEach { it.onTaskUpdated(task) }
     }
-    
+
     private fun notifyStepCompleted(taskId: String, stepId: String) {
-        listeners.forEach { it.onStepCompleted(taskId, stepId) }
+        val listenersCopy = synchronized(listenersLock) { listeners.toList() }
+        listenersCopy.forEach { it.onStepCompleted(taskId, stepId) }
     }
-    
+
     private fun notifyPlanCleared() {
-        listeners.forEach { it.onPlanCleared() }
+        val listenersCopy = synchronized(listenersLock) { listeners.toList() }
+        listenersCopy.forEach { it.onPlanCleared() }
     }
 }
 

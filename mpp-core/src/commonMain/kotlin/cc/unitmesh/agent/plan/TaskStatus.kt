@@ -24,9 +24,10 @@ enum class TaskStatus {
          * Parse status from markdown marker character
          */
         fun fromMarker(marker: String): TaskStatus = when (marker.trim().lowercase()) {
-            "x", "✓" -> COMPLETED
+            "x", "v" -> COMPLETED  // Use ASCII 'v' instead of UTF-8 checkmark for WASM compatibility
             "!" -> FAILED
             "*" -> IN_PROGRESS
+            "b" -> BLOCKED
             "" , " " -> TODO
             else -> TODO
         }
@@ -35,7 +36,7 @@ enum class TaskStatus {
          * Get the markdown marker for this status
          */
         fun TaskStatus.toMarker(): String = when (this) {
-            COMPLETED -> "✓"
+            COMPLETED -> "x"  // Use ASCII 'x' instead of UTF-8 checkmark for WASM compatibility
             FAILED -> "!"
             IN_PROGRESS -> "*"
             TODO -> " "
