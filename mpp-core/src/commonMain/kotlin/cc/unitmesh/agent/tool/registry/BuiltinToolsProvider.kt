@@ -9,7 +9,6 @@ import cc.unitmesh.agent.tool.impl.GrepTool
 import cc.unitmesh.agent.tool.impl.PlanManagementTool
 import cc.unitmesh.agent.tool.impl.ReadFileTool
 import cc.unitmesh.agent.tool.impl.ShellTool
-import cc.unitmesh.agent.tool.impl.TaskBoundaryTool
 import cc.unitmesh.agent.tool.impl.WebFetchTool
 import cc.unitmesh.agent.tool.impl.WriteFileTool
 import cc.unitmesh.agent.tool.impl.SmartEditTool
@@ -56,7 +55,6 @@ class BuiltinToolsProvider : ToolProvider {
         tools.add(WebFetchTool(dependencies.llmService))
 
         // Task management tools
-        tools.add(TaskBoundaryTool())
         tools.add(PlanManagementTool())
         tools.add(DocQLTool())
 

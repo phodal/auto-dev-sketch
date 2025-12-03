@@ -116,6 +116,44 @@ class PlanManagementInvocation(
     }
 }
 
+/**
+ * Plan Management Tool - for complex multi-step tasks
+ *
+ * ## Purpose
+ * Create and track structured plans with tasks and steps. This helps organize complex work
+ * and communicate progress to users through a visual plan UI.
+ *
+ * ## When to Use
+ * - Tasks requiring multiple files to be created or modified
+ * - Tasks with dependencies between steps
+ * - Complex refactoring or feature implementation
+ * - Any work that benefits from structured tracking (3+ steps)
+ *
+ * ## When NOT to Use
+ * - Simple one-step tasks (answering questions, quick refactors)
+ * - Single-file edits
+ * - Trivial operations
+ *
+ * ## Plan Format (Markdown)
+ * ```
+ * 1. Task Title
+ *    - [ ] Step 1 description
+ *    - [ ] Step 2 description
+ *
+ * 2. Another Task
+ *    - [ ] Step description
+ * ```
+ *
+ * ## Example Flow
+ * ```
+ * /plan action="CREATE" planMarkdown="1. Setup\n   - [ ] Create entity\n   - [ ] Create repository\n\n2. Implementation\n   - [ ] Create service\n   - [ ] Create controller"
+ * // ... create entity ...
+ * /plan action="COMPLETE_STEP" taskIndex=1 stepIndex=1
+ * // ... create repository ...
+ * /plan action="COMPLETE_STEP" taskIndex=1 stepIndex=2
+ * // ... continue ...
+ * ```
+ */
 class PlanManagementTool(
     private val planStateService: PlanStateService = PlanStateService()
 ) : BaseExecutableTool<PlanManagementParams, ToolResult>() {
@@ -124,11 +162,19 @@ class PlanManagementTool(
     override val description: String = """
         Manage task plans for complex multi-step work. Create structured plans with tasks and steps,
         then track progress by marking steps as completed or failed.
-        Actions: CREATE, UPDATE, COMPLETE_STEP, FAIL_STEP, VIEW
+
+        Actions:
+        - CREATE: Create a new plan from markdown (planMarkdown required)
+        - UPDATE: Update existing plan with new markdown
+        - COMPLETE_STEP: Mark a step as completed (taskIndex and stepIndex required, 1-based)
+        - FAIL_STEP: Mark a step as failed
+        - VIEW: View current plan status
+
+        Use for complex tasks (3+ steps). Skip for simple one-step tasks.
     """.trimIndent()
 
     override val metadata: ToolMetadata = ToolMetadata(
-        displayName = "Plan Management", tuiEmoji = "plan_emoji", composeIcon = "plan",
+        displayName = "Plan Management", tuiEmoji = "📋", composeIcon = "plan",
         category = ToolCategory.Utility, schema = PlanManagementSchema
     )
 

@@ -76,11 +76,4 @@ class ToolRegistryTest {
         assertEquals("plan", planTool.name)
         assertTrue(planTool.description.contains("plan"), "Should have plan-related description")
     }
-
-    @Test
-    fun testTaskBoundaryToolRegistered() {
-        val taskBoundaryTool = registry.getTool("task-boundary")
-        assertNotNull(taskBoundaryTool, "Task boundary tool should be registered")
-        assertEquals("task-boundary", taskBoundaryTool.name)
-    }
 }

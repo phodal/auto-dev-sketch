@@ -382,7 +382,6 @@ class ToolOrchestrator(
                 else -> {
                     // Handle special tools that need parameter conversion
                     when (toolName.lowercase()) {
-                        "task-boundary" -> executeTaskBoundaryTool(tool, params, basicContext)
                         "plan" -> executePlanManagementTool(tool, params, basicContext)
                         "docql" -> executeDocQLTool(tool, params, basicContext)
                         else -> {
@@ -676,29 +675,6 @@ class ToolOrchestrator(
         return invocation.execute(context)
     }
 
-    private suspend fun executeTaskBoundaryTool(
-        tool: Tool,
-        params: Map<String, Any>,
-        context: cc.unitmesh.agent.tool.ToolExecutionContext
-    ): ToolResult {
-        val taskBoundaryTool = tool as cc.unitmesh.agent.tool.impl.TaskBoundaryTool
-        
-        val taskName = params["taskName"] as? String
-            ?: return ToolResult.Error("taskName parameter is required")
-        val status = params["status"] as? String
-            ?: return ToolResult.Error("status parameter is required")
-        val summary = params["summary"] as? String ?: ""
-        
-        val taskBoundaryParams = cc.unitmesh.agent.tool.impl.TaskBoundaryParams(
-            taskName = taskName,
-            status = status,
-            summary = summary
-        )
-        
-        val invocation = taskBoundaryTool.createInvocation(taskBoundaryParams)
-        return invocation.execute(context)
-    }
-
     private suspend fun executePlanManagementTool(
         tool: Tool,
         params: Map<String, Any>,
@@ -773,7 +749,7 @@ class ToolOrchestrator(
 
     /**
      * Execute generic tool using ExecutableTool interface
-     * This handles new tools like task-boundary, ask-agent, etc. without needing specific implementations
+     * This handles new tools like ask-agent, etc. without needing specific implementations
      */
     private suspend fun executeGenericTool(
         tool: Tool,
