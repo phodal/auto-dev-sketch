@@ -6,6 +6,7 @@ import cc.unitmesh.agent.tool.impl.DocQLTool
 import cc.unitmesh.agent.tool.impl.EditFileTool
 import cc.unitmesh.agent.tool.impl.GlobTool
 import cc.unitmesh.agent.tool.impl.GrepTool
+import cc.unitmesh.agent.tool.impl.PlanManagementTool
 import cc.unitmesh.agent.tool.impl.ReadFileTool
 import cc.unitmesh.agent.tool.impl.ShellTool
 import cc.unitmesh.agent.tool.impl.TaskBoundaryTool
@@ -35,7 +36,7 @@ class BuiltinToolsProvider : ToolProvider {
 
         // Search tools
         tools.add(GrepTool(dependencies.fileSystem))
-        
+
         // GlobTool with AnalysisAgent support for auto-summarization of large results
         val analysisAgent = dependencies.subAgentManager?.getSubAgent<cc.unitmesh.agent.subagent.ContentHandlerContext, cc.unitmesh.agent.tool.ToolResult.AgentResult>("analysis-agent") as? cc.unitmesh.agent.subagent.AnalysisAgent
         tools.add(GlobTool(dependencies.fileSystem, analysisAgent))
@@ -53,9 +54,10 @@ class BuiltinToolsProvider : ToolProvider {
         }
 
         tools.add(WebFetchTool(dependencies.llmService))
-        
-        // Task management tool
+
+        // Task management tools
         tools.add(TaskBoundaryTool())
+        tools.add(PlanManagementTool())
         tools.add(DocQLTool())
 
         return tools

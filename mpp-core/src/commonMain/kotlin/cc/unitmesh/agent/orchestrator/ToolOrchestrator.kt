@@ -383,6 +383,7 @@ class ToolOrchestrator(
                     // Handle special tools that need parameter conversion
                     when (toolName.lowercase()) {
                         "task-boundary" -> executeTaskBoundaryTool(tool, params, basicContext)
+                        "plan" -> executePlanManagementTool(tool, params, basicContext)
                         "docql" -> executeDocQLTool(tool, params, basicContext)
                         else -> {
                             // For truly generic tools, use generic execution
@@ -698,22 +699,46 @@ class ToolOrchestrator(
         return invocation.execute(context)
     }
 
+    private suspend fun executePlanManagementTool(
+        tool: Tool,
+        params: Map<String, Any>,
+        context: cc.unitmesh.agent.tool.ToolExecutionContext
+    ): ToolResult {
+        val planTool = tool as cc.unitmesh.agent.tool.impl.PlanManagementTool
+
+        val action = params["action"] as? String
+            ?: return ToolResult.Error("action parameter is required")
+        val planMarkdown = params["planMarkdown"] as? String ?: ""
+        val taskIndex = (params["taskIndex"] as? Number)?.toInt() ?: 0
+        val stepIndex = (params["stepIndex"] as? Number)?.toInt() ?: 0
+
+        val planParams = cc.unitmesh.agent.tool.impl.PlanManagementParams(
+            action = action,
+            planMarkdown = planMarkdown,
+            taskIndex = taskIndex,
+            stepIndex = stepIndex
+        )
+
+        val invocation = planTool.createInvocation(planParams)
+        return invocation.execute(context)
+    }
+
     private suspend fun executeDocQLTool(
         tool: Tool,
         params: Map<String, Any>,
         context: cc.unitmesh.agent.tool.ToolExecutionContext
     ): ToolResult {
         val docqlTool = tool as cc.unitmesh.agent.tool.impl.DocQLTool
-        
+
         val query = params["query"] as? String
             ?: return ToolResult.Error("query parameter is required")
         val documentPath = params["documentPath"] as? String // Optional
-        
+
         val docqlParams = cc.unitmesh.agent.tool.impl.DocQLParams(
             query = query,
             documentPath = documentPath
         )
-        
+
         val invocation = docqlTool.createInvocation(docqlParams)
         return invocation.execute(context)
     }
