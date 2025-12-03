@@ -709,8 +709,18 @@ class ToolOrchestrator(
         val action = params["action"] as? String
             ?: return ToolResult.Error("action parameter is required")
         val planMarkdown = params["planMarkdown"] as? String ?: ""
-        val taskIndex = (params["taskIndex"] as? Number)?.toInt() ?: 0
-        val stepIndex = (params["stepIndex"] as? Number)?.toInt() ?: 0
+
+        // Handle taskIndex and stepIndex - can be Number or String
+        val taskIndex = when (val v = params["taskIndex"]) {
+            is Number -> v.toInt()
+            is String -> v.toIntOrNull() ?: 0
+            else -> 0
+        }
+        val stepIndex = when (val v = params["stepIndex"]) {
+            is Number -> v.toInt()
+            is String -> v.toIntOrNull() ?: 0
+            else -> 0
+        }
 
         val planParams = cc.unitmesh.agent.tool.impl.PlanManagementParams(
             action = action,
